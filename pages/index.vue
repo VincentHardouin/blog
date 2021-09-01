@@ -1,5 +1,7 @@
 <template>
-  <Tutorial/>
+  <div class="index">
+
+  </div>
 </template>
 
 <script>
