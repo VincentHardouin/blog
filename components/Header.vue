@@ -1,20 +1,25 @@
 <template>
-  <header class="header">
-    <div class="flex header__title">Vincent Hardouin</div>
-    <nav class="header__navbar">
-      <ul class="navbar">
-        <li><NuxtLink to='/' class="navbar__item">Accueil</NuxtLink></li>
-        <li><NuxtLink to='/a-propos' class="navbar__item">A propos</NuxtLink></li>
+  <header class='header'>
+    <div class='flex header__title'>Vincent Hardouin</div>
+    <nav class='header__navbar'>
+      <ul class='navbar'>
+        <li>
+          <NuxtLink to='/' class='navbar__item'>Accueil</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to='/a-propos' class='navbar__item'>A propos</NuxtLink>
+        </li>
       </ul>
     </nav>
-    <div class="flex phantom" ></div>
+    <div class='flex phantom'></div>
   </header>
 </template>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 .header {
   max-width: 820px;
   margin: 0 auto;
+  padding: 14px;
   height: 80px;
   display: flex;
   align-items: center;
