@@ -42,6 +42,16 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    [
+      '@nuxtjs/markdownit',
+      {
+        preset: 'default',
+        linkify: true,
+        breaks: true,
+        injected: true,
+        html: true,
+      },
+    ],
     ['@nuxtjs/style-resources', { scss: ['assets/scss/globals.scss'] }],
     ['@nuxtjs/strapi', { entities: ['articles'] }],
   ],
