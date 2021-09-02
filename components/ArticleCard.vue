@@ -1,7 +1,7 @@
 <template>
   <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }" class='post-card'>
     <h2 class='post-card__title'>{{ article.title }}</h2>
-    <span class='post-card__date'>{{ article.date }}</span>
+    <span class='post-card__date'>{{ $dayjs(article.date).format('l') }}</span>
   </NuxtLink>
 </template>
 
