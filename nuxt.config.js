@@ -43,6 +43,13 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     [
+      '@nuxtjs/dayjs',
+      {
+        locales: ['fr'],
+        plugins: ['localizedFormat'],
+      },
+    ],
+    [
       '@nuxtjs/markdownit',
       {
         preset: 'default',
