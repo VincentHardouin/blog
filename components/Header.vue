@@ -1,6 +1,6 @@
 <template>
   <header class='header'>
-    <div class='flex header__title'>Vincent Hardouin</div>
+    <NuxtLink to='/' class='flex header__title'>Vincent Hardouin</NuxtLink>
     <nav class='header__navbar'>
       <ul class='navbar'>
         <li>
@@ -28,6 +28,7 @@
     font-family: $font-open-sans;
     font-size: 1.44rem;
     color: $cloud-burst;
+    text-decoration: none;
   }
 }
 
