@@ -1,6 +1,12 @@
+import { getMetaTags } from './utils/seo';
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -11,8 +17,8 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
+      ...getMetaTags(),
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
