@@ -6,9 +6,6 @@
         <li>
           <NuxtLink to='/' class='navbar__item'>Accueil</NuxtLink>
         </li>
-        <li>
-          <NuxtLink to='/a-propos' class='navbar__item'>A propos</NuxtLink>
-        </li>
       </ul>
     </nav>
     <div class='flex phantom'></div>
