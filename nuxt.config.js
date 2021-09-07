@@ -51,7 +51,7 @@ export default {
     [
       '@nuxtjs/dayjs',
       {
-        locales: ['fr'],
+        defaultLocale: 'fr',
         plugins: ['localizedFormat'],
       },
     ],
