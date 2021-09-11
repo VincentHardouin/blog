@@ -66,7 +66,16 @@ export default {
       },
     ],
     ['@nuxtjs/style-resources', { scss: ['assets/scss/globals.scss'] }],
-    ['@nuxtjs/strapi', { entities: ['articles'] }],
+    [
+      '@nuxtjs/strapi',
+      {
+        entities: [
+          { name: 'articles', type: 'collection' },
+          { name: 'main-menu', type: 'single' },
+          { name: 'pages', type: 'collection' },
+        ],
+      },
+    ],
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
