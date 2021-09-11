@@ -4,6 +4,7 @@
     <div class='article__container'>
       <div class='article__date'>{{ $dayjs(article.date).format('l') }}</div>
       <h1 class='article__title'>{{ article.title }}</h1>
+      <!-- eslint-disable-next-line vue/no-v-html -->
       <div v-if='article.content' class='article__content' v-html='$md.render(article.content)'></div>
     </div>
   </div>
@@ -40,7 +41,7 @@ export default {
 };
 </script>
 
-<style lang='scss' scope>
+<style lang='scss' scoped>
 .article {
   width: 100%;
   min-height: 50vh;
@@ -68,31 +69,10 @@ export default {
     margin-bottom: 14px;
   }
 
-  &__title {
-    font-family: $font-open-sans;
-    font-weight: $font-normal;
-    font-size: 2rem;
-    color: $tree-poppy;
-    margin-bottom: 21px;
-  }
-
   &__content {
     font-family: $font-roboto;
     font-weight: $font-normal;
     color: $fiord;
-
-    h2 {
-      font-family: $font-open-sans;
-      font-size: 1.5rem;
-      margin-bottom: 0.875rem;
-    }
-
-    h3 {
-      font-family: $font-open-sans;
-      font-size: 1.1875rem;
-      margin-bottom: 0.875rem;
-    }
   }
-
 }
 </style>

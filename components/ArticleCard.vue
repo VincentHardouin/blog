@@ -24,12 +24,13 @@ export default {
 
   &:visited {
     text-decoration: none;
+    color: $cloud-burst;
   }
 
   &__title {
-    font-family: $font-open-sans;
     font-size: 1rem;
     color: $cloud-burst;
+    margin-bottom: 0;
   }
 
   &__date {

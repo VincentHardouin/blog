@@ -1,0 +1,29 @@
+h1 {
+  font-family: $font-open-sans;
+  font-weight: $font-normal;
+  font-size: 2rem;
+  color: $tree-poppy;
+  margin-bottom: 21px;
+}
+
+h2 {
+  font-family: $font-open-sans;
+  font-weight: $font-bold;
+  font-size: 1.5rem;
+  color: $fiord;
+  margin-bottom: 0.875rem;
+}
+
+h3 {
+  font-family: $font-open-sans;
+  font-weight: $font-bold;
+  font-size: 1.1875rem;
+  color: $fiord;
+  margin-bottom: 0.875rem;
+}
+
+p {
+  font-family: $font-roboto;
+  font-weight: $font-normal;
+  color: $fiord;
+}
