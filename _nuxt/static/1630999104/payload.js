@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/", {data:[{articles:[{slug:"my-first-article",title:"Voici mon premier article",date:"2021-09-01"}]}],fetch:{},mutations:void 0});
