@@ -6,11 +6,30 @@
         <li>
           <NuxtLink to='/' class='navbar__item'>Accueil</NuxtLink>
         </li>
+        <li v-for='item in items' :key='item.page.slug'>
+          <NuxtLink :to="{ name: 'slug', params: { slug: item.page.slug } }" class='navbar__item'>
+            {{ item.title }}
+          </NuxtLink>
+        </li>
       </ul>
     </nav>
     <div class='flex phantom'></div>
   </header>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      items: []
+    };
+  },
+  async fetch() {
+    const mainMenu = await this.$strapi.find('main-menu');
+    this.items = mainMenu.items;
+  }
+};
+</script>
 
 <style lang='scss' scoped>
 .header {
