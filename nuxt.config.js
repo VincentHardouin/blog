@@ -1,4 +1,5 @@
 import { getMetaTags } from './utils/seo';
+import { createFeed } from './utils/feed';
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -76,7 +77,9 @@ export default {
         ],
       },
     ],
+    '@nuxtjs/feed',
   ],
+  feed: [createFeed()],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
