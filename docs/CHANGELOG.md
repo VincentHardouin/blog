@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/VincentHardouin/blog/compare/v1.0.0...v1.1.0) (2021-09-12)
+
+
+### Features
+
+* Generate feed rss ([955f02d](https://github.com/VincentHardouin/blog/commit/955f02dd295495fd2b097e954dbabeb953534faa))
+
 # 1.0.0 (2021-09-11)
 
 
