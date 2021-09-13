@@ -38,18 +38,19 @@ export default {
   height: 80px;
   display: flex;
   align-items: center;
-  gap: 14px;
+  flex-direction: column;
+
+  @include device-is('tablet') {
+    flex-direction: row;
+    gap: 14px;
+  }
 
   &__title {
     font-family: $font-open-sans;
     color: $cloud-burst;
     text-decoration: none;
     text-align: center;
-    font-size: 1.1rem;
-
-    @include device-is('tablet') {
-      font-size: 1.44rem;
-    }
+    font-size: 1.44rem;
   }
 }
 

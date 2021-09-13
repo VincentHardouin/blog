@@ -1,9 +1,13 @@
 h1 {
   font-family: $font-open-sans;
   font-weight: $font-normal;
-  font-size: 2rem;
   color: $tree-poppy;
   margin-bottom: 21px;
+  font-size: 1.8rem;
+
+  @include device-is('tablet') {
+    font-size: 2rem;
+  }
 }
 
 h2 {
