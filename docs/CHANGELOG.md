@@ -1,3 +1,12 @@
+## [1.2.1](https://github.com/VincentHardouin/blog/compare/v1.2.0...v1.2.1) (2021-09-13)
+
+
+### Bug Fixes
+
+* Fix h1 size in mobile ([1206563](https://github.com/VincentHardouin/blog/commit/1206563510103624eff44d28105a9edc6ccea206))
+* improve header position in mobile ([10df779](https://github.com/VincentHardouin/blog/commit/10df7792ea241f850480e0f4078fffdfd2daec3c))
+* Improve mobile version of articles pages ([9fc6f52](https://github.com/VincentHardouin/blog/commit/9fc6f52438fb1f0a013cea45db0701b99b4d4aa6))
+
 # [1.2.0](https://github.com/VincentHardouin/blog/compare/v1.1.0...v1.2.0) (2021-09-12)
 
 
