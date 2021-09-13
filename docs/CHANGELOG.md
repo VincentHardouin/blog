@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/VincentHardouin/blog/compare/v1.2.1...v1.2.2) (2021-09-13)
+
+
+### Bug Fixes
+
+* add hid to overwrite seo meta tag ([8fd4ef6](https://github.com/VincentHardouin/blog/commit/8fd4ef65d000d035ecc89daba3f5180e0e6df49a))
+
 ## [1.2.1](https://github.com/VincentHardouin/blog/compare/v1.2.0...v1.2.1) (2021-09-13)
 
 
