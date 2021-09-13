@@ -44,11 +44,16 @@ export default {
 <style lang='scss' scoped>
 .article {
   width: 100%;
-  min-height: 50vh;
-  background-image: url('/img/background-banner.svg');
-  background-position: top;
-  background-repeat: no-repeat;
-  padding-top: 170px;
+  padding-top: 21px;
+
+  @include device-is('tablet') {
+    min-height: 50vh;
+    background-image: url('/img/background-banner.svg');
+    background-position: top;
+    background-repeat: no-repeat;
+    padding-top: 170px;
+  }
+
 
   &__container {
     max-width: 820px;
