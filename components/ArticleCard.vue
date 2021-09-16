@@ -1,7 +1,7 @@
 <template>
-  <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }" class='post-card'>
-    <h2 class='post-card__title'>{{ article.title }}</h2>
-    <span class='post-card__date'>{{ $dayjs(article.date).format('l') }}</span>
+  <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }" class='article-card'>
+    <h2 class='article-card__title'>{{ article.title }}</h2>
+    <span class='article-card__date'>{{ $dayjs(article.date).format('l') }}</span>
   </NuxtLink>
 </template>
 
@@ -17,9 +17,10 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.post-card {
+.article-card {
   max-width: 820px;
   padding: 7px;
+  display: block;
   text-decoration: none;
 
   &:visited {
