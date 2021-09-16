@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/VincentHardouin/blog/compare/v1.2.2...v1.2.3) (2021-09-16)
+
+
+### Bug Fixes
+
+* Improve ArticleCard style ([981f315](https://github.com/VincentHardouin/blog/commit/981f315e398cd8afa556ef002ccc9623c97f2324))
+
 ## [1.2.2](https://github.com/VincentHardouin/blog/compare/v1.2.1...v1.2.2) (2021-09-13)
 
 
