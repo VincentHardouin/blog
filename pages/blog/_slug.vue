@@ -2,10 +2,10 @@
   <div class='article'>
     <div class='article__banner'></div>
     <div class='article__container'>
-      <div class='article__date'>{{ $dayjs(article.date).format('l') }}</div>
+      <div class='article__date'>{{ date }}</div>
       <h1 class='article__title'>{{ article.title }}</h1>
       <!-- eslint-disable-next-line vue/no-v-html -->
-      <div v-if='article.content' class='article__content' v-html='$md.render(article.content)'></div>
+      <div v-if='content' class='article__content' v-html='content'></div>
     </div>
   </div>
 </template>
@@ -37,6 +37,14 @@ export default {
       title: seo.metaTitle,
       meta: getMetaTags(seo)
     };
+  },
+  computed: {
+    content() {
+      return this.$md.render(this.article.content);
+    },
+    date() {
+      return this.$dayjs(this.article.date).format('l');
+    }
   }
 };
 </script>
