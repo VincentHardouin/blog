@@ -4,15 +4,15 @@
         <title>Vincent Hardouin</title>
         <link>https://vincenthardouin.dev</link>
         <description>Le blog de Vincent Hardouin</description>
-        <lastBuildDate>Thu, 23 Sep 2021 19:23:51 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 27 Oct 2021 21:17:13 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/nuxt-community/feed-module</generator>
         <copyright>All rights reserved 2021, Vincent Hardouin</copyright>
         <item>
-            <title><![CDATA[Voici mon premier article]]></title>
-            <link>https://vincenthardouin.dev/blog/my-first-article</link>
-            <guid>https://vincenthardouin.dev/blog/my-first-article</guid>
-            <pubDate>Wed, 01 Sep 2021 00:00:00 GMT</pubDate>
+            <title><![CDATA[Pourquoi vous devriez faire un dotfiles]]></title>
+            <link>https://vincenthardouin.dev/blog/pourquoi-vous-devriez-faire-un-dotfiles</link>
+            <guid>https://vincenthardouin.dev/blog/pourquoi-vous-devriez-faire-un-dotfiles</guid>
+            <pubDate>Wed, 27 Oct 2021 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
