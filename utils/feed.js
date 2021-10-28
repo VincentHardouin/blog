@@ -1,7 +1,17 @@
+import MarkdownIt from 'markdown-it';
+
 export function createFeed(type = 'rss2') {
   return {
     async create(feed) {
       feed.options = feedOptions;
+      const md = new MarkdownIt({
+        preset: 'default',
+        linkify: true,
+        breaks: true,
+        injected: true,
+        html: true,
+      });
+      md.use(require('markdown-it-highlightjs'));
       const response = await fetch(`${process.env.STRAPI_URL}/articles`, {
         method: 'GET',
         headers: {
@@ -16,6 +26,7 @@ export function createFeed(type = 'rss2') {
           id: url,
           link: url,
           title: article.title,
+          content: md.render(article.content),
         });
       });
     },
