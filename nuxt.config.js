@@ -6,28 +6,28 @@ export default {
   target: 'static',
 
   env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000'
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'blog',
     htmlAttrs: {
-      lang: 'fr',
+      lang: 'fr'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'format-detection', content: 'telephone=no' },
-      ...getMetaTags(),
+      ...getMetaTags()
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Roboto:wght@400;500;600&display=swap',
-      },
-    ],
+        href: 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Roboto:wght@400;500;600&display=swap'
+      }
+    ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -44,7 +44,7 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/stylelint
-    '@nuxtjs/stylelint-module',
+    '@nuxtjs/stylelint-module'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -52,9 +52,10 @@ export default {
     [
       '@nuxtjs/dayjs',
       {
+        locales: ['fr'],
         defaultLocale: 'fr',
-        plugins: ['localizedFormat'],
-      },
+        plugins: ['localizedFormat']
+      }
     ],
     [
       '@nuxtjs/markdownit',
@@ -64,8 +65,8 @@ export default {
         breaks: true,
         injected: true,
         html: true,
-        use: ['markdown-it-highlightjs'],
-      },
+        use: ['markdown-it-highlightjs']
+      }
     ],
     ['@nuxtjs/style-resources', { scss: ['assets/scss/globals.scss'] }],
     [
@@ -74,14 +75,14 @@ export default {
         entities: [
           { name: 'articles', type: 'collection' },
           { name: 'main-menu', type: 'single' },
-          { name: 'pages', type: 'collection' },
-        ],
-      },
+          { name: 'pages', type: 'collection' }
+        ]
+      }
     ],
-    '@nuxtjs/feed',
+    '@nuxtjs/feed'
   ],
   feed: [createFeed()],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {}
 };

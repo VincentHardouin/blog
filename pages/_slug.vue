@@ -46,5 +46,9 @@ export default {
   h1 {
     text-align: center;
   }
+
+  &__content {
+    text-align: justify;
+  }
 }
 </style>

@@ -86,6 +86,7 @@ export default {
     font-family: $font-roboto;
     font-weight: $font-normal;
     color: $fiord;
+    text-align: justify;
   }
 }
 </style>
