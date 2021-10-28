@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/VincentHardouin/blog/compare/v1.3.0...v1.4.0) (2021-10-28)
+
+
+### Features
+
+* Improve feed with content ([2c38d59](https://github.com/VincentHardouin/blog/commit/2c38d59bbaceb477bcb2357f31057b0fbc0f271b))
+
 # [1.3.0](https://github.com/VincentHardouin/blog/compare/v1.2.3...v1.3.0) (2021-09-23)
 
 
