@@ -3,7 +3,7 @@ import MarkdownIt from 'markdown-it';
 export function createFeed(type = 'rss2') {
   return {
     async create(feed) {
-      feed.options = feedOptions;
+      feed.options = getFeedOptions();
       const md = new MarkdownIt({
         preset: 'default',
         linkify: true,
@@ -34,11 +34,13 @@ export function createFeed(type = 'rss2') {
   };
 }
 
-const feedOptions = {
-  title: 'Vincent Hardouin',
-  description: 'Le blog de Vincent Hardouin',
-  id: process.env.BASE_URL,
-  link: process.env.BASE_URL,
-  favicon: `${process.env.BASE_URL}/favicon.ico`,
-  copyright: 'All rights reserved 2021, Vincent Hardouin',
+const getFeedOptions = () => {
+  return {
+    title: 'Vincent Hardouin',
+    description: 'Le blog de Vincent Hardouin',
+    id: process.env.BASE_URL,
+    link: process.env.BASE_URL,
+    favicon: `${process.env.BASE_URL}/favicon.ico`,
+    copyright: 'All rights reserved 2021, Vincent Hardouin',
+  };
 };
