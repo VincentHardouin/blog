@@ -45,6 +45,7 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
+    ['@nuxtjs/style-resources', { scss: ['assets/scss/globals.scss'] }],
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -68,7 +69,6 @@ export default {
         use: ['markdown-it-highlightjs'],
       },
     ],
-    ['@nuxtjs/style-resources', { scss: ['assets/scss/globals.scss'] }],
     [
       '@nuxtjs/strapi',
       {
@@ -81,12 +81,9 @@ export default {
     ],
     '@nuxtjs/feed',
   ],
+
   feed: [createFeed()],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-    analyze: {
-      analyzerMode: 'static',
-    },
-  },
+  build: {},
 };
