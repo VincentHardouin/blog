@@ -34,7 +34,7 @@ export default {
         src: 'vincenthardouin.dev',
         async: true,
         defer: true,
-        'data-domain': process.env.BASE_URL,
+        'data-domain': 'vincenthardouin.dev',
       },
     ],
   },
