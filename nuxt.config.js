@@ -31,7 +31,7 @@ export default {
     script: [
       {
         type: 'text/javascript',
-        src: process.env.PLAUSIBLE_URL,
+        src: 'vincenthardouin.dev',
         async: true,
         defer: true,
         'data-domain': process.env.BASE_URL,
