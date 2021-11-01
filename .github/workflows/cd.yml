@@ -27,6 +27,7 @@ jobs:
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
           STRAPI_URL: ${{ secrets.STRAPI_URL }}
+          PLAUSIBLE_URL: ${{ secrets.PLAUSIBLE_URL }}
 
       - name: Release
         run: npx semantic-release
