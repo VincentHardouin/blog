@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/VincentHardouin/blog/compare/v1.4.0...v1.5.0) (2021-11-01)
+
+
+### Features
+
+* add plausible script ([02892be](https://github.com/VincentHardouin/blog/commit/02892bed3358598ad70caf7abc09c1483bc32ed9))
+
 # [1.4.0](https://github.com/VincentHardouin/blog/compare/v1.3.0...v1.4.0) (2021-10-28)
 
 
