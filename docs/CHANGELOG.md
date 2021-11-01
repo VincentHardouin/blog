@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/VincentHardouin/blog/compare/v1.5.0...v1.5.1) (2021-11-01)
+
+
+### Bug Fixes
+
+* Plausible domain ([c5d4e3a](https://github.com/VincentHardouin/blog/commit/c5d4e3a24b96293d92e163bdad4dd17de250a673))
+
 # [1.5.0](https://github.com/VincentHardouin/blog/compare/v1.4.0...v1.5.0) (2021-11-01)
 
 
