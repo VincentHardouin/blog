@@ -41,6 +41,6 @@ const getFeedOptions = () => {
     id: process.env.BASE_URL,
     link: process.env.BASE_URL,
     favicon: `${process.env.BASE_URL}/favicon.ico`,
-    copyright: 'All rights reserved 2021, Vincent Hardouin',
+    copyright: `All rights reserved ${new Date().getFullYear()}, Vincent Hardouin`,
   };
 };
