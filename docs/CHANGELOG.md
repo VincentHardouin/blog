@@ -1,3 +1,12 @@
+# [1.6.0](https://github.com/VincentHardouin/blog/compare/v1.5.3...v1.6.0) (2022-02-17)
+
+
+### Features
+
+* Add link hover transition ([d9bc84e](https://github.com/VincentHardouin/blog/commit/d9bc84e238d9ffe7d03e1f1bd1c7a9d19e56f943))
+* Add page transition ([622d541](https://github.com/VincentHardouin/blog/commit/622d5418753d07d39ab4d9440c00358f78be7599))
+* Improve a11y ([42aafe4](https://github.com/VincentHardouin/blog/commit/42aafe421e80efbed6ea8b9829d0ab7b7bfbe370))
+
 ## [1.5.3](https://github.com/VincentHardouin/blog/compare/v1.5.2...v1.5.3) (2021-11-01)
 
 
