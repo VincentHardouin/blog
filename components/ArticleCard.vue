@@ -37,7 +37,7 @@ export default {
   &__date {
     font-family: $font-open-sans;
     font-size: 0.75rem;
-    color: $tree-poppy;
+    color: $haiti;
   }
 }
 </style>
