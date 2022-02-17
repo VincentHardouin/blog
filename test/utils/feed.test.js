@@ -76,7 +76,7 @@ describe('Utils | feed', function () {
         },
       ];
       const expectedFeedOptions = {
-        copyright: 'All rights reserved 2021, Vincent Hardouin',
+        copyright: `All rights reserved ${new Date().getFullYear()}, Vincent Hardouin`,
         description: 'Le blog de Vincent Hardouin',
         favicon: 'http://localhost:3000/favicon.ico',
         id: 'http://localhost:3000',
