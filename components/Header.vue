@@ -68,10 +68,44 @@ export default {
     font-size: 1rem;
     text-decoration: none;
     color: $cloud-burst;
+    position: relative;
 
     &:visited {
       color: $cloud-burst;
     }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: $tree-poppy;
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.4s;
+    }
+
+    &:hover {
+      &::after {
+        transform-origin: bottom left;
+        transform: scaleX(1);
+      }
+    }
+
+    &.nuxt-link-exact-active {
+      &::after {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: $tree-poppy;
+        transform: scaleX(1);
+      }
+    }
+
   }
 }
 
