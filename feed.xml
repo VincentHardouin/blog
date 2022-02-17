@@ -4,10 +4,10 @@
         <title>Vincent Hardouin</title>
         <link>https://vincenthardouin.dev</link>
         <description>Le blog de Vincent Hardouin</description>
-        <lastBuildDate>Sat, 13 Nov 2021 12:50:12 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 17 Feb 2022 20:53:24 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/nuxt-community/feed-module</generator>
-        <copyright>All rights reserved 2021, Vincent Hardouin</copyright>
+        <copyright>All rights reserved 2022, Vincent Hardouin</copyright>
         <item>
             <title><![CDATA[Pourquoi vous devriez faire un dotfiles]]></title>
             <link>https://vincenthardouin.dev/blog/pourquoi-vous-devriez-faire-un-dotfiles</link>
