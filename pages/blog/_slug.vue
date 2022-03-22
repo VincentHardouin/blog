@@ -11,31 +11,17 @@
 </template>
 
 <script>
-import { getMetaTags } from '../../utils/seo';
+
+import { getArticle } from '../../services/data-fetcher';
 
 export default {
-  async asyncData({ $strapi, params }) {
-    const matchingArticles = await $strapi.$articles.find({
-      slug: params.slug
-    });
-
-    const article = matchingArticles[0];
-    return {
-      article
-    };
+  async asyncData(context) {
+    const { article, meta } = await getArticle(context);
+    return { article, meta };
   },
   head() {
-    const seo = {
-      siteName: 'Vincent Hardouin',
-      metaTitle: this.article.title,
-      metaDescription: this.article.description,
-      imageUrl: this.article.seoImageUrl
-    };
-
     return {
-      titleTemplate: `%s | ${seo.siteName}`,
-      title: seo.metaTitle,
-      meta: getMetaTags(seo)
+      ...this.meta
     };
   },
   computed: {
