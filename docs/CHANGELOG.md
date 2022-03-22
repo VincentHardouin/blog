@@ -1,3 +1,13 @@
+# [1.7.0](https://github.com/VincentHardouin/blog/compare/v1.6.0...v1.7.0) (2022-03-22)
+
+
+### Features
+
+* **articles:** extract asyncData in data-fetcher ([0d7c734](https://github.com/VincentHardouin/blog/commit/0d7c734040e809a929802f6f66ca1eb583f8f363))
+* **index:** extract asyncData in data-fetcher ([a42c16b](https://github.com/VincentHardouin/blog/commit/a42c16b1225b818823d5d900d0d3e88ad3acff9e))
+* **page:** extract asyncData in data-fetcher ([8faedff](https://github.com/VincentHardouin/blog/commit/8faedff914c3c71cd072141c8d36be2a480895a7))
+* **seo:** extract seo construction from data-fetcher ([a8844c4](https://github.com/VincentHardouin/blog/commit/a8844c460e7fef1f75a639fe020cd46d49d4479a))
+
 # [1.6.0](https://github.com/VincentHardouin/blog/compare/v1.5.3...v1.6.0) (2022-02-17)
 
 
