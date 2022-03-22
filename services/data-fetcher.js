@@ -33,3 +33,25 @@ export async function getArticles({ $strapi }) {
   });
   return { articles };
 }
+
+export async function getPage({ $strapi, params }) {
+  const [page] = await $strapi.$pages.find({
+    slug: params.slug,
+  });
+  const seo = {
+    siteName: 'Vincent Hardouin',
+    metaTitle: page.title,
+    imageUrl: page.seoImageUrl,
+  };
+
+  const meta = {
+    titleTemplate: `%s | ${seo.siteName}`,
+    title: seo.metaTitle,
+    meta: getMetaTags(seo),
+  };
+
+  return {
+    page,
+    meta,
+  };
+}
