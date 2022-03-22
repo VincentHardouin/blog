@@ -20,3 +20,16 @@ export async function getArticle({ $strapi, params }) {
 
   return { article, meta };
 }
+
+export async function getArticles({ $strapi }) {
+  const { articles } = await $strapi.graphql({
+    query: `query Articles {
+          articles {
+            slug
+            title
+            date
+          }
+        }`,
+  });
+  return { articles };
+}
