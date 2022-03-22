@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/VincentHardouin/blog/compare/v1.7.0...v1.7.1) (2022-03-22)
+
+
+### Bug Fixes
+
+* **page:** use page to show content ([c1eaa65](https://github.com/VincentHardouin/blog/commit/c1eaa65aae9d2602e00706cf300c7439c7a0dca0))
+
 # [1.7.0](https://github.com/VincentHardouin/blog/compare/v1.6.0...v1.7.0) (2022-03-22)
 
 
