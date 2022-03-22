@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pages | _slug should render blog post 1`] = `
+<div
+  class="page"
+>
+  <h1
+    class="page__title"
+  >
+    Article title
+  </h1>
+   
+  <div
+    class="page__content"
+  >
+    content
+  </div>
+</div>
+`;

@@ -1,24 +1,19 @@
 import { shallowMount } from '@vue/test-utils';
-import BlogPost from '@/pages/blog/_slug';
+import Page from '@/pages/_slug';
 
-describe('pages | blog | _slug', () => {
+describe('pages | _slug', () => {
   it('should render blog post', () => {
-    const wrapper = shallowMount(BlogPost, {
+    const wrapper = shallowMount(Page, {
       data() {
         return {
-          article: {
+          page: {
             title: 'Article title',
-            description: 'description',
-            seoImageUrl: 'https://example.net',
             content: 'Content',
             date: '2021-10-28',
           },
         };
       },
       computed: {
-        date() {
-          return 'formattedDate';
-        },
         content() {
           return 'content';
         },

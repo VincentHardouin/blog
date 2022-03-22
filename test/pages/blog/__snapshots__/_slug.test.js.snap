@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pages | blog | _slug should render blog post 1`] = `
+<div
+  class="article"
+>
+  <div
+    class="article__banner"
+  />
+   
+  <div
+    class="article__container"
+  >
+    <div
+      class="article__date"
+    >
+      formattedDate
+    </div>
+     
+    <h1
+      class="article__title"
+    >
+      Article title
+    </h1>
+     
+    <div
+      class="article__content"
+    >
+      content
+    </div>
+  </div>
+</div>
+`;

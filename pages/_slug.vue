@@ -1,8 +1,8 @@
 <template>
   <div class='page'>
-    <h1>{{ page.title }}</h1>
+    <h1 class='page__title'>{{ page.title }}</h1>
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <div v-if='page.content' class='page__content' v-html='$md.render(article.content)'></div>
+    <div v-if='page.content' class='page__content' v-html='content'></div>
   </div>
 </template>
 
@@ -22,6 +22,11 @@ export default {
     return {
       ...this.meta
     };
+  },
+  computed: {
+    content() {
+      return this.$md.render(this.page.content);
+    }
   }
 };
 </script>
