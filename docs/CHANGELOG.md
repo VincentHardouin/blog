@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/VincentHardouin/blog/compare/v1.7.1...v1.8.0) (2022-03-22)
+
+
+### Features
+
+* update browserslist ([23022d0](https://github.com/VincentHardouin/blog/commit/23022d0dc97777ce84b63dbc73ce8335f649bfa5))
+
 ## [1.7.1](https://github.com/VincentHardouin/blog/compare/v1.7.0...v1.7.1) (2022-03-22)
 
 
