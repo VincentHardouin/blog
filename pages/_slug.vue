@@ -7,30 +7,20 @@
 </template>
 
 <script>
-import { getMetaTags } from '../utils/seo';
+import { getPage } from '../services/data-fetcher';
 
 export default {
-  async asyncData({ $strapi, params }) {
-    const matchingPages = await $strapi.$pages.find({
-      slug: params.slug
-    });
+  async asyncData(context) {
+    const { page, meta } = await getPage(context);
 
-    const page = matchingPages[0];
     return {
-      page
+      page,
+      meta
     };
   },
   head() {
-    const seo = {
-      siteName: 'Vincent Hardouin',
-      metaTitle: this.page.title,
-      imageUrl: this.page.seoImageUrl
-    };
-
     return {
-      titleTemplate: `%s | ${seo.siteName}`,
-      title: seo.metaTitle,
-      meta: getMetaTags(seo)
+      ...this.meta
     };
   }
 };

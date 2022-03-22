@@ -1,5 +1,19 @@
 import { getMediaUrl } from './getUrl';
 
+export function getAllMeta({ title, description, seoImageUrl }) {
+  const seo = {
+    siteName: 'Vincent Hardouin',
+    metaTitle: title,
+    metaDescription: description,
+    imageUrl: seoImageUrl,
+  };
+  return {
+    titleTemplate: `%s | ${seo.siteName}`,
+    title: seo.metaTitle,
+    meta: getMetaTags(seo),
+  };
+}
+
 export function getMetaTags({
   metaTitle = 'Le blog de Vincent Hardouin',
   metaDescription = 'Blog de tutorials, humeurs, … sur des sujets tech.',

@@ -7,17 +7,11 @@
 </template>
 
 <script>
+import { getArticles } from '../services/data-fetcher';
+
 export default {
-  async asyncData({ $strapi }) {
-    const { articles } = await $strapi.graphql({
-      query: `query Articles {
-          articles {
-            slug
-            title
-            date
-          }
-        }`
-    });
+  async asyncData(context) {
+    const { articles } = await getArticles(context);
     return { articles };
   }
 };
