@@ -4,7 +4,7 @@
         <title>Vincent Hardouin</title>
         <link>https://vincenthardouin.dev</link>
         <description>Le blog de Vincent Hardouin</description>
-        <lastBuildDate>Tue, 22 Mar 2022 11:14:19 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 23 Mar 2022 18:20:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/nuxt-community/feed-module</generator>
         <copyright>All rights reserved 2022, Vincent Hardouin</copyright>
@@ -18,7 +18,7 @@
 <p>Je vous incite dès aujourd'hui à vous créer un dotfiles, et ce pour plusieurs raisons :</p>
 <p>Mettre en place un set-up de 0 m'arrive minimum une fois par an :</p>
 <ul>
-<li>quand Apple sort sa nouvelle mise à jour majeure : j'effectue alors une clean install (ajouter lien).</li>
+<li>quand Apple sort sa nouvelle mise à jour majeure : j'effectue alors une clean install.</li>
 <li>installation d'un VPS</li>
 <li>mise en place de VM</li>
 <li>...</li>
