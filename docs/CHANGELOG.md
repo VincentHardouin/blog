@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/VincentHardouin/blog/compare/v1.8.0...v1.9.0) (2022-03-23)
+
+
+### Features
+
+* add dark theme ([16dc2dd](https://github.com/VincentHardouin/blog/commit/16dc2dddf4a266cf0a257a9a90d6219b5f070ba1))
+
 # [1.8.0](https://github.com/VincentHardouin/blog/compare/v1.7.1...v1.8.0) (2022-03-22)
 
 
