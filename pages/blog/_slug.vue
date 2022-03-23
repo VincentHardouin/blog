@@ -71,8 +71,23 @@ export default {
   &__content {
     font-family: $font-roboto;
     font-weight: $font-normal;
-    color: $fiord;
     text-align: justify;
   }
 }
+
+.dark-mode .article {
+
+  @include device-is('tablet') {
+    background-image: url('/img/background-banner-dark.svg');
+  }
+
+  &__container {
+    background-color: $charade;
+  }
+
+  &__date {
+    color: $cadet-blue;
+  }
+}
+
 </style>

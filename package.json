@@ -13,6 +13,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@nuxtjs/color-mode": "^2.1.1",
     "@nuxtjs/dayjs": "^1.4.0",
     "@nuxtjs/feed": "^2.0.0",
     "@nuxtjs/markdownit": "^2.0.0",

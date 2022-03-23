@@ -46,4 +46,9 @@ export default {
     text-align: justify;
   }
 }
+
+.dark-mode .page {
+  background-color: $charade;
+}
+
 </style>

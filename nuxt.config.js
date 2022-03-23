@@ -55,6 +55,7 @@ export default {
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
     ['@nuxtjs/style-resources', { scss: ['assets/scss/globals.scss'] }],
+    '@nuxtjs/color-mode',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -94,5 +95,9 @@ export default {
   feed: [createFeed()],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    loaders: {
+      scss: { sourceMap: false },
+    },
+  },
 };
