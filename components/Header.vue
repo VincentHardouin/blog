@@ -54,6 +54,14 @@ export default {
   }
 }
 
+.dark-mode .header {
+  background-color: $charade;
+
+  &__title {
+    color: $catskill-white;
+  }
+}
+
 .navbar {
   display: flex;
   list-style-type: none;
@@ -106,6 +114,12 @@ export default {
       }
     }
 
+  }
+}
+
+.dark-mode .navbar {
+  &__item {
+    color: $catskill-white;
   }
 }
 

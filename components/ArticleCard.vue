@@ -40,4 +40,19 @@ export default {
     color: $haiti;
   }
 }
+
+.dark-mode .article-card {
+
+  &:visited {
+    color: $catskill-white;
+  }
+
+  &__title {
+    color: $catskill-white;
+  }
+
+  &__date {
+    color: $cadet-blue;
+  }
+}
 </style>

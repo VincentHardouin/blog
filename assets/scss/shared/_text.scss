@@ -44,4 +44,41 @@ li {
   font-weight: $font-normal;
   font-size: 1rem;
   line-height: 1.6rem;
+  color: $fiord;
+}
+
+a {
+  color: $cloud-burst;
+
+  &:visited {
+    color: $cloud-burst;
+  }
+
+  &:hover {
+    color: $haiti;
+  }
+}
+
+
+.dark-mode {
+  h1, p, li {
+    color: $catskill-white;
+  }
+
+  h2, h3 {
+    color: $heater;
+  }
+
+  a {
+    color: $tree-poppy;
+
+
+    &:visited {
+      color: $tree-poppy;
+    }
+
+    &:hover {
+      color: $yellow-orange;
+    }
+  }
 }
