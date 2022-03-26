@@ -5,7 +5,7 @@
       <div class='article__date'>{{ date }}</div>
       <h1 class='article__title'>{{ article.title }}</h1>
       <!-- eslint-disable-next-line vue/no-v-html -->
-      <div v-if='content' class='article__content' v-html='content'></div>
+      <nuxt-content :document='article' />
     </div>
   </div>
 </template>
@@ -25,11 +25,8 @@ export default {
     };
   },
   computed: {
-    content() {
-      return this.$md.render(this.article.content);
-    },
     date() {
-      return this.$dayjs(this.article.date).format('l');
+      return this.$dayjs(this.article.publishedAt).format('l');
     }
   }
 };

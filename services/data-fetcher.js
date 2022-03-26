@@ -1,9 +1,7 @@
 import { getAllMeta } from '../utils/seo';
 
-export async function getArticle({ $strapi, params }) {
-  const [article] = await $strapi.$articles.find({
-    slug: params.slug,
-  });
+export async function getArticle({ $content, params }) {
+  const article = await $content('posts', params.slug).fetch();
   const meta = getAllMeta(article);
   return { article, meta };
 }
