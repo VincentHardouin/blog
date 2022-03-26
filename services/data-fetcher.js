@@ -19,3 +19,8 @@ export async function getPage({ $content, params }) {
     meta,
   };
 }
+
+export async function getMainMenu({ $content }) {
+  const { items } = await $content('utils', 'main-menu').fetch();
+  return { items };
+}

@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import { getMainMenu } from '../services/data-fetcher';
+
 export default {
   data() {
     return {
@@ -25,7 +27,7 @@ export default {
     };
   },
   async fetch() {
-    const { items } = await this.$content('utils', 'main-menu').fetch();
+    const { items } = await getMainMenu(this);
     this.items = items;
   }
 };
