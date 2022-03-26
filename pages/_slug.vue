@@ -2,7 +2,7 @@
   <div class='page'>
     <h1 class='page__title'>{{ page.title }}</h1>
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <div v-if='page.content' class='page__content' v-html='content'></div>
+    <nuxt-content :document='page' />
   </div>
 </template>
 
@@ -22,11 +22,6 @@ export default {
     return {
       ...this.meta
     };
-  },
-  computed: {
-    content() {
-      return this.$md.render(this.page.content);
-    }
   }
 };
 </script>

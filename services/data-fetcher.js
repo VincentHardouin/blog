@@ -11,10 +11,8 @@ export async function getArticles({ $content }) {
   return { articles };
 }
 
-export async function getPage({ $strapi, params }) {
-  const [page] = await $strapi.$pages.find({
-    slug: params.slug,
-  });
+export async function getPage({ $content, params }) {
+  const page = await $content(params.slug).fetch();
   const meta = getAllMeta(page);
   return {
     page,
