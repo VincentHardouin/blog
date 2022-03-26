@@ -6,16 +6,8 @@ export async function getArticle({ $content, params }) {
   return { article, meta };
 }
 
-export async function getArticles({ $strapi }) {
-  const { articles } = await $strapi.graphql({
-    query: `query Articles {
-          articles {
-            slug
-            title
-            date
-          }
-        }`,
-  });
+export async function getArticles({ $content }) {
+  const articles = await $content('posts').only(['title', 'slug', 'publishedAt']).sortBy('publishedAt', 'desc').fetch();
   return { articles };
 }
 
