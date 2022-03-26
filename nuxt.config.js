@@ -80,16 +80,6 @@ export default {
         use: ['markdown-it-highlightjs'],
       },
     ],
-    [
-      '@nuxtjs/strapi',
-      {
-        entities: [
-          { name: 'articles', type: 'collection' },
-          { name: 'main-menu', type: 'single' },
-          { name: 'pages', type: 'collection' },
-        ],
-      },
-    ],
     '@nuxtjs/feed',
   ],
 
