@@ -6,8 +6,8 @@
         <li>
           <NuxtLink to='/' class='navbar__item'>Accueil</NuxtLink>
         </li>
-        <li v-for='item in items' :key='item.page.slug'>
-          <NuxtLink :to="{ name: 'slug', params: { slug: item.page.slug } }" class='navbar__item'>
+        <li v-for='item in items' :key='item.path'>
+          <NuxtLink :to="{ name: 'slug', params: { slug: item.path } }" class='navbar__item'>
             {{ item.title }}
           </NuxtLink>
         </li>
@@ -25,8 +25,8 @@ export default {
     };
   },
   async fetch() {
-    const mainMenu = await this.$strapi.find('main-menu');
-    this.items = mainMenu.items;
+    const { items } = await this.$content('utils', 'main-menu').fetch();
+    this.items = items;
   }
 };
 </script>
