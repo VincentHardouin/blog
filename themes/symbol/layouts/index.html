@@ -1,6 +1,6 @@
 {{ define "main" }}
 <main aria-role='main' class='index'>
-  {{ range first 5 .Site.RegularPages }}
+  {{ range first 15 (where site.RegularPages "Type" "posts") }}
   {{ partial "post-card" . }}
   {{ end }}
 </main>
