@@ -1,7 +1,7 @@
 baseURL = 'https://vincenthardouin.dev/'
 languageCode = 'fr-fr'
 theme = "symbol"
-title = 'My New Hugo Site'
+title = 'Vincent Hardouin'
 
 [params]
   author = 'Vincent Hardouin'
