@@ -1,0 +1,18 @@
+@import 'colors';
+@import 'fonts';
+
+*, :after, :before {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-family: $font-roboto;
+  font-size: 18px;
+  color: $cloud-burst;
+}
+
+body {
+  margin: 0;
+}
+

@@ -8,12 +8,10 @@ title = 'My New Hugo Site'
 
 [menu]
   [[menu.main]]
-    name = "Home"
-    pre = "home"
+    name = "Accueil"
     url = "/"
     weight = 1
   [[menu.main]]
-    name = "Posts"
-    pre = "pen-tool"
-    url = "/posts/"
+    name = "À propos"
+    url = "/a-propos"
     weight = 2
