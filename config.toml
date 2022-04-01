@@ -5,6 +5,7 @@ title = 'Vincent Hardouin'
 
 [params]
   author = 'Vincent Hardouin'
+  description = 'Blog de tutorials, humeurs, … sur des sujets tech.'
 
 [menu]
   [[menu.main]]
