@@ -1,3 +1,41 @@
+# [2.0.0](https://github.com/VincentHardouin/blog/compare/v1.9.0...v2.0.0) (2022-04-01)
+
+
+### Bug Fixes
+
+* **a11y:** change role in single ([7488473](https://github.com/VincentHardouin/blog/commit/74884738ef6e3f7dff132e733aa0cf947bc4fd3b))
+* **archetype:** font matter in default ([e7bd633](https://github.com/VincentHardouin/blog/commit/e7bd633f9f80af1d3a803ef8048ce7aa47fc127d))
+* **cd:** re-add .releaserc ([3140e61](https://github.com/VincentHardouin/blog/commit/3140e6182fc507f3f6c68dbca0ea3e7dc3a3e70b))
+* **cd:** typo ([b562dc8](https://github.com/VincentHardouin/blog/commit/b562dc817522c450c0bf5a774ddf5fc2ffc171fb))
+* **index:** show only posts in index ([f615e18](https://github.com/VincentHardouin/blog/commit/f615e187dbbfcacbe5722cf2801063fc63a29251))
+* **post:** use correct date format ([b473878](https://github.com/VincentHardouin/blog/commit/b473878df0a8af7d451ecdcd808f28c90198acfc))
+
+
+### Features
+
+* **a11y:** improve index page ([4f03b92](https://github.com/VincentHardouin/blog/commit/4f03b922f554d28351f8dab05a54f63b6d8e4a48))
+* **a11y:** improve post page ([e3d0098](https://github.com/VincentHardouin/blog/commit/e3d0098914347a0719d0f420422da2bb6eb17daf))
+* **cd:** build with hugo ([69ad0eb](https://github.com/VincentHardouin/blog/commit/69ad0eb390b24c65d059e3b8431076f86608d608))
+* **config:** improve information ([c451ee7](https://github.com/VincentHardouin/blog/commit/c451ee76e851525b71be868bdc7c5836bd44d210))
+* create new hugo theme ([e63fabd](https://github.com/VincentHardouin/blog/commit/e63fabd32913f27d076fcdb86625a796507d782c))
+* **font:** add font smoothing ([57d4244](https://github.com/VincentHardouin/blog/commit/57d424498475f0c6c072130789dac3a1ff052177))
+* improve hugo theme ([fbd35fe](https://github.com/VincentHardouin/blog/commit/fbd35fece99f6f2b452fdfdedad995fea68f72a3))
+* **layout:** use site language ([118edaa](https://github.com/VincentHardouin/blog/commit/118edaa3ab67bd4a382f8b2bc6c6e504e48d7ebe))
+* New blog in HUGO ([47b456c](https://github.com/VincentHardouin/blog/commit/47b456cd39e17f27b854c8e9bb181eeb5e16e399))
+* **pages:** add about page ([be6fc48](https://github.com/VincentHardouin/blog/commit/be6fc48b28e9d7ee089922a89348782c41189700))
+* **pages:** add style for single ([f786956](https://github.com/VincentHardouin/blog/commit/f7869563f234947be4af39e829f4c83ee134d983))
+* **posts:** add post ([cdb3e19](https://github.com/VincentHardouin/blog/commit/cdb3e19aef532be1a521bda695fa7db6ba751b33))
+* **seo:** add description ([1b495de](https://github.com/VincentHardouin/blog/commit/1b495de9c6700a3c6f174d14ab311dc88d38086a))
+* **theme:** add plausible script ([bd1f40f](https://github.com/VincentHardouin/blog/commit/bd1f40fa9136fc7d611a7f017ae3d15484ec1035))
+* **theme:** add rss feed ([57d9375](https://github.com/VincentHardouin/blog/commit/57d937520c86fab58f1c48726c872a5c16acd186))
+* **theme:** handle dark theme ([cfc35bc](https://github.com/VincentHardouin/blog/commit/cfc35bcdbdc8460ace24b589b4cf7fc6bb545164))
+* **theme:** remove useless fields ([1aad1c8](https://github.com/VincentHardouin/blog/commit/1aad1c81eece62dd1d283c60062aa7d328215d7f))
+
+
+### BREAKING CHANGES
+
+* remove node dependencies
+
 # [1.9.0](https://github.com/VincentHardouin/blog/compare/v1.8.0...v1.9.0) (2022-03-23)
 
 
