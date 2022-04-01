@@ -43,13 +43,23 @@
   <meta name='twitter:image:src' content='{{ .Site.Params.ogimage | absURL }}' />
   {{ end }}
 
+  <!-- RSS -->
+  {{ range .AlternativeOutputFormats -}}
+  {{ printf `
+  <link rel='%s' type='%s' href='%s' title='%s' />
+  ` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ end -}}
+
+  <!-- Font -->
   <link rel='preload' href='/fonts/OpenSans-VariableFont_wdth,wght.ttf' as='font' type='font/ttf' crossorigin>
   <link rel='preload' href='/fonts/Roboto-Regular.ttf' as='font' type='font/ttf' crossorigin>
 
+  <!-- Styles -->
   {{ $sass := resources.Get "scss/main.scss" }}
   {{ $styleCSS := $sass | resources.ToCSS | resources.Minify | resources.Fingerprint "sha512" }}
   <link rel='stylesheet' href='{{ $styleCSS.RelPermalink }}' ntegrity='{{ $styleCSS.Data.Integrity }}'>
 
+  <!-- Favicon -->
   <link rel='icon' type='image/x-icon' href='/favicon.ico'>
 
   <!-- Scripts -->
