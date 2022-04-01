@@ -73,4 +73,7 @@
     defer
   >
   </script>
+
+  <script type='text/javascript' src='{{ getenv "HUGO_PLAUSIBLE_URL" }}' async defer
+          data-domain='{{ getenv "HUGO_DOMAIN "}}'></script>
 </head>
