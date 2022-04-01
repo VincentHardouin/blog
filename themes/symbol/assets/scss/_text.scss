@@ -1,0 +1,86 @@
+@import 'breakpoints';
+@import 'colors';
+@import 'fonts';
+
+h1 {
+  font-family: $font-open-sans;
+  font-weight: $font-normal;
+  color: $haiti;
+  margin-bottom: 21px;
+  font-size: 1.8rem;
+
+  @include device-is('tablet') {
+    font-size: 2rem;
+  }
+}
+
+h2 {
+  font-family: $font-open-sans;
+  font-weight: $font-bold;
+  font-size: 1.5rem;
+  color: $fiord;
+  margin-bottom: 0.875rem;
+}
+
+h3 {
+  font-family: $font-open-sans;
+  font-weight: $font-bold;
+  font-size: 1.1875rem;
+  color: $fiord;
+  margin-bottom: 0.875rem;
+}
+
+p {
+  font-family: $font-roboto;
+  font-weight: $font-normal;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  color: $fiord;
+  margin: 10px 0 20px;
+}
+
+ul {
+  padding-left: 35px;
+}
+
+li {
+  font-family: $font-roboto;
+  font-weight: $font-normal;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  color: $fiord;
+}
+
+a {
+  color: $cloud-burst;
+
+  &:visited {
+    color: $cloud-burst;
+  }
+
+  &:hover {
+    color: $haiti;
+  }
+}
+
+html[data-theme="dark"] {
+  h1, p, li {
+    color: $catskill-white;
+  }
+
+  h2, h3 {
+    color: $heater;
+  }
+
+  a {
+    color: $tree-poppy;
+
+    &:visited {
+      color: $tree-poppy;
+    }
+
+    &:hover {
+      color: $yellow-orange;
+    }
+  }
+}

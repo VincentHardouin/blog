@@ -14,20 +14,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-
-      - name: Setup node env
-        uses: actions/setup-node@v2
         with:
-          node-version: '14'
-          cache: 'npm'
+          - fetch-depth: 0
 
-      - run: npm ci
-      - run: npm test
-      - run: npm run generate
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+
+      - name: Build
+        run: hugo --minify
         env:
-          BASE_URL: ${{ secrets.BASE_URL }}
-          STRAPI_URL: ${{ secrets.STRAPI_URL }}
-          PLAUSIBLE_URL: ${{ secrets.PLAUSIBLE_URL }}
+          HUGO_PLAUSIBLE_URL: ${{ secrets.PLAUSIBLE_URL }}
+          DOMAIN_URL: 'vincenthardouin.dev'
 
       - name: Release
         run: |
@@ -47,5 +46,5 @@ jobs:
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./public
           cname: vincenthardouin.dev

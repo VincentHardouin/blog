@@ -1,0 +1,40 @@
+@import '../colors';
+@import '../fonts';
+
+.post-card {
+  max-width: 820px;
+  padding: 7px;
+  display: block;
+  text-decoration: none;
+
+  &:visited {
+    text-decoration: none;
+    color: $cloud-burst;
+  }
+
+  &__title {
+    font-size: 1rem;
+    color: $cloud-burst;
+    margin-bottom: 0;
+  }
+
+  &__date {
+    font-family: $font-open-sans;
+    font-size: 0.75rem;
+    color: $haiti;
+  }
+}
+
+html[data-theme="dark"] .post-card {
+  &:visited {
+    color: $catskill-white;
+  }
+
+  &__title {
+    color: $catskill-white;
+  }
+
+  &__date {
+    color: $cadet-blue;
+  }
+}

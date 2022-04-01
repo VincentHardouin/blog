@@ -1,0 +1,20 @@
+@import '../colors';
+
+.page {
+  max-width: 820px;
+  margin: 0 auto;
+  background-color: $white;
+  padding: 14px;
+
+  h1 {
+    text-align: center;
+  }
+
+  &__content {
+    text-align: justify;
+  }
+}
+
+html[data-theme="dark"] .page {
+  background-color: $charade;
+}

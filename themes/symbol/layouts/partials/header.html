@@ -1,0 +1,16 @@
+<header class='header'>
+  <a class='flex header__title' href='/'>Vincent Hardouin</a>
+  <nav class='header__navbar'>
+    <ul class='navbar'>
+      {{ range .Site.Menus.main }}
+      <li>
+        <a class='navbar__item' href='{{ .URL }}'>
+          {{ $text := print .Name | safeHTML }}
+          {{ $text }}
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </nav>
+  <div class='flex phantom'></div>
+</header>

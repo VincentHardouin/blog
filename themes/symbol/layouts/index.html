@@ -1,0 +1,11 @@
+{{ define "main" }}
+<main role='main' class='index'>
+  <ul>
+    {{ range first 15 (where site.RegularPages "Type" "posts") }}
+    <li>
+      {{ partial "post-card" . }}
+    </li>
+    {{ end }}
+  </ul>
+</main>
+{{ end }}

@@ -1,0 +1,18 @@
+baseURL = 'https://vincenthardouin.dev/'
+languageCode = 'fr-fr'
+theme = "symbol"
+title = 'Vincent Hardouin'
+
+[params]
+  author = 'Vincent Hardouin'
+  description = 'Blog de tutorials, humeurs, … sur des sujets tech.'
+
+[menu]
+  [[menu.main]]
+    name = "Accueil"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "À propos"
+    url = "/a-propos"
+    weight = 2

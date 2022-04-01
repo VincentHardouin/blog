@@ -1,0 +1,79 @@
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+  <!-- Title Tags -->
+  <title itemprop='name'>{{ .Title }} | {{ .Site.Title }}</title>
+  <meta property='og:title' content='{{ .Title }} | {{ .Site.Title }}' />
+  <meta name='twitter:title' content='{{ .Title }} | {{ .Site.Title }}' />
+  <meta itemprop='name' content='{{ .Title }} | {{ .Site.Title }}' />
+  <meta name='application-name' content='{{ .Title }} | {{ .Site.Title }}' />
+  <meta property='og:site_name' content='{{ .Site.Params.sitename }}' />
+
+  <!-- Description Tags -->
+  <meta name='description' content='{{ .Site.Params.Description }}' />
+  <meta itemprop='description' content='{{ .Site.Params.Description }}' />
+  <meta property='og:description' content='{{ .Site.Params.Description }}' />
+  <meta name='twitter:description' content='{{ .Site.Params.Description }}' />
+
+  <!-- Link Tags -->
+  <base href='{{ .Permalink }}'>
+  <link rel='canonical' href='{{ .Permalink }}' itemprop='url' />
+  <meta name='url' content='{{ .Permalink }}' />
+  <meta name='twitter:url' content='{{ .Permalink }}' />
+  <meta property='og:url' content='{{ .Permalink }}' />
+
+  <!-- Language Tags -->
+  <meta property='og:locale' content='{{ .Language.Lang }}'>
+  <meta name='language' content='{{ .Language.LanguageName }}'>
+  {{ range .AllTranslations }}
+  <link rel='alternate' hreflang='{{ .Language.Lang }}' href='{{ .Permalink }}' title='{{ .Language.LanguageName }}'>
+  {{ end }}
+
+  <!-- Image Tags -->
+  {{ with .Params.image }}
+  <meta itemprop='image' content='{{ . | absURL }}' />
+  <meta property='og:image' content='{{ . | absURL }}' />
+  <meta name='twitter:image' content='{{ . | absURL }}' />
+  <meta name='twitter:image:src' content='{{ . | absURL }}' />
+  {{ else }}
+  <meta itemprop='image' content='{{ .Site.Params.ogimage | absURL }}' />
+  <meta property='og:image' content='{{ .Site.Params.ogimage | absURL }}' />
+  <meta name='twitter:image' content='{{ .Site.Params.ogimage | absURL }}' />
+  <meta name='twitter:image:src' content='{{ .Site.Params.ogimage | absURL }}' />
+  {{ end }}
+
+  <!-- RSS -->
+  {{ range .AlternativeOutputFormats -}}
+  {{ printf `
+  <link rel='%s' type='%s' href='%s' title='%s' />
+  ` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ end -}}
+
+  <!-- Font -->
+  <link rel='preload' href='/fonts/OpenSans-VariableFont_wdth,wght.ttf' as='font' type='font/ttf' crossorigin>
+  <link rel='preload' href='/fonts/Roboto-Regular.ttf' as='font' type='font/ttf' crossorigin>
+
+  <!-- Styles -->
+  {{ $sass := resources.Get "scss/main.scss" }}
+  {{ $styleCSS := $sass | resources.ToCSS | resources.Minify | resources.Fingerprint "sha512" }}
+  <link rel='stylesheet' href='{{ $styleCSS.RelPermalink }}' ntegrity='{{ $styleCSS.Data.Integrity }}'>
+
+  <!-- Favicon -->
+  <link rel='icon' type='image/x-icon' href='/favicon.ico'>
+
+  <!-- Scripts -->
+  {{ $opts := dict "targetPath" "app.js" "minify" "true" "sourceMap" "inline" }}
+  {{ $built := resources.Get "js/index.js" | js.Build $opts }}
+  {{ $securedJS := $built | resources.Fingerprint "sha512" }}
+  <script
+    type='text/javascript'
+    src='{{ $securedJS.RelPermalink }}'
+    integrity='{{ $securedJS.Data.Integrity }}'
+    defer
+  >
+  </script>
+
+  <script type='text/javascript' src='{{ getenv "HUGO_PLAUSIBLE_URL" }}' async defer
+          data-domain='{{ getenv "HUGO_DOMAIN "}}'></script>
+</head>
