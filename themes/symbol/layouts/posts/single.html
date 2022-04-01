@@ -1,5 +1,5 @@
 {{ define "main" }}
-<main aria-role='main' class='post'>
+<article role='article' class='post'>
   <div class='post__banner'></div>
   <div class='post__container'>
     <div class='post__date'>{{ .Date.Format "02/01/2006" }}</div>
@@ -8,5 +8,5 @@
       {{ .Content }}
     </div>
   </div>
-</main>
+</article>
 {{ end }}
