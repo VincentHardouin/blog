@@ -1,0 +1,23 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Vincent Hardouin</title><link>https://vincenthardouin.dev/</link><description>Recent content on Vincent Hardouin</description><generator>Hugo -- gohugo.io</generator><language>fr-fr</language><lastBuildDate>Wed, 27 Oct 2021 11:07:00 +0200</lastBuildDate><atom:link href="https://vincenthardouin.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Pourquoi vous devriez faire un dotfiles</title><link>https://vincenthardouin.dev/posts/pourquoi-vous-devriez-faire-un-dotfiles/</link><pubDate>Wed, 27 Oct 2021 11:07:00 +0200</pubDate><guid>https://vincenthardouin.dev/posts/pourquoi-vous-devriez-faire-un-dotfiles/</guid><description>&lt;p>Pour mon premier article, je souhaite vous partager comment je mets en place mon environnement de travail facilement.&lt;/p>
+&lt;p>Pour cela, j&amp;rsquo;utilise un dotfiles, dossier vous permettant de mettre en place votre configuration, via notamment les
+fichiers de configs .zshrc, .vimrc, …&lt;/p>
+&lt;p>Je vous incite dès aujourd&amp;rsquo;hui à vous créer un dotfiles, et ce pour plusieurs raisons :&lt;/p>
+&lt;p>Mettre en place un set-up de 0 m&amp;rsquo;arrive minimum une fois par an :&lt;/p>
+&lt;ul>
+&lt;li>quand Apple sort sa nouvelle mise à jour majeure : j&amp;rsquo;effectue alors une clean install.&lt;/li>
+&lt;li>installation d&amp;rsquo;un VPS&lt;/li>
+&lt;li>mise en place de VM&lt;/li>
+&lt;li>&amp;hellip;&lt;/li>
+&lt;/ul>
+&lt;p>Sachant que toute tâche rébarbative doit pouvoir être faite en moins de 10 minutes et être automatisée autant que
+possible (cf: &lt;a href="https://www.youtube.com/watch?v=bz0zSVNFW-E">la pensée md10&lt;/a>), la création d&amp;rsquo;un dotfiles parait évidente.&lt;/p>
+&lt;p>Les fichiers de configuration sont précieux et proviennent de nombreux petits ajustements. Le dotfiles vous permettra
+donc d&amp;rsquo;être assuré de ne rien perdre. Vous pouvez faire de votre dotfiles un repository git, le pusher sur GitHub pour
+avoir une sauvegarde et ensuite le cloner pour mettre en place un nouvel environnement.&lt;/p>
+&lt;p>Enfin, libre à vous de créer le dotfiles qui vous correspond. Le mien contient mes fichiers de configuration
+principaux : .zshrc, .vimrc, .gitconfig, .gitignore_global. Mais surtout, un Makefile chargé de créer des liens
+symboliques à partir de ces fichiers et de télécharger les applications que je souhaite, dont brew avec un Brewfile qui
+installe tous mes utilitaires. Un vrai gain de temps !&lt;/p>
+&lt;p>Si vous souhaitez découvrir plus en détail mon dotfiles, il est disponible
+ici : &lt;a href="https://github.com/VincentHardouin/.dotfiles">https://github.com/VincentHardouin/.dotfiles&lt;/a>&lt;/p>
+&lt;p>J&amp;rsquo;espère que ces arguments vous donneront envie de créer le vôtre !&lt;/p></description></item></channel></rss>
