@@ -62,3 +62,25 @@ a {
     color: $haiti;
   }
 }
+
+html[data-theme="dark"] {
+  h1, p, li {
+    color: $catskill-white;
+  }
+
+  h2, h3 {
+    color: $heater;
+  }
+
+  a {
+    color: $tree-poppy;
+
+    &:visited {
+      color: $tree-poppy;
+    }
+
+    &:hover {
+      color: $yellow-orange;
+    }
+  }
+}

@@ -38,7 +38,7 @@
   }
 }
 
-.dark-mode .post {
+html[data-theme="dark"] .post {
   @include device-is('tablet') {
     background-image: url('/images/background-banner-dark.svg');
   }

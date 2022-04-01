@@ -15,6 +15,6 @@
   }
 }
 
-.dark-mode .page {
+html[data-theme="dark"] .page {
   background-color: $charade;
 }

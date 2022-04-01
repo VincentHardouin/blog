@@ -25,7 +25,7 @@
   }
 }
 
-.dark-mode .post-card {
+html[data-theme="dark"] .post-card {
   &:visited {
     color: $catskill-white;
   }

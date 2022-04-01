@@ -19,5 +19,10 @@ html {
 
 body {
   margin: 0;
+  background-color: $white;
+}
+
+html[data-theme="dark"] body {
+  background-color: $charade;
 }
 

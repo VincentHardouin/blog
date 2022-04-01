@@ -24,11 +24,19 @@
   }
 }
 
-.dark-mode .header {
+html[data-theme="dark"] .header {
   background-color: $charade;
 
   &__title {
     color: $catskill-white;
+
+    &:visited {
+      color: $catskill-white;
+    }
+
+    &:hover {
+      color: $catskill-white;
+    }
   }
 }
 
@@ -86,9 +94,17 @@
   }
 }
 
-.dark-mode .navbar {
+html[data-theme="dark"] .navbar {
   &__item {
     color: $catskill-white;
+
+    &:visited {
+      color: $catskill-white;
+    }
+    
+    &:hover {
+      color: $catskill-white;
+    }
   }
 }
 
