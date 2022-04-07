@@ -1,3 +1,10 @@
+## [2.0.3](https://github.com/VincentHardouin/blog/compare/v2.0.2...v2.0.3) (2022-04-07)
+
+
+### Bug Fixes
+
+* **cd:** remove quote ([06f5c36](https://github.com/VincentHardouin/blog/commit/06f5c36d1b05eb94ada967d5827c02aeae0be873))
+
 ## [2.0.2](https://github.com/VincentHardouin/blog/compare/v2.0.1...v2.0.2) (2022-04-07)
 
 
