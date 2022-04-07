@@ -57,7 +57,7 @@
   <!-- Styles -->
   {{ $sass := resources.Get "scss/main.scss" }}
   {{ $styleCSS := $sass | resources.ToCSS | resources.Minify | resources.Fingerprint "sha512" }}
-  <link rel='stylesheet' href='{{ $styleCSS.RelPermalink }}' ntegrity='{{ $styleCSS.Data.Integrity }}'>
+  <link rel='stylesheet' href='{{ $styleCSS.RelPermalink }}' integrity='{{ $styleCSS.Data.Integrity }}'>
 
   <!-- Favicon -->
   <link rel='icon' type='image/x-icon' href='/favicon.ico'>
@@ -75,5 +75,5 @@
   </script>
 
   <script type='text/javascript' src='{{ getenv "HUGO_PLAUSIBLE_URL" }}' async defer
-          data-domain='{{ getenv "HUGO_DOMAIN "}}'></script>
+          data-domain='{{ getenv "HUGO_DOMAIN" }}'></script>
 </head>
