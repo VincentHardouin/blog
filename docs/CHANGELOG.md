@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/VincentHardouin/blog/compare/v2.0.1...v2.0.2) (2022-04-07)
+
+
+### Bug Fixes
+
+* **head:** get environment variable ([927e69a](https://github.com/VincentHardouin/blog/commit/927e69ae5afd00bfe15b1e7bd8bdfc96e5087103))
+
 ## [2.0.1](https://github.com/VincentHardouin/blog/compare/v2.0.0...v2.0.1) (2022-04-07)
 
 
