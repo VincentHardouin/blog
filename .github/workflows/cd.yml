@@ -27,7 +27,7 @@ jobs:
         run: hugo --minify
         env:
           HUGO_PLAUSIBLE_URL: ${{ secrets.PLAUSIBLE_URL }}
-          DOMAIN_URL: 'vincenthardouin.dev'
+          HUGO_DOMAIN: 'vincenthardouin.dev'
 
       - name: Release
         run: |
