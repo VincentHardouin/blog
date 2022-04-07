@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/VincentHardouin/blog/compare/v2.0.0...v2.0.1) (2022-04-07)
+
+
+### Bug Fixes
+
+* **cd:** fix environment variable in cd ([ff7eef7](https://github.com/VincentHardouin/blog/commit/ff7eef70eb24efdc35a53141af1c9f57accd3c66))
+
 # [2.0.0](https://github.com/VincentHardouin/blog/compare/v1.9.0...v2.0.0) (2022-04-01)
 
 
