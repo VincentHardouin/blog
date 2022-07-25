@@ -26,3 +26,12 @@ html[data-theme="dark"] body {
   background-color: $charade;
 }
 
+@import 'syntax/syntax-light';
+
+html[data-theme="dark"] {
+  @import 'syntax/syntax-dark';
+}
+
+.highlight {
+  margin: 16px 0;
+}

@@ -4,9 +4,14 @@
   <div class='post__container'>
     <div class='post__date'>{{ .Date.Format "02/01/2006" }}</div>
     <h1 class='post__title'>{{ .Title }}</h1>
-    <div class='post__content'>
+    {{ if gt .WordCount 500 }}
+    <aside>
+      {{ .TableOfContents }}
+    </aside>
+    {{ end }}
+    <article class='post__content'>
       {{ .Content }}
-    </div>
+    </article>
   </div>
 </article>
 {{ end }}

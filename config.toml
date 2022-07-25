@@ -7,6 +7,10 @@ title = 'Vincent Hardouin'
   author = 'Vincent Hardouin'
   description = 'Blog de tutorials, humeurs, … sur des sujets tech.'
 
+[markup]
+  [markup.highlight]
+    noclasses = false
+
 [menu]
   [[menu.main]]
     name = "Accueil"
