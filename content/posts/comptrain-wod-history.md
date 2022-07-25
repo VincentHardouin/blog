@@ -2,7 +2,7 @@
 title: "Projet - Comptrain WOD history"
 seoImageUrl: https://opengraph.vincenthardouin.dev/cards/Projet - Comptrain WOD history
 date: 2022-07-12T11:07:00+02:00
-draft: true
+draft: false
 ---
 
 ## Introduction
