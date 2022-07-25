@@ -1,4 +1,164 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Vincent Hardouin</title><link>https://vincenthardouin.dev/posts/</link><description>Recent content in Posts on Vincent Hardouin</description><generator>Hugo -- gohugo.io</generator><language>fr-fr</language><lastBuildDate>Wed, 27 Oct 2021 11:07:00 +0200</lastBuildDate><atom:link href="https://vincenthardouin.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Pourquoi vous devriez faire un dotfiles</title><link>https://vincenthardouin.dev/posts/pourquoi-vous-devriez-faire-un-dotfiles/</link><pubDate>Wed, 27 Oct 2021 11:07:00 +0200</pubDate><guid>https://vincenthardouin.dev/posts/pourquoi-vous-devriez-faire-un-dotfiles/</guid><description>&lt;p>Pour mon premier article, je souhaite vous partager comment je mets en place mon environnement de travail facilement.&lt;/p>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Vincent Hardouin</title><link>https://vincenthardouin.dev/posts/</link><description>Recent content in Posts on Vincent Hardouin</description><generator>Hugo -- gohugo.io</generator><language>fr-fr</language><lastBuildDate>Tue, 12 Jul 2022 11:07:00 +0200</lastBuildDate><atom:link href="https://vincenthardouin.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Projet - Comptrain WOD history</title><link>https://vincenthardouin.dev/posts/comptrain-wod-history/</link><pubDate>Tue, 12 Jul 2022 11:07:00 +0200</pubDate><guid>https://vincenthardouin.dev/posts/comptrain-wod-history/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>J&amp;rsquo;ai récemment créé un projet pour historiser tous les WOD proposés par &lt;a href="https://comptrain.co/">Comptrain&lt;/a>.&lt;/p>
+&lt;p>La programmation de Comptrain est l&amp;rsquo;une des programmations de Crossfit les plus reconnues dans son milieu,
+notamment grâce à la renommée de son créateur &lt;a href="https://benbergeron.com/about/">Ben Bergeron&lt;/a>
+qui a entre autres entrainé Mathew Fraser 5 fois vainqueur des CrossFit Games.&lt;/p>
+&lt;p>L&amp;rsquo;équipe de Comptrain propose une programmation gratuite. Elle est constituée d&amp;rsquo;un WOD tous les jours de la semaine
+sauf le jeudi et le dimanche, qui sont des &amp;ldquo;REST DAY&amp;rdquo;.&lt;/p>
+&lt;p>Cependant, l&amp;rsquo;historique des WODS n&amp;rsquo;est pas disponible.
+Ce qui devient problématique quand vous souhaitez vous entrainer le jeudi et/ou le dimanche
+et que vous n&amp;rsquo;avez pas pris une capture d&amp;rsquo;écran la veille. Vous vous retrouvez sans entrainement
+et surtout vous n&amp;rsquo;allez pas suivre la programmation.&lt;/p>
+&lt;h2 id="projet">Projet&lt;/h2>
+&lt;p>À force de subir ce problème, j&amp;rsquo;ai décidé d&amp;rsquo;historiser les WODs en les enregistrant dans une
+base de données.&lt;/p>
+&lt;p>Je suis parti sur une architecture contenant &lt;strong>une API&lt;/strong> et un site statique.&lt;/p>
+&lt;p>L&amp;rsquo;API a comme rôle :&lt;/p>
+&lt;ul>
+&lt;li>de récupérer grâce à un &lt;a href="https://en.wikipedia.org/wiki/Cron">CRON&lt;/a> les WODs&lt;/li>
+&lt;li>fournir un endpoint permettant de récupérer tous les WODs&lt;/li>
+&lt;/ul>
+&lt;p>Le &lt;strong>site statique&lt;/strong> quant à lui doit appeler l&amp;rsquo;endpoint et afficher tous les WODs.&lt;/p>
+&lt;p>La stack de l&amp;rsquo;API se compose de :&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.fastify.io/">Fastify&lt;/a> comme serveur NodeJS, que je trouve pratique et simple d&amp;rsquo;utilisation.&lt;/li>
+&lt;li>&lt;a href="https://www.prisma.io/">Prisma&lt;/a> comme ORM. J&amp;rsquo;ai choisi ce dernier, car je ne le connaissais pas et que j&amp;rsquo;en avais
+entendu du bien. Naturellement, j&amp;rsquo;ai voulu l&amp;rsquo;essayer. Il s&amp;rsquo;avère que pour l&amp;rsquo;usage que j&amp;rsquo;en fais, je ne l&amp;rsquo;ai pas essayé
+dans ses retranchements.&lt;/li>
+&lt;li>&lt;a href="https://www.postgresql.org/">PostgreSQL&lt;/a> comme base de données.&lt;/li>
+&lt;/ul>
+&lt;p>Enfin, pour le site statique, je suis parti sur une application &lt;a href="https://nuxtjs.org/">NuxtJS&lt;/a>, qui permet la
+génération statique du site.&lt;/p>
+&lt;p>Pour l&amp;rsquo;hébergement, nous nous retrouvons avec l&amp;rsquo;API qui tourne sur mon VPS et le site statique hébergé sur GitHub Pages.
+La génération du site est déclenchée chaque jour grâce à une GitHub Action
+via &lt;a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule">un event schedule&lt;/a>&lt;/p>
+&lt;p>La solution fonctionne, la base comporte désormais 180 WODs, mais plusieurs éléments peuvent être améliorés.&lt;/p>
+&lt;h2 id="changement-darchitecture">Changement d&amp;rsquo;architecture&lt;/h2>
+&lt;p>Nous avons dans cette configuration une base de données et une API qui tourne 24h/24 dans l&amp;rsquo;attente d&amp;rsquo;une
+insertion et une lecture de toute la table tous les jours. Cela &lt;strong>consomme des ressources inutilement&lt;/strong>.&lt;/p>
+&lt;p>Nous pouvons alors nous demander si cela convient avec les besoins futurs.&lt;/p>
+&lt;h3 id="perspective-dévolution">Perspective d&amp;rsquo;évolution&lt;/h3>
+&lt;h4 id="volumétrie">Volumétrie&lt;/h4>
+&lt;p>Intéressons-nous à la volumétrie de la base de données.
+Il y a moins de 365 WODs/an : &lt;strong>365 wods/an * 100 ans = 36 500 wods&lt;/strong>.
+Nous pouvons dire que la volumétrie globale n&amp;rsquo;excédera jamais les 100 000 éléments.&lt;/p>
+&lt;h4 id="amélioration">Amélioration&lt;/h4>
+&lt;p>Ensuite, l&amp;rsquo;unique amélioration que j&amp;rsquo;envisage est la recherche par mouvements (squats, push-ups, pull-ups, …) pour
+choisir d&amp;rsquo;en avoir certains et d&amp;rsquo;autres non.&lt;/p>
+&lt;p>En connaissant cette volumétrie et l&amp;rsquo;amélioration que je souhaite faire, nous nous rendons compte que n&amp;rsquo;importe quelle
+base de données et/ou langage est capable de répondre à ces besoins.&lt;/p>
+&lt;h3 id="déroulement">Déroulement&lt;/h3>
+&lt;p>Un dimanche, j&amp;rsquo;ai fait le choix de réduire toute cette consommation.&lt;/p>
+&lt;p>L&amp;rsquo;idée que j&amp;rsquo;ai est de retirer la dépendance à mon VPS et que tout soit directement hébergé dans le repository
+GitHub.&lt;/p>
+&lt;p>Pour cela, il me fallait changer de base de données et changer la façon dont les données étaient récupérées au moment de
+la génération du site statique.&lt;/p>
+&lt;h3 id="réalisation">Réalisation&lt;/h3>
+&lt;h4 id="migration-de-la-base-de-données">Migration de la base de données&lt;/h4>
+&lt;p>Dans un premier temps, j&amp;rsquo;ai migré de PostgreSQL vers SQLite, une base de données bien plus légère comme son nom
+l&amp;rsquo;indique. Les avantages de SQLite sont les suivants :&lt;/p>
+&lt;ul>
+&lt;li>très léger&lt;/li>
+&lt;li>la base de données est stockée directement dans un fichier, ce qui va dans l&amp;rsquo;optique d&amp;rsquo;être stocké dans le repository&lt;/li>
+&lt;li>un connecteur intégré à Prisma existe, ce qui me facilite la migration&lt;/li>
+&lt;/ul>
+&lt;p>Pour faire la migration :&lt;/p>
+&lt;ol>
+&lt;li>Exporter la table dans un fichier CSV :&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">COPY&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">workouts&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">TO&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;tmp/workouts_db.csv&amp;#39;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">DELIMITER&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;,&amp;#39;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">CSV&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">HEADER&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>Importer la table dans SQLite :&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">.import workouts_db.csv workouts
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Du côté de Prisma, comme indiqué
+dans &lt;a href="https://www.prisma.io/docs/concepts/components/prisma-migrate/prisma-migrate-limitations-issues">la documentation&lt;/a> :&lt;/p>
+&lt;ol>
+&lt;li>Dans le fichier &lt;code>schema.prisma&lt;/code>, il faut changer le provider et l&amp;rsquo;url.&lt;/li>
+&lt;li>Supprimer le dossier &lt;code>prisma/migrations&lt;/code>&lt;/li>
+&lt;li>Rejouer les migrations avec &lt;code>prisma migrate dev&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;p>Cependant, lorsque j&amp;rsquo;ai voulu récupérer les données via Prisma, cela ne fonctionnait pas.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">node -p &lt;span class="s2">&amp;#34;const { PrismaClient } = require(&amp;#39;@prisma/client&amp;#39;);
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2">new PrismaClient()
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> .workout
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> .findMany({ select: { title: true, createdAt: true }})
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> .then(console.log);&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>L&amp;rsquo;erreur en question :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">Inconsistent column data: Conversion failed: input contains invalid characters
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Je me suis alors dit que le problème venait du format des dates. Pour vérifier cela, j&amp;rsquo;ai d&amp;rsquo;abord demandé les WODs sans
+la date de création.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">node -p &lt;span class="s2">&amp;#34;const { PrismaClient } = require(&amp;#39;@prisma/client&amp;#39;);
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2">new PrismaClient()
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> .workout
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> .findMany({ select: { title: true }})
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> .then(console.log);&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Là je constate que ça fonctionne.&lt;/p>
+&lt;p>En effet, les dates étaient sous le format &lt;a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601&lt;/a>
+(ex: 2022-01-07 14:43:00.432).
+Seulement, en essayant d&amp;rsquo;insérer des données à l&amp;rsquo;aide de Prisma, nous pouvons voir que
+Prisma insère des dates sous le format &lt;a href="https://en.wikipedia.org/wiki/Unix_time">UNIX Epoch&lt;/a> (ex: 1641566580) :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">node -p &lt;span class="s2">&amp;#34;const { PrismaClient } = require(&amp;#39;@prisma/client&amp;#39;);
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2">new PrismaClient()
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> .workout
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> .create({
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> data: { title: &amp;#39;test&amp;#39;, content: &amp;#39;&amp;#39;},
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> select: { createdAt: true }
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> })
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> .then(console.log);&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="o">{&lt;/span> createdAt: 2022-07-17T15:51:05.791Z &lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Et en base nous retrouvons :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">select&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;createdAt&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">from&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">workouts&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">order&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">by&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">desc&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">limit&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="mi">1658073065791&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Il m&amp;rsquo;a alors suffi d&amp;rsquo;importer les données dans une table temporaire puis de les importer dans la table finale en
+convertissant les dates :&lt;/p>
+&lt;ol>
+&lt;li>Je supprime la base précédemment créée :&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">delete&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">from&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">workouts&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>Je réimporte les données dans une table temporaire&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="n">import&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">workouts_db&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">csv&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;workouts-tmp&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;li>J&amp;rsquo;insère les données dans la table &lt;code>workouts&lt;/code> en me basant sur la table &lt;code>workouts_temp&lt;/code> mais en convertissant les
+dates :&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">insert&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">into&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">workouts&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">title&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">content&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">createdAt&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">updatedAt&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">select&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">title&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">content&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">strftime&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;%s&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">createdAt&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">strftime&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;%s&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">updatedAt&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">from&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;workouts-tmp&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="4">
+&lt;li>Je supprime la table temporaire&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">drop&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">table&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;workouts-tmp&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Nous avons désormais migré notre base de PostgreSQL vers SQLite, nous pouvons maintenant inclure notre base dans le
+repository.&lt;/p>
+&lt;h4 id="migration-de-lapi">Migration de l&amp;rsquo;API&lt;/h4>
+&lt;p>Pour ce qui est de l&amp;rsquo;API, au lieu qu&amp;rsquo;elle tourne en permanence, j&amp;rsquo;ai décidé de la lancer uniquement au moment où le site
+se génère.&lt;/p>
+&lt;p>Je n&amp;rsquo;ai pas
+utilisé &lt;a href="https://docs.github.com/en/actions/using-containerized-services/about-service-containers">les services des GitHub Actions&lt;/a>
+étant limités à des images Docker dont je n&amp;rsquo;ai pas envie dans mon idée de moins de dépendance possible.&lt;/p>
+&lt;p>Je me suis tourné vers la modification de la génération du site statique : pour ajouter le lancement de l&amp;rsquo;API dans un
+processus en tâche de fond.&lt;/p>
+&lt;p>Voilà le résultat :&lt;/p>
+&lt;pre tabindex="0">&lt;code>(cd api &amp;amp;&amp;amp; npm start &amp;amp;); cd webapp &amp;amp;&amp;amp; npm run generate
+&lt;/code>&lt;/pre>&lt;p>Vous pouvez trouver la GitHub Action complète
+ici : &lt;a href="https://github.com/VincentHardouin/comptrain-wod-history/blob/main/.github/workflows/deploy.yml">https://github.com/VincentHardouin/comptrain-wod-history/blob/main/.github/workflows/deploy.yml&lt;/a>&lt;/p>
+&lt;p>Grâce à ces deux étapes nous n&amp;rsquo;avons plus d&amp;rsquo;API et de base de données qui tournent en permanence.
+L&amp;rsquo;hébergement et le déploiement dépendent désormais d&amp;rsquo;uniquement GitHub.&lt;/p>
+&lt;h2 id="conclusion">Conclusion&lt;/h2>
+&lt;p>Face à cette problématique d&amp;rsquo;historisation des WODs de Comptrain,
+je propose donc &lt;a href="https://wods.vincenthardouin.dev/">ce projet en solution&lt;/a>.
+Nous avons pu voir qu&amp;rsquo;avec un peu de remise en question la solution ne me coûte désormais plus d&amp;rsquo;argent et elle peut
+être utilisée par tout le monde.
+Le code source est disponible à l&amp;rsquo;adresse
+suivante : &lt;a href="https://github.com/VincentHardouin/comptrain-wod-history%5D">https://github.com/VincentHardouin/comptrain-wod-history&lt;/a>
+.&lt;/p>
+&lt;p>Nous pouvons aussi imaginer de nous passer de la base de données en nous basant sur un fichier JSON.
+Pour ce qui est de l&amp;rsquo;API, nous aurions pu
+utiliser &lt;a href="https://v3.nuxtjs.org/guide/features/server-routes">la solution de NuxtJS avec les servers&lt;/a>, mais je ne suis
+pas à l&amp;rsquo;aise avec ce couplage fort avec une solution.&lt;/p></description></item><item><title>Pourquoi vous devriez faire un dotfiles</title><link>https://vincenthardouin.dev/posts/pourquoi-vous-devriez-faire-un-dotfiles/</link><pubDate>Wed, 27 Oct 2021 11:07:00 +0200</pubDate><guid>https://vincenthardouin.dev/posts/pourquoi-vous-devriez-faire-un-dotfiles/</guid><description>&lt;p>Pour mon premier article, je souhaite vous partager comment je mets en place mon environnement de travail facilement.&lt;/p>
 &lt;p>Pour cela, j&amp;rsquo;utilise un dotfiles, dossier vous permettant de mettre en place votre configuration, via notamment les
 fichiers de configs .zshrc, .vimrc, …&lt;/p>
 &lt;p>Je vous incite dès aujourd&amp;rsquo;hui à vous créer un dotfiles, et ce pour plusieurs raisons :&lt;/p>
