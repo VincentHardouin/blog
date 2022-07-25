@@ -1,3 +1,15 @@
+# [2.1.0](https://github.com/VincentHardouin/blog/compare/v2.0.3...v2.1.0) (2022-07-25)
+
+
+### Bug Fixes
+
+* seo image url ([ed011c1](https://github.com/VincentHardouin/blog/commit/ed011c1e7193972051c07f57ea4f5e2e78a1b211))
+
+
+### Features
+
+* improve syntax highlighting ([a67c3e9](https://github.com/VincentHardouin/blog/commit/a67c3e9d3fca779b38fa1791b6afaef557524d5b))
+
 ## [2.0.3](https://github.com/VincentHardouin/blog/compare/v2.0.2...v2.0.3) (2022-04-07)
 
 
