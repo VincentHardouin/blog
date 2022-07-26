@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/VincentHardouin/blog/compare/v2.1.0...v2.1.1) (2022-07-26)
+
+
+### Bug Fixes
+
+* link in comptrain-wod-history post ([e218b18](https://github.com/VincentHardouin/blog/commit/e218b18d40eea833aaadec1f8f0b4ce273ec4243))
+
 # [2.1.0](https://github.com/VincentHardouin/blog/compare/v2.0.3...v2.1.0) (2022-07-25)
 
 
