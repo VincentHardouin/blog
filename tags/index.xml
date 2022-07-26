@@ -153,7 +153,7 @@ je propose donc &lt;a href="https://wods.vincenthardouin.dev/">ce projet en solu
 Nous avons pu voir qu&amp;rsquo;avec un peu de remise en question la solution ne me coûte désormais plus d&amp;rsquo;argent et elle peut
 être utilisée par tout le monde.
 Le code source est disponible à l&amp;rsquo;adresse
-suivante : &lt;a href="https://github.com/VincentHardouin/comptrain-wod-history%5D">https://github.com/VincentHardouin/comptrain-wod-history&lt;/a>
+suivante : &lt;a href="https://github.com/VincentHardouin/comptrain-wod-history">https://github.com/VincentHardouin/comptrain-wod-history&lt;/a>
 .&lt;/p>
 &lt;p>Nous pouvons aussi imaginer de nous passer de la base de données en nous basant sur un fichier JSON.
 Pour ce qui est de l&amp;rsquo;API, nous aurions pu
