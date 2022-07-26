@@ -237,7 +237,7 @@ je propose donc [ce projet en solution](https://wods.vincenthardouin.dev/).
 Nous avons pu voir qu'avec un peu de remise en question la solution ne me coûte désormais plus d'argent et elle peut
 être utilisée par tout le monde.
 Le code source est disponible à l'adresse
-suivante : [https://github.com/VincentHardouin/comptrain-wod-history](https://github.com/VincentHardouin/comptrain-wod-history])
+suivante : [https://github.com/VincentHardouin/comptrain-wod-history](https://github.com/VincentHardouin/comptrain-wod-history)
 .
 
 Nous pouvons aussi imaginer de nous passer de la base de données en nous basant sur un fichier JSON.
