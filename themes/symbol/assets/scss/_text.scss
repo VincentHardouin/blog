@@ -37,6 +37,11 @@ p {
   line-height: 1.6rem;
   color: $fiord;
   margin: 10px 0 20px;
+
+  img {
+    display: block;
+    width: 100%;
+  }
 }
 
 ul {
@@ -63,6 +68,23 @@ a {
   }
 }
 
+code {
+  position: relative;
+  display: inline-block;
+  z-index: 0;
+
+  &::before {
+    position: absolute;
+    top: 0.1em;
+    left: 0;
+    right: 0;
+    bottom: 0.1em;
+    background-color: #fafafa;
+    content: "";
+    z-index: -1;
+  }
+}
+
 html[data-theme="dark"] {
   h1, p, li {
     color: $catskill-white;
@@ -81,6 +103,23 @@ html[data-theme="dark"] {
 
     &:hover {
       color: $yellow-orange;
+    }
+  }
+
+  code {
+    position: relative;
+    display: inline-block;
+    z-index: 0;
+
+    &::before {
+      position: absolute;
+      top: 0.1em;
+      left: 0;
+      right: 0;
+      bottom: 0.1em;
+      background-color: #272822;
+      content: "";
+      z-index: -1;
     }
   }
 }

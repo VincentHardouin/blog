@@ -1,7 +1,9 @@
 baseURL = 'https://vincenthardouin.dev/'
-languageCode = 'fr-fr'
+languageCode = 'FR-fr'
+defaultContentLanguage = 'fr'
 theme = "symbol"
 title = 'Vincent Hardouin'
+enableInlineShortcodes = true
 
 [params]
   author = 'Vincent Hardouin'
