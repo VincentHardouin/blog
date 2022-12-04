@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/VincentHardouin/blog/compare/v2.1.1...v2.2.0) (2022-12-04)
+
+
+### Features
+
+* update about ([f1acae3](https://github.com/VincentHardouin/blog/commit/f1acae3ed5766dc577b0a5f5c46c8a007a29912b))
+
 ## [2.1.1](https://github.com/VincentHardouin/blog/compare/v2.1.0...v2.1.1) (2022-07-26)
 
 
