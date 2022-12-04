@@ -5,7 +5,7 @@ draft: false
 ---
 Salut ! Je m'appelle Vincent.
 
-Je suis développeur web full-stack. Je suis actuellement en 5ème et dernière année d'ingénieur à l'ECE Paris en alternance chez [Pix](https://pix.fr) depuis 2019.
+Je suis développeur web full-stack. Je suis en poste chez [Pix](https://pix.fr) depuis 2019.
 
 J'aime créer des sites web, des applications, des outils qui ont un réel intérêt pour les utilisateurs. J'apprécie particulièrement les secteurs du numérique, des services publics et du sport.
 
