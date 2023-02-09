@@ -13,9 +13,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -29,17 +30,17 @@ jobs:
           HUGO_PLAUSIBLE_URL: ${{ secrets.PLAUSIBLE_URL }}
           HUGO_DOMAIN: vincenthardouin.dev
 
-      - name: Release
-        run: |
-          npx -p @semantic-release/commit-analyzer \
-          -p @semantic-release/changelog \
-          -p @semantic-release/git \
-          -p @semantic-release/github \
-          -p @semantic-release/release-notes-generator \
-          -p semantic-release \
-          semantic-release
+      
+      - name: Semantic Release
+        id: semantic
+        uses: cycjimmy/semantic-release-action@v3
+        with:
+          semantic_version: 19
+          extra_plugins: |
+            @semantic-release/changelog@6.0.2
+            @semantic-release/git@10.0.1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
