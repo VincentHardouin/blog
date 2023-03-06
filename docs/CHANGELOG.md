@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/VincentHardouin/blog/compare/v2.2.0...v2.3.0) (2023-03-06)
+
+
+### Features
+
+* add diff post ([c0dd5be](https://github.com/VincentHardouin/blog/commit/c0dd5be060eb24fb3d29bc600a6645a8bb36d838))
+
 # [2.2.0](https://github.com/VincentHardouin/blog/compare/v2.1.1...v2.2.0) (2022-12-04)
 
 
