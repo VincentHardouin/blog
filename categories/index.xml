@@ -100,6 +100,25 @@ dossiers :&lt;/p>
 des sous-dossiers manquants.&lt;/p>
 &lt;p>Pour cela, nous allons utiliser la commande &lt;code>find&lt;/code> qui, en plus de pouvoir chercher un fichier, permet de lister les
 fichiers d&amp;rsquo;un dossier et de ses sous-dossiers.&lt;/p>
+&lt;p>Utilisée seule, elle donne :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">❯ find dir1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dir1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dir1/index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dir1/bar.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dir1/foo.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dir1/waldo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dir1/waldo/garply.html
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Comme nous pouvons le voir, elle nous donne le chemin complet des fichiers, ce qui n&amp;rsquo;est pas très pratique pour la
+suite. Nous utiliserons en plus la commande &lt;code>sed&lt;/code> qui permet de remplacer une chaîne de caractères pour ne pas avoir le
+nom du dossier dans lequel nous cherchons.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">❯ find dir1 &lt;span class="p">|&lt;/span> sed &lt;span class="s1">&amp;#39;s/dir1//g&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/bar.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/foo.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/waldo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/waldo/garply.html
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Nous obtenons donc le résultat que nous voulons pour pouvoir utiliser la commande &lt;code>comm&lt;/code>.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">❯ comm &amp;lt;&lt;span class="o">(&lt;/span>find dir1 &lt;span class="p">|&lt;/span> sed &lt;span class="s1">&amp;#39;s/dir1//g&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> sort&lt;span class="o">)&lt;/span> &amp;lt;&lt;span class="o">(&lt;/span>find dir2 &lt;span class="p">|&lt;/span> sed &lt;span class="s1">&amp;#39;s/dir2//g&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> sort&lt;span class="o">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/bar.html

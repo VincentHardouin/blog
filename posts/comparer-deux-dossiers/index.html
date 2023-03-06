@@ -64,7 +64,23 @@ dossiers :</p><div class=highlight><pre tabindex=0 class=chroma><code class=lang
 </span></span><span class=line><span class=cl>Only in dir1: waldo
 </span></span></code></pre></div><p>Cette commande nous permet de voir les différences entre les deux dossiers, mais nous ne pouvons pas voir les fichiers
 des sous-dossiers manquants.</p><p>Pour cela, nous allons utiliser la commande <code>find</code> qui, en plus de pouvoir chercher un fichier, permet de lister les
-fichiers d&rsquo;un dossier et de ses sous-dossiers.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>❯ comm &lt;<span class=o>(</span>find dir1 <span class=p>|</span> sed  <span class=s1>&#39;s/dir1//g&#39;</span> <span class=p>|</span> sort<span class=o>)</span> &lt;<span class=o>(</span>find dir2 <span class=p>|</span> sed <span class=s1>&#39;s/dir2//g&#39;</span> <span class=p>|</span> sort<span class=o>)</span>
+fichiers d&rsquo;un dossier et de ses sous-dossiers.</p><p>Utilisée seule, elle donne :</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>❯ find dir1
+</span></span><span class=line><span class=cl>dir1
+</span></span><span class=line><span class=cl>dir1/index.html
+</span></span><span class=line><span class=cl>dir1/bar.html
+</span></span><span class=line><span class=cl>dir1/foo.html
+</span></span><span class=line><span class=cl>dir1/waldo
+</span></span><span class=line><span class=cl>dir1/waldo/garply.html
+</span></span></code></pre></div><p>Comme nous pouvons le voir, elle nous donne le chemin complet des fichiers, ce qui n&rsquo;est pas très pratique pour la
+suite. Nous utiliserons en plus la commande <code>sed</code> qui permet de remplacer une chaîne de caractères pour ne pas avoir le
+nom du dossier dans lequel nous cherchons.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>❯ find dir1 <span class=p>|</span> sed <span class=s1>&#39;s/dir1//g&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>/index.html
+</span></span><span class=line><span class=cl>/bar.html
+</span></span><span class=line><span class=cl>/foo.html
+</span></span><span class=line><span class=cl>/waldo
+</span></span><span class=line><span class=cl>/waldo/garply.html
+</span></span></code></pre></div><p>Nous obtenons donc le résultat que nous voulons pour pouvoir utiliser la commande <code>comm</code>.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>❯ comm &lt;<span class=o>(</span>find dir1 <span class=p>|</span> sed  <span class=s1>&#39;s/dir1//g&#39;</span> <span class=p>|</span> sort<span class=o>)</span> &lt;<span class=o>(</span>find dir2 <span class=p>|</span> sed <span class=s1>&#39;s/dir2//g&#39;</span> <span class=p>|</span> sort<span class=o>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>/bar.html
 </span></span><span class=line><span class=cl>	/corge.html
