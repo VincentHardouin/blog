@@ -159,6 +159,34 @@ des sous-dossiers manquants.
 Pour cela, nous allons utiliser la commande `find` qui, en plus de pouvoir chercher un fichier, permet de lister les
 fichiers d'un dossier et de ses sous-dossiers.
 
+Utilisée seule, elle donne :
+
+```shell
+❯ find dir1
+dir1
+dir1/index.html
+dir1/bar.html
+dir1/foo.html
+dir1/waldo
+dir1/waldo/garply.html
+```
+
+Comme nous pouvons le voir, elle nous donne le chemin complet des fichiers, ce qui n'est pas très pratique pour la
+suite. Nous utiliserons en plus la commande `sed` qui permet de remplacer une chaîne de caractères pour ne pas avoir le
+nom du dossier dans lequel nous cherchons.
+
+```shell
+❯ find dir1 | sed 's/dir1//g'
+
+/index.html
+/bar.html
+/foo.html
+/waldo
+/waldo/garply.html
+```
+
+Nous obtenons donc le résultat que nous voulons pour pouvoir utiliser la commande `comm`.
+
 ```shell
 ❯ comm <(find dir1 | sed  's/dir1//g' | sort) <(find dir2 | sed 's/dir2//g' | sort)
 
