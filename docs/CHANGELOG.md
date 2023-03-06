@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/VincentHardouin/blog/compare/v2.3.0...v2.4.0) (2023-03-06)
+
+
+### Features
+
+* add some details on find command ([84a21a6](https://github.com/VincentHardouin/blog/commit/84a21a6afefacb950d18c64910dd224df9d45e99))
+
 # [2.3.0](https://github.com/VincentHardouin/blog/compare/v2.2.0...v2.3.0) (2023-03-06)
 
 
