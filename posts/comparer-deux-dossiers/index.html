@@ -1,0 +1,79 @@
+<!doctype html><html lang=fr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title itemprop=name>Comparer deux dossiers en ligne de commande | Vincent Hardouin</title><meta property="og:title" content="Comparer deux dossiers en ligne de commande | Vincent Hardouin"><meta name=twitter:title content="Comparer deux dossiers en ligne de commande | Vincent Hardouin"><meta itemprop=name content="Comparer deux dossiers en ligne de commande | Vincent Hardouin"><meta name=application-name content="Comparer deux dossiers en ligne de commande | Vincent Hardouin"><meta property="og:site_name" content><meta name=description content="Blog de tutorials, humeurs, … sur des sujets tech."><meta itemprop=description content="Blog de tutorials, humeurs, … sur des sujets tech."><meta property="og:description" content="Blog de tutorials, humeurs, … sur des sujets tech."><meta name=twitter:description content="Blog de tutorials, humeurs, … sur des sujets tech."><base href=https://vincenthardouin.dev/posts/comparer-deux-dossiers/><link rel=canonical href=https://vincenthardouin.dev/posts/comparer-deux-dossiers/ itemprop=url><meta name=url content="https://vincenthardouin.dev/posts/comparer-deux-dossiers/"><meta name=twitter:url content="https://vincenthardouin.dev/posts/comparer-deux-dossiers/"><meta property="og:url" content="https://vincenthardouin.dev/posts/comparer-deux-dossiers/"><meta property="og:locale" content="fr"><meta name=language content><meta itemprop=image content="https://opengraph.vincenthardouin.dev/cards/Comparer deux dossiers"><meta property="og:image" content="https://opengraph.vincenthardouin.dev/cards/Comparer deux dossiers"><meta name=twitter:image content="https://opengraph.vincenthardouin.dev/cards/Comparer deux dossiers"><meta name=twitter:image:src content="https://opengraph.vincenthardouin.dev/cards/Comparer deux dossiers"><link rel=preload href=/fonts/OpenSans-VariableFont_wdth,wght.ttf as=font type=font/ttf crossorigin><link rel=preload href=/fonts/Roboto-Regular.ttf as=font type=font/ttf crossorigin><link rel=stylesheet href=/scss/main.min.ed3d224b4ed46f9745f789d145635b0cd3beecff84c267a7bde7808c446a458a792fe74542b75da5ff512474ee95b573fa885e4f53807519e6eb8be0baa3c7cb.css integrity='sha512-7T0iS07Ub5dF94nRRWNbDNO+7P+EwmenveeAjERqRYp5L+dFQrddpf9RJHTulbVz+oheT1OAdRnm64vguqPHyw=='><link rel=icon type=image/x-icon href=/favicon.ico><script type=text/javascript src=/app.64d79f0041b25c855ed91588aa9086df52feddfd8332078ffc1d0434f29eb525ab33a151c0627829e4bcea5867a397fa885e25b43ed694c4694205176b217299.js integrity='sha512-ZNefAEGyXIVe2RWIqpCG31L+3f2DMgeP/B0ENPKetSWrM6FRwGJ4KeS86lhno5f6iF4ltD7WlMRpQgUXayFymQ==' defer></script><script type=text/javascript src=https://plausible.vincenthardouin.dev/js/plausible.js async defer data-domain=vincenthardouin.dev></script></head><body><header class=header><a class='flex header__title' href=/>Vincent Hardouin</a><nav class=header__navbar><ul class=navbar><li><a class=navbar__item href=/>Accueil</a></li><li><a class=navbar__item href=/a-propos>À propos</a></li></ul></nav><div class='flex phantom'></div></header><div id=content><article role=article class=post><div class=post__banner></div><div class=post__container><div class=post__date>02/08/2022</div><h1 class=post__title>Comparer deux dossiers en ligne de commande</h1><aside><nav id=TableOfContents><ul><li><a href=#1er-cas--comparer-deux-dossiers-sans-sous-dossiers>1er cas : comparer deux dossiers sans sous-dossiers</a></li><li><a href=#2ème-cas--comparer-deux-dossiers-avec-des-sous-dossiers>2ème cas : comparer deux dossiers avec des sous-dossiers</a></li><li><a href=#conclusion>Conclusion</a></li></ul></nav></aside><article class=post__content><p>Parfois, nous pouvons avoir besoin de comparer le contenu de deux dossiers et éventuellement de leurs sous-dossiers,
+sans
+comparer leur contenu, mais uniquement leur nom.</p><p>Si vous souhaitez comparer le contenu des fichiers, vous pouvez
+consulter <a href=https://jbuget.fr/posts/techniques-pour-fusionner-deux-versions-d-un-projet-shopify-grace-a-git/>l&rsquo;article de Jérémy Buget qui traite le sujet.</a></p><h2 id=1er-cas--comparer-deux-dossiers-sans-sous-dossiers>1er cas : comparer deux dossiers sans sous-dossiers</h2><p>Pour ce faire, j&rsquo;en suis arrivé à la commande suivante :</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>diff &lt;<span class=o>(</span>ls dir1<span class=o>)</span> &lt;<span class=o>(</span>ls dir2<span class=o>)</span>
+</span></span></code></pre></div><p>Ou encore pour avoir un autre affichage du diff :</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>diff --unified &lt;<span class=o>(</span>ls dir1<span class=o>)</span> &lt;<span class=o>(</span>ls dir2<span class=o>)</span>
+</span></span></code></pre></div><p>Dans cette commande, nous pouvons y trouver <code>&lt;()</code>.
+Il s&rsquo;agit
+du <a href=https://www.gnu.org/software/bash/manual/html_node/Process-Substitution.html#Process-Substitution>Process Substitution</a>
+qui permet d&rsquo;éviter de stocker le résultat d&rsquo;une commande dans un fichier temporaire pour s&rsquo;en servir ensuite.</p><p>Cela réduit considérablement le nombre de commandes, nous nous retrouvons avec les commandes du dessus au lieu de :</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>ls dir1 &gt; tmp_dir1.txt
+</span></span><span class=line><span class=cl>ls dir2 &gt; tmp_dir2.txt
+</span></span><span class=line><span class=cl>diff tmp_dir1.txt tmp_dir2.txt
+</span></span><span class=line><span class=cl>rm tmp_dir1.txt tmp_dir2.txt
+</span></span></code></pre></div><p>Revenons à nos premières commandes en analysant le résultat de celles-ci.</p><p>Pour les exemples suivants, j&rsquo;ai créé deux dossiers :</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>❯ tree
+</span></span><span class=line><span class=cl>.
+</span></span><span class=line><span class=cl>├── dir1
+</span></span><span class=line><span class=cl>│   ├── bar.html
+</span></span><span class=line><span class=cl>│   ├── foo.html
+</span></span><span class=line><span class=cl>│   ├── index.html
+</span></span><span class=line><span class=cl>│   └── waldo
+</span></span><span class=line><span class=cl>│       └── garply.html
+</span></span><span class=line><span class=cl>└── dir2
+</span></span><span class=line><span class=cl>    ├── corge.html
+</span></span><span class=line><span class=cl>    ├── foo.html
+</span></span><span class=line><span class=cl>    └── index.html
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=m>4</span> directories, <span class=m>7</span> files
+</span></span></code></pre></div><p>Nous pouvons donc voir que <code>foo.html</code> et <code>index.html</code> sont présents dans les deux dossiers, <code>bar.html</code>
+et <code>waldo/garply.html</code> uniquement dans le premier.</p><p>En lançant ces commandes, nous obtenons ce résultat :</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>❯ diff &lt;<span class=o>(</span>ls dir1<span class=o>)</span> &lt;<span class=o>(</span>ls dir2<span class=o>)</span>
+</span></span><span class=line><span class=cl>1c1
+</span></span><span class=line><span class=cl>&lt; bar.html
+</span></span><span class=line><span class=cl>---
+</span></span><span class=line><span class=cl>&gt; corge.html
+</span></span><span class=line><span class=cl>4d3
+</span></span><span class=line><span class=cl>&lt; waldo
+</span></span></code></pre></div><p>Cette commande renvoie uniquement les différences entre les deux dossiers.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>❯ diff --unified &lt;<span class=o>(</span>ls dir1<span class=o>)</span> &lt;<span class=o>(</span>ls dir2<span class=o>)</span>
+</span></span><span class=line><span class=cl>--- /dev/fd/11	2023-03-06 18:33:47
+</span></span><span class=line><span class=cl>+++ /dev/fd/12	2023-03-06 18:33:47
+</span></span><span class=line><span class=cl>@@ -1,4 +1,3 @@
+</span></span><span class=line><span class=cl>-bar.html
+</span></span><span class=line><span class=cl>+corge.html
+</span></span><span class=line><span class=cl> foo.html
+</span></span><span class=line><span class=cl> index.html
+</span></span><span class=line><span class=cl>-waldo
+</span></span></code></pre></div><p>Celle-ci, nous montre un diff façon git.</p><p>Ces commandes peuvent être suffisantes, mais nous pouvons aller plus loin et répondre à plus de cas d&rsquo;usage avec la
+commande <code>comm</code>.</p><p>Elle nous permet par exemple de voir uniquement les fichiers présents et/ou manquants dans un des dossiers.</p><p>Voyons voir le résultat de cette commande sans option :</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>❯ comm &lt;<span class=o>(</span>ls dir1<span class=o>)</span> &lt;<span class=o>(</span>ls dir2<span class=o>)</span>
+</span></span><span class=line><span class=cl>bar.html
+</span></span><span class=line><span class=cl>	corge.html
+</span></span><span class=line><span class=cl>		foo.html
+</span></span><span class=line><span class=cl>		index.html
+</span></span><span class=line><span class=cl>waldo
+</span></span></code></pre></div><p>Nous pouvons distinguer 3 colonnes séparées par des tabulations :</p><ul><li>La première correspond au fichier présent que dans le premier dossier</li><li>La deuxième, uniquement dans le second</li><li>La troisième, les fichiers en commun</li></ul><p>Nous nous retrouvons à mon sens avec un diff plus explicite.</p><p>Attention, il faut que les fichiers passés en paramètres soient triés par ordre alphabétique pour que la commande
+fonctionne correctement.</p><p>Maintenant que nous avons vu l&rsquo;usage basique, nous pouvons utiliser les options.
+Nous pouvons afficher des colonnes spécifiques grâce à l&rsquo;option <code>-</code> suivi
+des numéros de colonne à ne pas afficher.</p><p>Exemple :</p><ul><li>Afficher uniquement les fichiers en commun :</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>❯ comm -12 &lt;<span class=o>(</span>ls dir1<span class=o>)</span> &lt;<span class=o>(</span>ls dir2<span class=o>)</span>
+</span></span><span class=line><span class=cl>foo.html
+</span></span><span class=line><span class=cl>index.html
+</span></span></code></pre></div><ul><li>Afficher uniquement les fichiers manquants dans le deuxième dossier :</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>❯ comm -23 &lt;<span class=o>(</span>ls dir1<span class=o>)</span> &lt;<span class=o>(</span>ls dir2<span class=o>)</span>
+</span></span><span class=line><span class=cl>bar.html
+</span></span><span class=line><span class=cl>waldo
+</span></span></code></pre></div><h2 id=2ème-cas--comparer-deux-dossiers-avec-des-sous-dossiers>2ème cas : comparer deux dossiers avec des sous-dossiers</h2><p>Pour ce cas, nous allons utiliser la commande <code>diff</code> avec l&rsquo;option <code>-r</code> qui permet de comparer récursivement les
+dossiers :</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>❯ diff -r dir1 dir2
+</span></span><span class=line><span class=cl>Only in dir1: bar.html
+</span></span><span class=line><span class=cl>Only in dir2: corge.html
+</span></span><span class=line><span class=cl>Only in dir1: waldo
+</span></span></code></pre></div><p>Cette commande nous permet de voir les différences entre les deux dossiers, mais nous ne pouvons pas voir les fichiers
+des sous-dossiers manquants.</p><p>Pour cela, nous allons utiliser la commande <code>find</code> qui, en plus de pouvoir chercher un fichier, permet de lister les
+fichiers d&rsquo;un dossier et de ses sous-dossiers.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>❯ comm &lt;<span class=o>(</span>find dir1 <span class=p>|</span> sed  <span class=s1>&#39;s/dir1//g&#39;</span> <span class=p>|</span> sort<span class=o>)</span> &lt;<span class=o>(</span>find dir2 <span class=p>|</span> sed <span class=s1>&#39;s/dir2//g&#39;</span> <span class=p>|</span> sort<span class=o>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>/bar.html
+</span></span><span class=line><span class=cl>	/corge.html
+</span></span><span class=line><span class=cl>		/foo.html
+</span></span><span class=line><span class=cl>		/index.html
+</span></span><span class=line><span class=cl>/waldo
+</span></span><span class=line><span class=cl>/waldo/garply.html
+</span></span></code></pre></div><h2 id=conclusion>Conclusion</h2><p>Nous avons vu comment comparer deux dossiers en ligne de commande, avec ou sans sous-dossiers.
+L&rsquo;usage de comm nous permet, je trouve, d&rsquo;avoir un affichage plus explicite que celui de diff et de répondre à plus de
+cas d&rsquo;usage.</p><p>Si vous souhaitez voir un cas d&rsquo;usage de ces
+commandes <a href=https://github.com/1024pix/pix-site/pull/395>vous pouvez consulter cette Pull Request</a> où cela m&rsquo;a été
+utile.</p></article></div></article></div></body></html>
