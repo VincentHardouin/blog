@@ -1,3 +1,10 @@
+## [2.4.2](https://github.com/VincentHardouin/blog/compare/v2.4.1...v2.4.2) (2023-03-14)
+
+
+### Bug Fixes
+
+* update date ([1ba9fb9](https://github.com/VincentHardouin/blog/commit/1ba9fb99203aaaef13e31546fa1f1cb75de79cfd))
+
 ## [2.4.1](https://github.com/VincentHardouin/blog/compare/v2.4.0...v2.4.1) (2023-03-14)
 
 
