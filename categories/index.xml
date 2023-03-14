@@ -1,4 +1,139 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Categories on Vincent Hardouin</title><link>https://vincenthardouin.dev/categories/</link><description>Recent content in Categories on Vincent Hardouin</description><generator>Hugo -- gohugo.io</generator><language>FR-fr</language><atom:link href="https://vincenthardouin.dev/categories/index.xml" rel="self" type="application/rss+xml"/><item><title>Projet - Comptrain WOD history</title><link>https://vincenthardouin.dev/posts/comptrain-wod-history/</link><pubDate>Tue, 12 Jul 2022 11:07:00 +0200</pubDate><guid>https://vincenthardouin.dev/posts/comptrain-wod-history/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Categories on Vincent Hardouin</title><link>https://vincenthardouin.dev/categories/</link><description>Recent content in Categories on Vincent Hardouin</description><generator>Hugo -- gohugo.io</generator><language>FR-fr</language><atom:link href="https://vincenthardouin.dev/categories/index.xml" rel="self" type="application/rss+xml"/><item><title>Comparer deux dossiers en ligne de commande</title><link>https://vincenthardouin.dev/posts/comparer-deux-dossiers/</link><pubDate>Mon, 06 Mar 2023 21:07:00 +0200</pubDate><guid>https://vincenthardouin.dev/posts/comparer-deux-dossiers/</guid><description>&lt;p>Parfois, nous pouvons avoir besoin de comparer le contenu de deux dossiers et éventuellement de leurs sous-dossiers,
+sans
+comparer leur contenu, mais uniquement leur nom.&lt;/p>
+&lt;p>Si vous souhaitez comparer le contenu des fichiers, vous pouvez
+consulter &lt;a href="https://jbuget.fr/posts/techniques-pour-fusionner-deux-versions-d-un-projet-shopify-grace-a-git/">l&amp;rsquo;article de Jérémy Buget qui traite le sujet.&lt;/a>&lt;/p>
+&lt;h2 id="1er-cas--comparer-deux-dossiers-sans-sous-dossiers">1er cas : comparer deux dossiers sans sous-dossiers&lt;/h2>
+&lt;p>Pour ce faire, j&amp;rsquo;en suis arrivé à la commande suivante :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">diff &amp;lt;&lt;span class="o">(&lt;/span>ls dir1&lt;span class="o">)&lt;/span> &amp;lt;&lt;span class="o">(&lt;/span>ls dir2&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Ou encore pour avoir un autre affichage du diff :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">diff --unified &amp;lt;&lt;span class="o">(&lt;/span>ls dir1&lt;span class="o">)&lt;/span> &amp;lt;&lt;span class="o">(&lt;/span>ls dir2&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Dans cette commande, nous pouvons y trouver &lt;code>&amp;lt;()&lt;/code>.
+Il s&amp;rsquo;agit
+du &lt;a href="https://www.gnu.org/software/bash/manual/html_node/Process-Substitution.html#Process-Substitution">Process Substitution&lt;/a>
+qui permet d&amp;rsquo;éviter de stocker le résultat d&amp;rsquo;une commande dans un fichier temporaire pour s&amp;rsquo;en servir ensuite.&lt;/p>
+&lt;p>Cela réduit considérablement le nombre de commandes, nous nous retrouvons avec les commandes du dessus au lieu de :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">ls dir1 &amp;gt; tmp_dir1.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ls dir2 &amp;gt; tmp_dir2.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">diff tmp_dir1.txt tmp_dir2.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rm tmp_dir1.txt tmp_dir2.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Revenons à nos premières commandes en analysant le résultat de celles-ci.&lt;/p>
+&lt;p>Pour les exemples suivants, j&amp;rsquo;ai créé deux dossiers :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">❯ tree
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── dir1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│   ├── bar.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│   ├── foo.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│   ├── index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│   └── waldo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│   └── garply.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">└── dir2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ├── corge.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ├── foo.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> └── index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">4&lt;/span> directories, &lt;span class="m">7&lt;/span> files
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Nous pouvons donc voir que &lt;code>foo.html&lt;/code> et &lt;code>index.html&lt;/code> sont présents dans les deux dossiers, &lt;code>bar.html&lt;/code>
+et &lt;code>waldo/garply.html&lt;/code> uniquement dans le premier.&lt;/p>
+&lt;p>En lançant ces commandes, nous obtenons ce résultat :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">❯ diff &amp;lt;&lt;span class="o">(&lt;/span>ls dir1&lt;span class="o">)&lt;/span> &amp;lt;&lt;span class="o">(&lt;/span>ls dir2&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">1c1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt; bar.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">---
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; corge.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">4d3
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt; waldo
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Cette commande renvoie uniquement les différences entre les deux dossiers.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">❯ diff --unified &amp;lt;&lt;span class="o">(&lt;/span>ls dir1&lt;span class="o">)&lt;/span> &amp;lt;&lt;span class="o">(&lt;/span>ls dir2&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--- /dev/fd/11 2023-03-06 18:33:47
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">+++ /dev/fd/12 2023-03-06 18:33:47
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">@@ -1,4 +1,3 @@
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-bar.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">+corge.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> foo.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-waldo
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Celle-ci, nous montre un diff façon git.&lt;/p>
+&lt;p>Ces commandes peuvent être suffisantes, mais nous pouvons aller plus loin et répondre à plus de cas d&amp;rsquo;usage avec la
+commande &lt;code>comm&lt;/code>.&lt;/p>
+&lt;p>Elle nous permet par exemple de voir uniquement les fichiers présents et/ou manquants dans un des dossiers.&lt;/p>
+&lt;p>Voyons voir le résultat de cette commande sans option :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">❯ comm &amp;lt;&lt;span class="o">(&lt;/span>ls dir1&lt;span class="o">)&lt;/span> &amp;lt;&lt;span class="o">(&lt;/span>ls dir2&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">bar.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> corge.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> foo.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">waldo
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Nous pouvons distinguer 3 colonnes séparées par des tabulations :&lt;/p>
+&lt;ul>
+&lt;li>La première correspond au fichier présent que dans le premier dossier&lt;/li>
+&lt;li>La deuxième, uniquement dans le second&lt;/li>
+&lt;li>La troisième, les fichiers en commun&lt;/li>
+&lt;/ul>
+&lt;p>Nous nous retrouvons à mon sens avec un diff plus explicite.&lt;/p>
+&lt;p>Attention, il faut que les fichiers passés en paramètres soient triés par ordre alphabétique pour que la commande
+fonctionne correctement.&lt;/p>
+&lt;p>Maintenant que nous avons vu l&amp;rsquo;usage basique, nous pouvons utiliser les options.
+Nous pouvons afficher des colonnes spécifiques grâce à l&amp;rsquo;option &lt;code>-&lt;/code> suivi
+des numéros de colonne à ne pas afficher.&lt;/p>
+&lt;p>Exemple :&lt;/p>
+&lt;ul>
+&lt;li>Afficher uniquement les fichiers en commun :&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">❯ comm -12 &amp;lt;&lt;span class="o">(&lt;/span>ls dir1&lt;span class="o">)&lt;/span> &amp;lt;&lt;span class="o">(&lt;/span>ls dir2&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">foo.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">index.html
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Afficher uniquement les fichiers manquants dans le deuxième dossier :&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">❯ comm -23 &amp;lt;&lt;span class="o">(&lt;/span>ls dir1&lt;span class="o">)&lt;/span> &amp;lt;&lt;span class="o">(&lt;/span>ls dir2&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">bar.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">waldo
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="2ème-cas--comparer-deux-dossiers-avec-des-sous-dossiers">2ème cas : comparer deux dossiers avec des sous-dossiers&lt;/h2>
+&lt;p>Pour ce cas, nous allons utiliser la commande &lt;code>diff&lt;/code> avec l&amp;rsquo;option &lt;code>-r&lt;/code> qui permet de comparer récursivement les
+dossiers :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">❯ diff -r dir1 dir2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Only in dir1: bar.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Only in dir2: corge.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Only in dir1: waldo
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Cette commande nous permet de voir les différences entre les deux dossiers, mais nous ne pouvons pas voir les fichiers
+des sous-dossiers manquants.&lt;/p>
+&lt;p>Pour cela, nous allons utiliser la commande &lt;code>find&lt;/code> qui, en plus de pouvoir chercher un fichier, permet de lister les
+fichiers d&amp;rsquo;un dossier et de ses sous-dossiers.&lt;/p>
+&lt;p>Utilisée seule, elle donne :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">❯ find dir1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dir1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dir1/index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dir1/bar.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dir1/foo.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dir1/waldo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dir1/waldo/garply.html
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Comme nous pouvons le voir, elle nous donne le chemin complet des fichiers, ce qui n&amp;rsquo;est pas très pratique pour la
+suite. Nous utiliserons en plus la commande &lt;code>sed&lt;/code> qui permet de remplacer une chaîne de caractères pour ne pas avoir le
+nom du dossier dans lequel nous cherchons.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">❯ find dir1 &lt;span class="p">|&lt;/span> sed &lt;span class="s1">&amp;#39;s/dir1//g&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/bar.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/foo.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/waldo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/waldo/garply.html
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Nous obtenons donc le résultat que nous voulons pour pouvoir utiliser la commande &lt;code>comm&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">❯ comm &amp;lt;&lt;span class="o">(&lt;/span>find dir1 &lt;span class="p">|&lt;/span> sed &lt;span class="s1">&amp;#39;s/dir1//g&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> sort&lt;span class="o">)&lt;/span> &amp;lt;&lt;span class="o">(&lt;/span>find dir2 &lt;span class="p">|&lt;/span> sed &lt;span class="s1">&amp;#39;s/dir2//g&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> sort&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/bar.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> /corge.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> /foo.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> /index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/waldo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/waldo/garply.html
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="conclusion">Conclusion&lt;/h2>
+&lt;p>Nous avons vu comment comparer deux dossiers en ligne de commande, avec ou sans sous-dossiers.
+L&amp;rsquo;usage de comm nous permet, je trouve, d&amp;rsquo;avoir un affichage plus explicite que celui de diff et de répondre à plus de
+cas d&amp;rsquo;usage.&lt;/p>
+&lt;p>Si vous souhaitez voir un cas d&amp;rsquo;usage de ces
+commandes &lt;a href="https://github.com/1024pix/pix-site/pull/395">vous pouvez consulter cette Pull Request&lt;/a> où cela m&amp;rsquo;a été
+utile.&lt;/p></description></item><item><title>Projet - Comptrain WOD history</title><link>https://vincenthardouin.dev/posts/comptrain-wod-history/</link><pubDate>Tue, 12 Jul 2022 11:07:00 +0200</pubDate><guid>https://vincenthardouin.dev/posts/comptrain-wod-history/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
 &lt;p>J&amp;rsquo;ai récemment créé un projet pour historiser tous les WOD proposés par &lt;a href="https://comptrain.co/">Comptrain&lt;/a>.&lt;/p>
 &lt;p>La programmation de Comptrain est l&amp;rsquo;une des programmations de Crossfit les plus reconnues dans son milieu,
 notamment grâce à la renommée de son créateur &lt;a href="https://benbergeron.com/about/">Ben Bergeron&lt;/a>
@@ -158,142 +293,7 @@ suivante : &lt;a href="https://github.com/VincentHardouin/comptrain-wod-history"
 &lt;p>Nous pouvons aussi imaginer de nous passer de la base de données en nous basant sur un fichier JSON.
 Pour ce qui est de l&amp;rsquo;API, nous aurions pu
 utiliser &lt;a href="https://v3.nuxtjs.org/guide/features/server-routes">la solution de NuxtJS avec les servers&lt;/a>, mais je ne suis
-pas à l&amp;rsquo;aise avec ce couplage fort avec une solution.&lt;/p></description></item><item><title>Comparer deux dossiers en ligne de commande</title><link>https://vincenthardouin.dev/posts/comparer-deux-dossiers/</link><pubDate>Sun, 06 Mar 2022 21:07:00 +0200</pubDate><guid>https://vincenthardouin.dev/posts/comparer-deux-dossiers/</guid><description>&lt;p>Parfois, nous pouvons avoir besoin de comparer le contenu de deux dossiers et éventuellement de leurs sous-dossiers,
-sans
-comparer leur contenu, mais uniquement leur nom.&lt;/p>
-&lt;p>Si vous souhaitez comparer le contenu des fichiers, vous pouvez
-consulter &lt;a href="https://jbuget.fr/posts/techniques-pour-fusionner-deux-versions-d-un-projet-shopify-grace-a-git/">l&amp;rsquo;article de Jérémy Buget qui traite le sujet.&lt;/a>&lt;/p>
-&lt;h2 id="1er-cas--comparer-deux-dossiers-sans-sous-dossiers">1er cas : comparer deux dossiers sans sous-dossiers&lt;/h2>
-&lt;p>Pour ce faire, j&amp;rsquo;en suis arrivé à la commande suivante :&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">diff &amp;lt;&lt;span class="o">(&lt;/span>ls dir1&lt;span class="o">)&lt;/span> &amp;lt;&lt;span class="o">(&lt;/span>ls dir2&lt;span class="o">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Ou encore pour avoir un autre affichage du diff :&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">diff --unified &amp;lt;&lt;span class="o">(&lt;/span>ls dir1&lt;span class="o">)&lt;/span> &amp;lt;&lt;span class="o">(&lt;/span>ls dir2&lt;span class="o">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Dans cette commande, nous pouvons y trouver &lt;code>&amp;lt;()&lt;/code>.
-Il s&amp;rsquo;agit
-du &lt;a href="https://www.gnu.org/software/bash/manual/html_node/Process-Substitution.html#Process-Substitution">Process Substitution&lt;/a>
-qui permet d&amp;rsquo;éviter de stocker le résultat d&amp;rsquo;une commande dans un fichier temporaire pour s&amp;rsquo;en servir ensuite.&lt;/p>
-&lt;p>Cela réduit considérablement le nombre de commandes, nous nous retrouvons avec les commandes du dessus au lieu de :&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">ls dir1 &amp;gt; tmp_dir1.txt
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ls dir2 &amp;gt; tmp_dir2.txt
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">diff tmp_dir1.txt tmp_dir2.txt
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rm tmp_dir1.txt tmp_dir2.txt
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Revenons à nos premières commandes en analysant le résultat de celles-ci.&lt;/p>
-&lt;p>Pour les exemples suivants, j&amp;rsquo;ai créé deux dossiers :&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">❯ tree
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">.
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── dir1
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│   ├── bar.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│   ├── foo.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│   ├── index.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│   └── waldo
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│   └── garply.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">└── dir2
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ├── corge.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ├── foo.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> └── index.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">4&lt;/span> directories, &lt;span class="m">7&lt;/span> files
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Nous pouvons donc voir que &lt;code>foo.html&lt;/code> et &lt;code>index.html&lt;/code> sont présents dans les deux dossiers, &lt;code>bar.html&lt;/code>
-et &lt;code>waldo/garply.html&lt;/code> uniquement dans le premier.&lt;/p>
-&lt;p>En lançant ces commandes, nous obtenons ce résultat :&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">❯ diff &amp;lt;&lt;span class="o">(&lt;/span>ls dir1&lt;span class="o">)&lt;/span> &amp;lt;&lt;span class="o">(&lt;/span>ls dir2&lt;span class="o">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">1c1
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt; bar.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">---
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; corge.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">4d3
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt; waldo
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Cette commande renvoie uniquement les différences entre les deux dossiers.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">❯ diff --unified &amp;lt;&lt;span class="o">(&lt;/span>ls dir1&lt;span class="o">)&lt;/span> &amp;lt;&lt;span class="o">(&lt;/span>ls dir2&lt;span class="o">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--- /dev/fd/11 2023-03-06 18:33:47
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">+++ /dev/fd/12 2023-03-06 18:33:47
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">@@ -1,4 +1,3 @@
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-bar.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">+corge.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> foo.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> index.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-waldo
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Celle-ci, nous montre un diff façon git.&lt;/p>
-&lt;p>Ces commandes peuvent être suffisantes, mais nous pouvons aller plus loin et répondre à plus de cas d&amp;rsquo;usage avec la
-commande &lt;code>comm&lt;/code>.&lt;/p>
-&lt;p>Elle nous permet par exemple de voir uniquement les fichiers présents et/ou manquants dans un des dossiers.&lt;/p>
-&lt;p>Voyons voir le résultat de cette commande sans option :&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">❯ comm &amp;lt;&lt;span class="o">(&lt;/span>ls dir1&lt;span class="o">)&lt;/span> &amp;lt;&lt;span class="o">(&lt;/span>ls dir2&lt;span class="o">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">bar.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> corge.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> foo.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> index.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">waldo
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Nous pouvons distinguer 3 colonnes séparées par des tabulations :&lt;/p>
-&lt;ul>
-&lt;li>La première correspond au fichier présent que dans le premier dossier&lt;/li>
-&lt;li>La deuxième, uniquement dans le second&lt;/li>
-&lt;li>La troisième, les fichiers en commun&lt;/li>
-&lt;/ul>
-&lt;p>Nous nous retrouvons à mon sens avec un diff plus explicite.&lt;/p>
-&lt;p>Attention, il faut que les fichiers passés en paramètres soient triés par ordre alphabétique pour que la commande
-fonctionne correctement.&lt;/p>
-&lt;p>Maintenant que nous avons vu l&amp;rsquo;usage basique, nous pouvons utiliser les options.
-Nous pouvons afficher des colonnes spécifiques grâce à l&amp;rsquo;option &lt;code>-&lt;/code> suivi
-des numéros de colonne à ne pas afficher.&lt;/p>
-&lt;p>Exemple :&lt;/p>
-&lt;ul>
-&lt;li>Afficher uniquement les fichiers en commun :&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">❯ comm -12 &amp;lt;&lt;span class="o">(&lt;/span>ls dir1&lt;span class="o">)&lt;/span> &amp;lt;&lt;span class="o">(&lt;/span>ls dir2&lt;span class="o">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">foo.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">index.html
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
-&lt;li>Afficher uniquement les fichiers manquants dans le deuxième dossier :&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">❯ comm -23 &amp;lt;&lt;span class="o">(&lt;/span>ls dir1&lt;span class="o">)&lt;/span> &amp;lt;&lt;span class="o">(&lt;/span>ls dir2&lt;span class="o">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">bar.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">waldo
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="2ème-cas--comparer-deux-dossiers-avec-des-sous-dossiers">2ème cas : comparer deux dossiers avec des sous-dossiers&lt;/h2>
-&lt;p>Pour ce cas, nous allons utiliser la commande &lt;code>diff&lt;/code> avec l&amp;rsquo;option &lt;code>-r&lt;/code> qui permet de comparer récursivement les
-dossiers :&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">❯ diff -r dir1 dir2
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Only in dir1: bar.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Only in dir2: corge.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Only in dir1: waldo
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Cette commande nous permet de voir les différences entre les deux dossiers, mais nous ne pouvons pas voir les fichiers
-des sous-dossiers manquants.&lt;/p>
-&lt;p>Pour cela, nous allons utiliser la commande &lt;code>find&lt;/code> qui, en plus de pouvoir chercher un fichier, permet de lister les
-fichiers d&amp;rsquo;un dossier et de ses sous-dossiers.&lt;/p>
-&lt;p>Utilisée seule, elle donne :&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">❯ find dir1
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dir1
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dir1/index.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dir1/bar.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dir1/foo.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dir1/waldo
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dir1/waldo/garply.html
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Comme nous pouvons le voir, elle nous donne le chemin complet des fichiers, ce qui n&amp;rsquo;est pas très pratique pour la
-suite. Nous utiliserons en plus la commande &lt;code>sed&lt;/code> qui permet de remplacer une chaîne de caractères pour ne pas avoir le
-nom du dossier dans lequel nous cherchons.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">❯ find dir1 &lt;span class="p">|&lt;/span> sed &lt;span class="s1">&amp;#39;s/dir1//g&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/index.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/bar.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/foo.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/waldo
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/waldo/garply.html
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Nous obtenons donc le résultat que nous voulons pour pouvoir utiliser la commande &lt;code>comm&lt;/code>.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">❯ comm &amp;lt;&lt;span class="o">(&lt;/span>find dir1 &lt;span class="p">|&lt;/span> sed &lt;span class="s1">&amp;#39;s/dir1//g&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> sort&lt;span class="o">)&lt;/span> &amp;lt;&lt;span class="o">(&lt;/span>find dir2 &lt;span class="p">|&lt;/span> sed &lt;span class="s1">&amp;#39;s/dir2//g&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> sort&lt;span class="o">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/bar.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> /corge.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> /foo.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> /index.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/waldo
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/waldo/garply.html
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="conclusion">Conclusion&lt;/h2>
-&lt;p>Nous avons vu comment comparer deux dossiers en ligne de commande, avec ou sans sous-dossiers.
-L&amp;rsquo;usage de comm nous permet, je trouve, d&amp;rsquo;avoir un affichage plus explicite que celui de diff et de répondre à plus de
-cas d&amp;rsquo;usage.&lt;/p>
-&lt;p>Si vous souhaitez voir un cas d&amp;rsquo;usage de ces
-commandes &lt;a href="https://github.com/1024pix/pix-site/pull/395">vous pouvez consulter cette Pull Request&lt;/a> où cela m&amp;rsquo;a été
-utile.&lt;/p></description></item><item><title>Pourquoi vous devriez faire un dotfiles</title><link>https://vincenthardouin.dev/posts/pourquoi-vous-devriez-faire-un-dotfiles/</link><pubDate>Wed, 27 Oct 2021 11:07:00 +0200</pubDate><guid>https://vincenthardouin.dev/posts/pourquoi-vous-devriez-faire-un-dotfiles/</guid><description>&lt;p>Pour mon premier article, je souhaite vous partager comment je mets en place mon environnement de travail facilement.&lt;/p>
+pas à l&amp;rsquo;aise avec ce couplage fort avec une solution.&lt;/p></description></item><item><title>Pourquoi vous devriez faire un dotfiles</title><link>https://vincenthardouin.dev/posts/pourquoi-vous-devriez-faire-un-dotfiles/</link><pubDate>Wed, 27 Oct 2021 11:07:00 +0200</pubDate><guid>https://vincenthardouin.dev/posts/pourquoi-vous-devriez-faire-un-dotfiles/</guid><description>&lt;p>Pour mon premier article, je souhaite vous partager comment je mets en place mon environnement de travail facilement.&lt;/p>
 &lt;p>Pour cela, j&amp;rsquo;utilise un dotfiles, dossier vous permettant de mettre en place votre configuration, via notamment les
 fichiers de configs .zshrc, .vimrc, …&lt;/p>
 &lt;p>Je vous incite dès aujourd&amp;rsquo;hui à vous créer un dotfiles, et ce pour plusieurs raisons :&lt;/p>
