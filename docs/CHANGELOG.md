@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/VincentHardouin/blog/compare/v2.4.2...v2.5.0) (2023-03-14)
+
+
+### Features
+
+* add workflow dispatch ([762d773](https://github.com/VincentHardouin/blog/commit/762d77367468f24f4532c3978de808a3e2da813d))
+
 ## [2.4.2](https://github.com/VincentHardouin/blog/compare/v2.4.1...v2.4.2) (2023-03-14)
 
 
