@@ -1,3 +1,10 @@
+# [2.6.0](https://github.com/VincentHardouin/blog/compare/v2.5.0...v2.6.0) (2023-05-22)
+
+
+### Features
+
+* add external post ([4543c96](https://github.com/VincentHardouin/blog/commit/4543c96dfa3f63665ba22344e5b155905c2d0a28))
+
 # [2.5.0](https://github.com/VincentHardouin/blog/compare/v2.4.2...v2.5.0) (2023-03-14)
 
 
