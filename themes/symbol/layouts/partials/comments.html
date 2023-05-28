@@ -1,0 +1,25 @@
+{{ if .Site.Params.Comments.Enabled }}
+{{- with .Site.Params.Comments.Giscus }}
+{{- if or (not .repo) (not .repo_id) (not .category) (not .category_id) }}
+{{- errorf "[giscus] repo, repo_id, category and category_id are required." }}
+{{- end }}
+{{- $lang := default $.Site.Language.Lang }}
+<script src='https://giscus.app/client.js'
+        data-repo='{{ .repo }}'
+        data-repo-id='{{ .repo_id }}'
+        data-category='{{ .category }}'
+        data-category-id='{{ .category_id }}'
+        data-mapping='{{ .mapping }}'
+        data-strict='{{ .strict }}'
+        data-reactions-enabled='{{ .reactions_enabled }}'
+        data-input-position='{{ .input_position }}'
+        data-emit-metadata='{{ .emit_metadata }}'
+        data-lang='{{ $lang }}'
+        data-loading='lazy'
+        data-theme='{{ .theme }}'
+        crossorigin='anonymous'
+        async>
+</script>
+<noscript>Please enable JavaScript to view the comments powered by giscus.</noscript>
+{{ end }}
+{{ end }}

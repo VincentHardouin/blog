@@ -10,6 +10,26 @@ enableInlineShortcodes = true
   description = 'Blog de tutorials, humeurs, … sur des sujets tech.'
   mainSections = ['posts', 'external_posts']
 
+  [params.comments]
+    enabled = true
+    provider = "giscus"
+
+    commentable = {page = false, posts = true}
+
+    [params.comments.giscus]
+      repo = "VincentHardouin/blog"
+      repo_id = "MDEwOlJlcG9zaXRvcnk0MDM2OTk5MTk="
+      category = "Announcements"
+      category_id = "DIC_kwDOGA_4z84CWyji"
+      mapping = "title"
+      strict = 0
+      label = "comment"
+      theme = "preferred_color_scheme"
+      input_position = "bottom"
+      emit_metadata = 0
+      reactions_enabled = 1
+
+
 [markup]
   [markup.highlight]
     noclasses = false
