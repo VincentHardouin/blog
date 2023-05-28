@@ -1,3 +1,10 @@
+# [2.7.0](https://github.com/VincentHardouin/blog/compare/v2.6.0...v2.7.0) (2023-05-28)
+
+
+### Features
+
+* add comments ([9a570ce](https://github.com/VincentHardouin/blog/commit/9a570ced7c2f0ed8e0122412cd8cfc7fac5141d5))
+
 # [2.6.0](https://github.com/VincentHardouin/blog/compare/v2.5.0...v2.6.0) (2023-05-22)
 
 
