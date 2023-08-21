@@ -1,3 +1,10 @@
+# [2.9.0](https://github.com/VincentHardouin/blog/compare/v2.8.0...v2.9.0) (2023-08-21)
+
+
+### Features
+
+* add git recent branches post en ([a86607b](https://github.com/VincentHardouin/blog/commit/a86607b185d2f317a5f7d465c1b27ff6de5d95ca))
+
 # [2.8.0](https://github.com/VincentHardouin/blog/compare/v2.7.0...v2.8.0) (2023-08-17)
 
 
