@@ -62,6 +62,9 @@
   <!-- Favicon -->
   <link rel='icon' type='image/x-icon' href='/favicon.ico'>
 
+  <!-- Sitemap -->
+  <link rel='sitemap' type='application/xml' title='Sitemap' href='{{ "sitemap.xml" | absURL }}'>
+
   <!-- Scripts -->
   {{ $opts := dict "targetPath" "app.js" "minify" "true" "sourceMap" "inline" }}
   {{ $built := resources.Get "js/index.js" | js.Build $opts }}
