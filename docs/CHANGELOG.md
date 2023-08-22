@@ -1,3 +1,10 @@
+## [2.9.1](https://github.com/VincentHardouin/blog/compare/v2.9.0...v2.9.1) (2023-08-22)
+
+
+### Bug Fixes
+
+* add sitemap link in head ([5fcfc30](https://github.com/VincentHardouin/blog/commit/5fcfc303db8bc7c9758bc1902b7ad2a3722dae62))
+
 # [2.9.0](https://github.com/VincentHardouin/blog/compare/v2.8.0...v2.9.0) (2023-08-21)
 
 
