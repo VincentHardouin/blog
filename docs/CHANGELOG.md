@@ -1,3 +1,10 @@
+# [2.11.0](https://github.com/VincentHardouin/blog/compare/v2.10.0...v2.11.0) (2023-12-06)
+
+
+### Features
+
+* remove external post in sitemap ([e0d21fe](https://github.com/VincentHardouin/blog/commit/e0d21fe056105b3f970f3b98e28fcd4f3e710de2))
+
 # [2.10.0](https://github.com/VincentHardouin/blog/compare/v2.9.1...v2.10.0) (2023-12-06)
 
 
