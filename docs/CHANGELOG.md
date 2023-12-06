@@ -1,3 +1,10 @@
+## [2.11.2](https://github.com/VincentHardouin/blog/compare/v2.11.1...v2.11.2) (2023-12-06)
+
+
+### Bug Fixes
+
+* use hugo default format ([d4d5a80](https://github.com/VincentHardouin/blog/commit/d4d5a8014134394607f029f9e4877d98f5d0f98a))
+
 ## [2.11.1](https://github.com/VincentHardouin/blog/compare/v2.11.0...v2.11.1) (2023-12-06)
 
 
