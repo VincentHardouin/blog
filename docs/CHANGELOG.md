@@ -1,3 +1,10 @@
+## [2.11.1](https://github.com/VincentHardouin/blog/compare/v2.11.0...v2.11.1) (2023-12-06)
+
+
+### Bug Fixes
+
+* sitemap ([cb983f3](https://github.com/VincentHardouin/blog/commit/cb983f379fc2381d224f76db30527f6efb67cb72))
+
 # [2.11.0](https://github.com/VincentHardouin/blog/compare/v2.10.0...v2.11.0) (2023-12-06)
 
 
