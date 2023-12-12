@@ -1,3 +1,10 @@
+# [2.12.0](https://github.com/VincentHardouin/blog/compare/v2.11.2...v2.12.0) (2023-12-12)
+
+
+### Features
+
+* finish sauvegarder ses newsletters ([9390450](https://github.com/VincentHardouin/blog/commit/93904507917eedd98831e3eb1ef2b18930e51ba2))
+
 ## [2.11.2](https://github.com/VincentHardouin/blog/compare/v2.11.1...v2.11.2) (2023-12-06)
 
 
