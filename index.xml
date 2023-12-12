@@ -1,4 +1,27 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Vincent Hardouin</title><link>https://vincenthardouin.dev/</link><description>Recent content on Vincent Hardouin</description><generator>Hugo -- gohugo.io</generator><language>FR-fr</language><lastBuildDate>Thu, 17 Aug 2023 12:06:07 +0200</lastBuildDate><atom:link href="https://vincenthardouin.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Switch to previous branches with git</title><link>https://vincenthardouin.dev/posts/switch-to-previous-branches-with-git/</link><pubDate>Thu, 17 Aug 2023 12:06:07 +0200</pubDate><guid>https://vincenthardouin.dev/posts/switch-to-previous-branches-with-git/</guid><description>&lt;p>When we work on a project with git, we regularly switch branches for different reasons: working on a new feature while
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Vincent Hardouin</title><link>https://vincenthardouin.dev/</link><description>Recent content on Vincent Hardouin</description><generator>Hugo -- gohugo.io</generator><language>FR-fr</language><lastBuildDate>Tue, 07 Nov 2023 12:30:56 +0100</lastBuildDate><atom:link href="https://vincenthardouin.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Sauvegarder ses Newsletters</title><link>https://vincenthardouin.dev/posts/sauvegarder-ses-newsletters/</link><pubDate>Tue, 07 Nov 2023 12:30:56 +0100</pubDate><guid>https://vincenthardouin.dev/posts/sauvegarder-ses-newsletters/</guid><description>&lt;p>Je suis abonné à de nombreuses newsletters qui fournissent ce contenu exclusivement par e-mail.
+Craignant leurs pertes et voulant facilement les retrouver dans
+mon &lt;a href="https://fortelabs.com/blog/basboverview/">second cerveau&lt;/a> : Obsidian, j&amp;rsquo;ai cherché une solution pour récupérer le
+contenu des mails et les sauvegarder en markdown.&lt;/p>
+&lt;p>En regardant rapidement, je n&amp;rsquo;ai pas trouvé de solution pour faire ce que je souhaitais.
+J&amp;rsquo;ai par conséquent voulu résoudre ce problème moi-même.&lt;/p>
+&lt;p>Le plus long aura été de choisir une librairie JavaScript pour se connecter à un serveur IMAP.
+J&amp;rsquo;ai créé un package npm pour récupérer les e-mails depuis un expéditeur sur un serveur IMAP, les
+convertir en Markdown et les enregistrer à l&amp;rsquo;endroit voulu.&lt;/p>
+&lt;h2 id="utilisation">Utilisation&lt;/h2>
+&lt;ul>
+&lt;li>Créer un fichier d&amp;rsquo;environnement contenant les variables suivantes :&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-env" data-lang="env">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">IMAP_HOST&lt;/span>&lt;span class="o">=&lt;/span>&amp;lt;imap host&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">IMAP_PORT&lt;/span>&lt;span class="o">=&lt;/span>&amp;lt;imap port&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">IMAP_USERNAME&lt;/span>&lt;span class="o">=&lt;/span>&amp;lt;imap username&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">IMAP_PASSWORD&lt;/span>&lt;span class="o">=&lt;/span>&amp;lt;imap password&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Utiliser le package comme suit :&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">npx email-backup --envFile &amp;lt;path to env file&amp;gt; --from &amp;lt;expeditor&amp;gt; --output &amp;lt;output directory&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="conclusion">Conclusion&lt;/h2>
+&lt;p>Désormais, je peux faire tourner des crons pour automatiser les sauvegardes des newsletters et pouvoir chercher dedans
+facilement grâce à mon second cerveau.&lt;/p></description></item><item><title>Switch to previous branches with git</title><link>https://vincenthardouin.dev/posts/switch-to-previous-branches-with-git/</link><pubDate>Thu, 17 Aug 2023 12:06:07 +0200</pubDate><guid>https://vincenthardouin.dev/posts/switch-to-previous-branches-with-git/</guid><description>&lt;p>When we work on a project with git, we regularly switch branches for different reasons: working on a new feature while
 another is in review, taking into account review feedbacks, doing a review, etc.&lt;/p>
 &lt;p>It can be interesting to quickly switch to a branch that we have recently used.
 We can use the &lt;code>git switch -&lt;/code> command which allows us to switch to the last used branch.&lt;/p>
