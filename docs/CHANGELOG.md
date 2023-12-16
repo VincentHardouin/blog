@@ -1,3 +1,15 @@
+# [2.13.0](https://github.com/VincentHardouin/blog/compare/v2.12.0...v2.13.0) (2023-12-16)
+
+
+### Bug Fixes
+
+* syntax highlighting env ([34329e5](https://github.com/VincentHardouin/blog/commit/34329e5350b827657525c878c05712d4a6219fd2))
+
+
+### Features
+
+* add envoyer des notifications avec les automations homekit ([163b475](https://github.com/VincentHardouin/blog/commit/163b475b92f8183a86c48f2ea295ee1f91773904))
+
 # [2.12.0](https://github.com/VincentHardouin/blog/compare/v2.11.2...v2.12.0) (2023-12-12)
 
 
