@@ -1,4 +1,117 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Categories on Vincent Hardouin</title><link>https://vincenthardouin.dev/categories/</link><description>Recent content in Categories on Vincent Hardouin</description><generator>Hugo -- gohugo.io</generator><language>FR-fr</language><atom:link href="https://vincenthardouin.dev/categories/index.xml" rel="self" type="application/rss+xml"/><item><title>Sauvegarder ses Newsletters</title><link>https://vincenthardouin.dev/posts/sauvegarder-ses-newsletters/</link><pubDate>Tue, 07 Nov 2023 12:30:56 +0100</pubDate><guid>https://vincenthardouin.dev/posts/sauvegarder-ses-newsletters/</guid><description>&lt;p>Je suis abonné à de nombreuses newsletters qui fournissent ce contenu exclusivement par e-mail.
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Categories on Vincent Hardouin</title><link>https://vincenthardouin.dev/categories/</link><description>Recent content in Categories on Vincent Hardouin</description><generator>Hugo -- gohugo.io</generator><language>FR-fr</language><atom:link href="https://vincenthardouin.dev/categories/index.xml" rel="self" type="application/rss+xml"/><item><title>Envoyer des notifications avec les automations HomeKit</title><link>https://vincenthardouin.dev/posts/envoyer-des-notifications-avec-les-automations-homekit/</link><pubDate>Fri, 15 Dec 2023 11:34:07 +0200</pubDate><guid>https://vincenthardouin.dev/posts/envoyer-des-notifications-avec-les-automations-homekit/</guid><description>&lt;h2 id="contexte">Contexte&lt;/h2>
+&lt;p>Apple propose Shortcuts depuis 2018. C&amp;rsquo;est une application qui permet de créer/utiliser des automations sur iOS, macOS
+et plus récemment pour HomeKit en se lançant sur le Hub de la maison.
+Cependant, du fait que ces automatisations s&amp;rsquo;exécutent directement sur le Hub de la maison, elles ne peuvent pas
+bénéficier des applications tierces telles que PushCut, Controller, Scriptable, qui simplifient ces processus.&lt;/p>
+&lt;p>Nous allons donc explorer une méthode pour contourner cette limitation et envoyer des notifications via les
+automatisations HomeKit.&lt;/p>
+&lt;h2 id="prérequis">Prérequis&lt;/h2>
+&lt;p>Un Hub HomeKit (Apple TV, HomePod, iPad)&lt;/p>
+&lt;h2 id="recevoir-des-notifications">Recevoir des notifications&lt;/h2>
+&lt;p>Dans mon idée, je voulais que les personnes concernées par une notification en reçoivent une.
+Par exemple, si la dernière personne qui part de la maison a oublié de ferme les fenêtres, alors elle reçoit une
+notification.&lt;/p>
+&lt;p>Dans les faits, il n&amp;rsquo;est pas possible de faire cela avec les automations HomeKit, car il n&amp;rsquo;est pas possible de savoir
+qui a déclenché l&amp;rsquo;automation.&lt;/p>
+&lt;p>Nous allons donc créer une automation qui va envoyer une notification à toutes les personnes de la maison.&lt;/p>
+&lt;p>Pour envoyer la notification, l&amp;rsquo;idéal serait de pouvoir le faire via une requête HTTP. Cela tombe bien, car il existe
+un service qui permet de faire cela : &lt;a href="https://ntfy.org/">Ntfy&lt;/a>.&lt;/p>
+&lt;h3 id="plan-gratuit-de-ntfy">Plan Gratuit de Ntfy&lt;/h3>
+&lt;p>Le plan gratuit de Ntfy autorise l&amp;rsquo;envoi de 250 notifications par mois, amplement suffisant pour notre usage. Si vous
+souhaitez soutenir le projet, vous pouvez prendre un abonnement ou le sponsoriser.&lt;/p>
+&lt;p>La limitation du plan gratuit est de ne pas pouvoir protéger les topics.
+Il faut donc générer un topic avec un nom aléatoire et surtout, il ne faudra jamais publier d&amp;rsquo;information personnelle
+dessus.&lt;/p>
+&lt;h3 id="self-hosted">Self-hosted&lt;/h3>
+&lt;p>Si vous préférez, vous pouvez aussi héberger votre propre instance de Ntfy, en suivant les instructions de
+&lt;a href="https://docs.ntfy.sh/install/">la documentation de Ntfy&lt;/a>.&lt;/p>
+&lt;p>Attention à bien protéger votre
+instance, &lt;a href="https://docs.ntfy.sh/config/#access-control">en activant les contrôles d&amp;rsquo;accès&lt;/a>.&lt;/p>
+&lt;p>Personnellement, j&amp;rsquo;ai ajouté &lt;a href="https://www.authelia.com/">Authelia&lt;/a> par-dessus, pour en plus empêcher l&amp;rsquo;accès à l'
+interface web.&lt;/p>
+&lt;h3 id="télécharger-lapplication-ntfy">Télécharger l&amp;rsquo;application Ntfy&lt;/h3>
+&lt;p>Une fois votre topic créé, vous pouvez télécharger l&amp;rsquo;application Ntfy sur votre téléphone, puis vous devez vous abonner
+à votre topic.&lt;/p>
+&lt;h3 id="envoi-dune-notification">Envoi d&amp;rsquo;une notification&lt;/h3>
+&lt;p>Vous pouvez ensuite essayer d&amp;rsquo;envoyer une notification depuis un terminal avec la commande suivante :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">curl -X POST -H &lt;span class="s1">&amp;#39;Title: Titre de la notification&amp;#39;&lt;/span> -d &lt;span class="s1">&amp;#39;Ceci est un test &amp;#39;&lt;/span> https://ntfy.sh/&amp;lt;topic&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Maintenant, nous savons recevoir des notifications, nous allons pouvoir créer notre automation qui envoie cette
+notification.&lt;/p>
+&lt;h2 id="créer-une-automation">Créer une automation&lt;/h2>
+&lt;p>Nous allons sur l&amp;rsquo;application Home, puis sur l&amp;rsquo;onglet Automation, puis sur le bouton + en haut à droite.&lt;/p>
+&lt;p>Pour l&amp;rsquo;exemple, nous allons choisir le déclencheur &amp;ldquo;Quand la dernière personne quitte la maison&amp;rdquo;.
+Nous voulons ensuite faire un shortcut, donc tout en bas, nous choisissons &amp;ldquo;Convertir en raccourci&amp;rdquo;.
+Puis, nous ajoutons l&amp;rsquo;action &amp;ldquo;Récupérer une page web&amp;rdquo;.&lt;/p>
+&lt;p>Nous choisissons ensuite la méthode POST, et là le drame.
+Nous pouvons voir qu&amp;rsquo;Apple propose uniquement du JSON, un formulaire ou des fichiers, mais pas de texte brut, nous
+sommes bien embêtés.&lt;/p>
+&lt;p>Heureusement, Ntfy a prévu ce cas avec la possibilité d&amp;rsquo;appeler la ressource &lt;code>/&lt;/code> avec du JSON.&lt;/p>
+&lt;p>Notre curl précédent devient donc :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">curl -X POST -d &lt;span class="s1">&amp;#39;{ &amp;#34;topic:&amp;#34;&amp;lt;topic&amp;gt;&amp;#34;, &amp;#34;title&amp;#34;: &amp;#34;Titre de la notification&amp;#34;, &amp;#34;message&amp;#34;: &amp;#34;Ceci est un test&amp;#34; }&amp;#39;&lt;/span> https://ntfy.sh/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Notez que le topic est désormais dans le JSON.&lt;/p>
+&lt;p>Nous pouvons donc finaliser notre action :&lt;/p>
+&lt;p>&lt;img src="action-recuperer-une-page-web.png" alt="Action Récupérer une page web">&lt;/p>
+&lt;h2 id="conclusion">Conclusion&lt;/h2>
+&lt;p>Ntfy, nous a permis d&amp;rsquo;envoyer des notifications depuis les automations HomeKit. Nous pouvons aussi nous en servir depuis
+les Shortcuts, et reste une solution intéressante pour envoyer des notifications depuis un script.&lt;/p>
+&lt;p>N&amp;rsquo;hésitez pas à soutenir le projet si vous l&amp;rsquo;utilisez !&lt;/p></description></item><item><title>Send notifications with HomeKit automations</title><link>https://vincenthardouin.dev/posts/send-notifications-with-homekit-automations/</link><pubDate>Fri, 15 Dec 2023 11:34:07 +0200</pubDate><guid>https://vincenthardouin.dev/posts/send-notifications-with-homekit-automations/</guid><description>&lt;h2 id="context">Context&lt;/h2>
+&lt;p>Apple has been offering Shortcuts since 2018. It&amp;rsquo;s an app that lets you create/use automations on iOS, macOS
+and more recently for HomeKit by launching on the Home Hub.
+However, because these automations run directly on the Home Hub, they cannot
+benefit from third-party applications such as PushCut, Controller, Scriptable, which simplify these processes.&lt;/p>
+&lt;p>So we&amp;rsquo;re going to explore a method of getting around this limitation and sending notifications via
+HomeKit automations.&lt;/p>
+&lt;h2 id="prerequisites">Prerequisites&lt;/h2>
+&lt;p>A HomeKit Hub (Apple TV, HomePod, iPad)&lt;/p>
+&lt;h2 id="receiving-notifications-with-ntfy">Receiving notifications with NTFY&lt;/h2>
+&lt;p>In my idea, I wanted the people involved in a notification to receive one.
+For example, if the last person to leave the house forgot to close the windows, then they&amp;rsquo;d receive a
+notification.&lt;/p>
+&lt;p>In practice, it&amp;rsquo;s not possible to do this with HomeKit automations, as there&amp;rsquo;s no way of knowing who triggered the
+automation.
+who triggered the automation.&lt;/p>
+&lt;p>So we&amp;rsquo;re going to create an automation that will send a notification to everyone in the house.&lt;/p>
+&lt;p>Ideally, the notification should be sent via an HTTP request. That&amp;rsquo;s ideal, because there&amp;rsquo;s
+service that lets you do just that: &lt;a href="https://ntfy.org/">Ntfy&lt;/a>.&lt;/p>
+&lt;h3 id="free-tier">Free Tier&lt;/h3>
+&lt;p>Ntfy&amp;rsquo;s free plan allows you to send 250 notifications per month, more than enough for our purposes. If you&amp;rsquo;d
+support the project, you can subscribe or sponsor it.&lt;/p>
+&lt;p>The limitation of the free plan is that you can&amp;rsquo;t protect your topics.
+You&amp;rsquo;ll need to generate a topic with a random name and, above all, never publish personal information on it.
+on it.&lt;/p>
+&lt;h3 id="self-hosted">Self-hosted&lt;/h3>
+&lt;p>f you prefer, you can also host your own instance of Ntfy, following the instructions in
+&lt;a href="https://docs.ntfy.sh/install/">Ntfy documentation&lt;/a>.&lt;/p>
+&lt;p>Be sure to protect your
+instance, &lt;a href="https://docs.ntfy.sh/config/#access-control">by enabling access controls&lt;/a>.&lt;/p>
+&lt;p>Personally, I&amp;rsquo;ve added &lt;a href="https://www.authelia.com/">Authelia&lt;/a> on top, to prevent access to the
+web interface.&lt;/p>
+&lt;h3 id="download-the-ntfy-application">Download the Ntfy application&lt;/h3>
+&lt;p>Once you&amp;rsquo;ve created your topic, you can download the Ntfy application onto your phone, then subscribe to your topic.
+to your topic.&lt;/p>
+&lt;h3 id="send-a-notification">Send a notification&lt;/h3>
+&lt;p>You can then try sending a notification from a terminal with the following command:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">curl -X POST -H &lt;span class="s1">&amp;#39;Title: Notification title&amp;#39;&lt;/span> -d &lt;span class="s1">&amp;#39;This is a test&amp;#39;&lt;/span> https://ntfy.sh/&amp;lt;topic&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now that we know how to receive notifications, we can create our own automation to send this
+notification.&lt;/p>
+&lt;h2 id="create-an-automation">Create an automation&lt;/h2>
+&lt;p>We go to Home app, then to the Automation tab, then to the + button in the top right-hand corner.&lt;/p>
+&lt;p>For the example, we&amp;rsquo;ll choose the trigger &amp;ldquo;When the last person leaves the house&amp;rdquo;.
+We then want to make a shortcut, so at the very bottom we choose &amp;ldquo;Convert to shortcut&amp;rdquo;.
+Then we add the action &amp;ldquo;Retrieve a web page&amp;rdquo;.&lt;/p>
+&lt;p>Then we choose the POST method, and there&amp;rsquo;s the drama.
+We can see that Apple only offers JSON, a form or files, but not plain text.
+so we&amp;rsquo;re in a bit of a bind.&lt;/p>
+&lt;p>Fortunately, Ntfy has foreseen this case with the possibility of calling the &lt;code>/&lt;/code> resource with JSON.&lt;/p>
+&lt;p>Our previous curl thus becomes :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">curl -X POST -d &lt;span class="s1">&amp;#39;{ &amp;#34;topic:&amp;#34;&amp;lt;topic&amp;gt;&amp;#34;, &amp;#34;title&amp;#34;: &amp;#34;Notification title&amp;#34;, &amp;#34;message&amp;#34;: &amp;#34;This is a test&amp;#34; }&amp;#39;&lt;/span> https://ntfy.sh/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Note that the topic is now in JSON.&lt;/p>
+&lt;p>We can now finalize our action:&lt;/p>
+&lt;p>&lt;img src="action-recuperer-une-page-web.png" alt="Get contents of">&lt;/p>
+&lt;h2 id="conclusion">Conclusion&lt;/h2>
+&lt;p>Ntfy has enabled us to send notifications from HomeKit automations. We can also use it from Shortcuts
+Shortcuts, and remains an interesting solution for sending notifications from a script.&lt;/p>
+&lt;p>Don&amp;rsquo;t hesitate to support the project if you use it!&lt;/p></description></item><item><title>Sauvegarder ses Newsletters</title><link>https://vincenthardouin.dev/posts/sauvegarder-ses-newsletters/</link><pubDate>Tue, 07 Nov 2023 12:30:56 +0100</pubDate><guid>https://vincenthardouin.dev/posts/sauvegarder-ses-newsletters/</guid><description>&lt;p>Je suis abonné à de nombreuses newsletters qui fournissent ce contenu exclusivement par e-mail.
 Craignant leurs pertes et voulant facilement les retrouver dans
 mon &lt;a href="https://fortelabs.com/blog/basboverview/">second cerveau&lt;/a> : Obsidian, j&amp;rsquo;ai cherché une solution pour récupérer le
 contenu des mails et les sauvegarder en markdown.&lt;/p>
@@ -11,10 +124,10 @@ convertir en Markdown et les enregistrer à l&amp;rsquo;endroit voulu.&lt;/p>
 &lt;ul>
 &lt;li>Créer un fichier d&amp;rsquo;environnement contenant les variables suivantes :&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-env" data-lang="env">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">IMAP_HOST&lt;/span>&lt;span class="o">=&lt;/span>&amp;lt;imap host&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">IMAP_PORT&lt;/span>&lt;span class="o">=&lt;/span>&amp;lt;imap port&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">IMAP_USERNAME&lt;/span>&lt;span class="o">=&lt;/span>&amp;lt;imap username&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">IMAP_PASSWORD&lt;/span>&lt;span class="o">=&lt;/span>&amp;lt;imap password&amp;gt;
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">IMAP_HOST&lt;/span>&lt;span class="o">=&amp;lt;&lt;/span>&lt;span class="n">imap&lt;/span> &lt;span class="n">host&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">IMAP_PORT&lt;/span>&lt;span class="o">=&amp;lt;&lt;/span>&lt;span class="n">imap&lt;/span> &lt;span class="n">port&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">IMAP_USERNAME&lt;/span>&lt;span class="o">=&amp;lt;&lt;/span>&lt;span class="n">imap&lt;/span> &lt;span class="n">username&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">IMAP_PASSWORD&lt;/span>&lt;span class="o">=&amp;lt;&lt;/span>&lt;span class="n">imap&lt;/span> &lt;span class="n">password&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>Utiliser le package comme suit :&lt;/li>
 &lt;/ul>
