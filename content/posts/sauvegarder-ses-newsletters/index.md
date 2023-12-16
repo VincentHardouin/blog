@@ -20,7 +20,7 @@ convertir en Markdown et les enregistrer à l'endroit voulu.
 
 - Créer un fichier d'environnement contenant les variables suivantes :
 
-```env
+```python
 IMAP_HOST=<imap host>
 IMAP_PORT=<imap port>
 IMAP_USERNAME=<imap username>
