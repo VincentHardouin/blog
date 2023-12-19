@@ -82,8 +82,6 @@ on it.&lt;/p>
 &lt;a href="https://docs.ntfy.sh/install/">Ntfy documentation&lt;/a>.&lt;/p>
 &lt;p>Be sure to protect your
 instance, &lt;a href="https://docs.ntfy.sh/config/#access-control">by enabling access controls&lt;/a>.&lt;/p>
-&lt;p>Personally, I&amp;rsquo;ve added &lt;a href="https://www.authelia.com/">Authelia&lt;/a> on top, to prevent access to the
-web interface.&lt;/p>
 &lt;h3 id="download-the-ntfy-application">Download the Ntfy application&lt;/h3>
 &lt;p>Once you&amp;rsquo;ve created your topic, you can download the Ntfy application onto your phone, then subscribe to your topic.
 to your topic.&lt;/p>
