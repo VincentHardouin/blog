@@ -1,3 +1,10 @@
+## [2.13.1](https://github.com/VincentHardouin/blog/compare/v2.13.0...v2.13.1) (2023-12-19)
+
+
+### Bug Fixes
+
+* remove authelia ([42dc09b](https://github.com/VincentHardouin/blog/commit/42dc09bca3636dc64e0e91ec6bb79b979a4ac655))
+
 # [2.13.0](https://github.com/VincentHardouin/blog/compare/v2.12.0...v2.13.0) (2023-12-16)
 
 
