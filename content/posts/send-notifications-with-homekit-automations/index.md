@@ -44,7 +44,7 @@ on it.
 
 ### Self-hosted
 
-f you prefer, you can also host your own instance of Ntfy, following the instructions in
+If you prefer, you can also host your own instance of Ntfy, following the instructions in
 [Ntfy documentation](https://docs.ntfy.sh/install/).
 
 Be sure to protect your
