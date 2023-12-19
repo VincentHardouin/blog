@@ -78,7 +78,7 @@ support the project, you can subscribe or sponsor it.&lt;/p>
 You&amp;rsquo;ll need to generate a topic with a random name and, above all, never publish personal information on it.
 on it.&lt;/p>
 &lt;h3 id="self-hosted">Self-hosted&lt;/h3>
-&lt;p>f you prefer, you can also host your own instance of Ntfy, following the instructions in
+&lt;p>If you prefer, you can also host your own instance of Ntfy, following the instructions in
 &lt;a href="https://docs.ntfy.sh/install/">Ntfy documentation&lt;/a>.&lt;/p>
 &lt;p>Be sure to protect your
 instance, &lt;a href="https://docs.ntfy.sh/config/#access-control">by enabling access controls&lt;/a>.&lt;/p>

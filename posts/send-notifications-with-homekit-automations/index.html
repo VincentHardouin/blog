@@ -11,7 +11,7 @@ who triggered the automation.</p><p>So we&rsquo;re going to create an automation
 service that lets you do just that: <a href=https://ntfy.org/>Ntfy</a>.</p><h3 id=free-tier>Free Tier</h3><p>Ntfy&rsquo;s free plan allows you to send 250 notifications per month, more than enough for our purposes. If you&rsquo;d
 support the project, you can subscribe or sponsor it.</p><p>The limitation of the free plan is that you can&rsquo;t protect your topics.
 You&rsquo;ll need to generate a topic with a random name and, above all, never publish personal information on it.
-on it.</p><h3 id=self-hosted>Self-hosted</h3><p>f you prefer, you can also host your own instance of Ntfy, following the instructions in
+on it.</p><h3 id=self-hosted>Self-hosted</h3><p>If you prefer, you can also host your own instance of Ntfy, following the instructions in
 <a href=https://docs.ntfy.sh/install/>Ntfy documentation</a>.</p><p>Be sure to protect your
 instance, <a href=https://docs.ntfy.sh/config/#access-control>by enabling access controls</a>.</p><h3 id=download-the-ntfy-application>Download the Ntfy application</h3><p>Once you&rsquo;ve created your topic, you can download the Ntfy application onto your phone, then subscribe to your topic.
 to your topic.</p><h3 id=send-a-notification>Send a notification</h3><p>You can then try sending a notification from a terminal with the following command:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>curl -X POST -H <span class=s1>&#39;Title: Notification title&#39;</span> -d <span class=s1>&#39;This is a test&#39;</span> https://ntfy.sh/&lt;topic&gt;
