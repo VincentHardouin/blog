@@ -50,9 +50,6 @@ f you prefer, you can also host your own instance of Ntfy, following the instruc
 Be sure to protect your
 instance, [by enabling access controls](https://docs.ntfy.sh/config/#access-control).
 
-Personally, I've added [Authelia](https://www.authelia.com/) on top, to prevent access to the
-web interface.
-
 ### Download the Ntfy application
 
 Once you've created your topic, you can download the Ntfy application onto your phone, then subscribe to your topic.
