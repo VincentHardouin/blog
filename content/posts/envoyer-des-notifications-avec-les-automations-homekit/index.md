@@ -49,9 +49,6 @@ Si vous préférez, vous pouvez aussi héberger votre propre instance de Ntfy, e
 Attention à bien protéger votre
 instance, [en activant les contrôles d'accès](https://docs.ntfy.sh/config/#access-control).
 
-Personnellement, j'ai ajouté [Authelia](https://www.authelia.com/) par-dessus, pour en plus empêcher l'accès à l'
-interface web.
-
 ### Télécharger l'application Ntfy
 
 Une fois votre topic créé, vous pouvez télécharger l'application Ntfy sur votre téléphone, puis vous devez vous abonner
