@@ -27,8 +27,6 @@ dessus.&lt;/p>
 &lt;a href="https://docs.ntfy.sh/install/">la documentation de Ntfy&lt;/a>.&lt;/p>
 &lt;p>Attention à bien protéger votre
 instance, &lt;a href="https://docs.ntfy.sh/config/#access-control">en activant les contrôles d&amp;rsquo;accès&lt;/a>.&lt;/p>
-&lt;p>Personnellement, j&amp;rsquo;ai ajouté &lt;a href="https://www.authelia.com/">Authelia&lt;/a> par-dessus, pour en plus empêcher l&amp;rsquo;accès à l'
-interface web.&lt;/p>
 &lt;h3 id="télécharger-lapplication-ntfy">Télécharger l&amp;rsquo;application Ntfy&lt;/h3>
 &lt;p>Une fois votre topic créé, vous pouvez télécharger l&amp;rsquo;application Ntfy sur votre téléphone, puis vous devez vous abonner
 à votre topic.&lt;/p>
