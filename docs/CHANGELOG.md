@@ -1,3 +1,10 @@
+## [2.13.4](https://github.com/VincentHardouin/blog/compare/v2.13.3...v2.13.4) (2023-12-24)
+
+
+### Bug Fixes
+
+* typo ([8b061dd](https://github.com/VincentHardouin/blog/commit/8b061dd8fbfb2f0603b778e2c4130a965c4c2474))
+
 ## [2.13.3](https://github.com/VincentHardouin/blog/compare/v2.13.2...v2.13.3) (2023-12-19)
 
 
