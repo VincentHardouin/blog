@@ -30,7 +30,7 @@ IMAP_PASSWORD=<imap password>
 - Utiliser le package comme suit :
 
 ```bash
-npx email-backup --envFile <path to env file> --from <expeditor> --output <output directory>
+npx email-backup --envPath <path to env file> --from <expeditor> --output <output directory>
 ```
 
 ## Conclusion
