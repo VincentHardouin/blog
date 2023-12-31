@@ -1,3 +1,10 @@
+## [2.16.1](https://github.com/VincentHardouin/blog/compare/v2.16.0...v2.16.1) (2023-12-31)
+
+
+### Bug Fixes
+
+* remove comment on /posts ([a1ce3c2](https://github.com/VincentHardouin/blog/commit/a1ce3c2159284bffbb004aa8b2eab216445ba63c))
+
 # [2.16.0](https://github.com/VincentHardouin/blog/compare/v2.15.0...v2.16.0) (2023-12-31)
 
 
