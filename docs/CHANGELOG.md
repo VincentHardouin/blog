@@ -1,3 +1,10 @@
+# [2.16.0](https://github.com/VincentHardouin/blog/compare/v2.15.0...v2.16.0) (2023-12-31)
+
+
+### Features
+
+* add previous/next link ([37bc610](https://github.com/VincentHardouin/blog/commit/37bc61083af03201ae41cd83cea887ecfc04244a))
+
 # [2.15.0](https://github.com/VincentHardouin/blog/compare/v2.14.1...v2.15.0) (2023-12-31)
 
 
