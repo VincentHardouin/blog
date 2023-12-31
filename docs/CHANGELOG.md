@@ -1,3 +1,10 @@
+## [2.14.1](https://github.com/VincentHardouin/blog/compare/v2.14.0...v2.14.1) (2023-12-31)
+
+
+### Bug Fixes
+
+* text position in card ([60a2fec](https://github.com/VincentHardouin/blog/commit/60a2fec4e99187c191a6873f3d283e51f191681f))
+
 # [2.14.0](https://github.com/VincentHardouin/blog/compare/v2.13.4...v2.14.0) (2023-12-31)
 
 
