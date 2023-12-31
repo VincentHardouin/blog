@@ -31,17 +31,12 @@
   {{ end }}
 
   <!-- Image Tags -->
-  {{ with .Params.seoImageUrl }}
-  <meta itemprop='image' content='{{ . }}' />
-  <meta property='og:image' content='{{ .  }}' />
-  <meta name='twitter:image' content='{{ .  }}' />
-  <meta name='twitter:image:src' content='{{ . }}' />
-  {{ else }}
-  <meta itemprop='image' content='{{ .Site.Params.ogimage | absURL }}' />
-  <meta property='og:image' content='{{ .Site.Params.ogimage | absURL }}' />
-  <meta name='twitter:image' content='{{ .Site.Params.ogimage | absURL }}' />
-  <meta name='twitter:image:src' content='{{ .Site.Params.ogimage | absURL }}' />
-  {{ end }}
+  {{ $slug := index (split .File.Path "/") 1 }}
+  {{ $cardUrl := printf "card/%s.png" $slug | absURL }}
+  <meta property='og:image' content='{{ $cardUrl }}' />
+  <meta itemprop='image' content='{{ $cardUrl }}' />
+  <meta name='twitter:card' content='summary_large_image' />
+  <meta name='twitter:image' content='{{ $cardUrl }}' />
 
   <!-- RSS -->
   {{ range .AlternativeOutputFormats -}}
