@@ -1,3 +1,11 @@
+# [2.15.0](https://github.com/VincentHardouin/blog/compare/v2.14.1...v2.15.0) (2023-12-31)
+
+
+### Features
+
+* add animation ([be37b60](https://github.com/VincentHardouin/blog/commit/be37b6075578a2b2b037b89d2a28f59f9eb213f1))
+* add turbo ([bb3352c](https://github.com/VincentHardouin/blog/commit/bb3352cbb8ca1c4cf532b3607a572b2f95723221))
+
 ## [2.14.1](https://github.com/VincentHardouin/blog/compare/v2.14.0...v2.14.1) (2023-12-31)
 
 
