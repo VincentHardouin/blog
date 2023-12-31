@@ -12,6 +12,22 @@
     <article class='post__content slide-enter-content'>
       {{ .Content }}
     </article>
+    <div class='post__actions'>
+      <div>
+        {{ $pages := where .Site.RegularPages "Section" "posts" }}
+        {{ with $pages.Next . }}
+        <a href='{{ .RelPermalink }}'>Précédent</a>
+        {{ end }}
+      </div>
+
+      <a href='/'>Retour à la page d'accueil</a>
+
+      <div>
+        {{ with $pages.Prev . }}
+        <a href='{{ .RelPermalink }}'>Suivant</a>
+        {{ end }}
+      </div>
+    </div>
   </div>
 </article>
 {{ end }}

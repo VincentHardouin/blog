@@ -33,6 +33,12 @@
     font-weight: $font-normal;
     text-align: left;
   }
+
+  &__actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 html[data-theme="dark"] .post {
