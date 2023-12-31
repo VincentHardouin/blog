@@ -1,7 +1,9 @@
 <footer>
+  {{ if $.IsPage }}
   {{ range $key, $value := .Site.Params.Comments.Commentable }}
   {{ if and (eq $key $.Type) $value }}
   {{ partial "comments" $ }}
+  {{ end }}
   {{ end }}
   {{ end }}
 </footer>
