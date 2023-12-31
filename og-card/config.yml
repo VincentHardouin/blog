@@ -2,7 +2,7 @@ template: og-card/card-template.png
 title:
   start:
     px: 250
-    py: 250
+    py: 230
   fgHexColor: "#FF9F1C"
   fontSize: 50
   maxWidth: 700
