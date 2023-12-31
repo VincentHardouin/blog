@@ -19,11 +19,20 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      - name: Setup Go
+        uses: actions/setup-go@v4
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
           extended: true
+
+      - name: Install tcardgen
+        run: go install github.com/VincentHardouin/tcardgen@feat-allow-disabled
+
+      - name: Generate Card
+        run: ./og-card/generate.sh
 
       - name: Build
         run: hugo --minify
@@ -31,7 +40,6 @@ jobs:
           HUGO_PLAUSIBLE_URL: ${{ secrets.PLAUSIBLE_URL }}
           HUGO_DOMAIN: vincenthardouin.dev
 
-      
       - name: Semantic Release
         id: semantic
         uses: cycjimmy/semantic-release-action@v3
