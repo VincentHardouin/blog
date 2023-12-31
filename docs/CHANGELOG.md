@@ -1,3 +1,13 @@
+# [2.14.0](https://github.com/VincentHardouin/blog/compare/v2.13.4...v2.14.0) (2023-12-31)
+
+
+### Features
+
+* add config to generate card ([ba81532](https://github.com/VincentHardouin/blog/commit/ba81532409f0628c080d57cefe252ec85fff642d))
+* add static dir ([f039698](https://github.com/VincentHardouin/blog/commit/f0396988bd4145a6c6ab81d5201bd9cc4816a262))
+* gen card in deployment ([d365f8c](https://github.com/VincentHardouin/blog/commit/d365f8c8fcccf172eac595252dc15dc5dad78d3d))
+* use new card in head ([97c96a8](https://github.com/VincentHardouin/blog/commit/97c96a80c2ca30611d0d705fcb877d214feee952))
+
 ## [2.13.4](https://github.com/VincentHardouin/blog/compare/v2.13.3...v2.13.4) (2023-12-24)
 
 
