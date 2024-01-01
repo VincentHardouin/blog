@@ -1,3 +1,10 @@
+## [2.16.2](https://github.com/VincentHardouin/blog/compare/v2.16.1...v2.16.2) (2024-01-01)
+
+
+### Bug Fixes
+
+* remove warning in head ([f42d09e](https://github.com/VincentHardouin/blog/commit/f42d09e634262201a96cff31dce8cb24c9bd78b0))
+
 ## [2.16.1](https://github.com/VincentHardouin/blog/compare/v2.16.0...v2.16.1) (2023-12-31)
 
 
