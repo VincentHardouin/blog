@@ -31,12 +31,14 @@
   {{ end }}
 
   <!-- Image Tags -->
+  {{ with .File }}
   {{ $slug := index (split .File.Path "/") 1 }}
   {{ $cardUrl := printf "card/%s.png" $slug | absURL }}
   <meta property='og:image' content='{{ $cardUrl }}' />
   <meta itemprop='image' content='{{ $cardUrl }}' />
   <meta name='twitter:card' content='summary_large_image' />
   <meta name='twitter:image' content='{{ $cardUrl }}' />
+  {{ end }}
 
   <!-- RSS -->
   {{ range .AlternativeOutputFormats -}}
