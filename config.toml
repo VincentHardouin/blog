@@ -8,7 +8,7 @@ enableInlineShortcodes = true
 [params]
   author = 'Vincent Hardouin'
   description = 'Blog de tutorials, humeurs, … sur des sujets tech.'
-  mainSections = ['posts', 'external_posts']
+  mainSections = ['posts', 'external_posts', 'projects']
 
   [params.comments]
     enabled = true
