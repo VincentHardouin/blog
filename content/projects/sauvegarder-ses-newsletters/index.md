@@ -1,5 +1,5 @@
 ---
-title: "Sauvegarder ses Newsletters"
+title: "Sauvegarder ses Newsletters | E-mail backup"
 date: 2023-11-07T12:30:56+01:00
 draft: false
 ---
@@ -37,3 +37,5 @@ npx email-backup --envPath <path to env file> --from <expeditor> --output <outpu
 
 Désormais, je peux faire tourner des crons pour automatiser les sauvegardes des newsletters et pouvoir chercher dedans
 facilement grâce à mon second cerveau.
+
+Vous pouvez retrouver le code source sur [GitHub](https://github.com/VincentHardouin/email-backup).
