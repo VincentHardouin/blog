@@ -1,0 +1,8 @@
+<ul>
+  {{ range .Page.Pages }}
+  <li>
+    {{ $link := .Params.ExternalLink | default .Permalink }}
+    <a href='{{ $link }}'>{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
+  </li>
+  {{ end }}
+</ul>
