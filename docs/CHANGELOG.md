@@ -1,3 +1,17 @@
+# [2.17.0](https://github.com/VincentHardouin/blog/compare/v2.16.2...v2.17.0) (2024-01-02)
+
+
+### Features
+
+* add list shortcode ([9596a32](https://github.com/VincentHardouin/blog/commit/9596a32ba4786ce74f175fe8615ee1ce74e2ddeb))
+* add projects in main sections to show it in index page ([5af2c10](https://github.com/VincentHardouin/blog/commit/5af2c102fb9c0504a7c6068a08a74949feb86315))
+* add projects index ([feac628](https://github.com/VincentHardouin/blog/commit/feac6288acc2aea323a307e45489fe822deec212))
+* create cards/card shortcodes ([e5a1e95](https://github.com/VincentHardouin/blog/commit/e5a1e95cadd8baa3d71ef2728773512d7020c826))
+* move project in dedicated section ([d664680](https://github.com/VincentHardouin/blog/commit/d664680a838cefbe6adeca0cce36ee66cf530e71))
+* reduce animation time ([7cab51d](https://github.com/VincentHardouin/blog/commit/7cab51d69540f1b5ad77a5b8002cdb0eb33ea22f))
+* replace post index page to add list ([f28031e](https://github.com/VincentHardouin/blog/commit/f28031e8217b53d22e702cbb5eb98f0e1349b0e2))
+* update list layout ([e27b5b3](https://github.com/VincentHardouin/blog/commit/e27b5b3e2173ed44671d0d476f31105dc859fc2d))
+
 ## [2.16.2](https://github.com/VincentHardouin/blog/compare/v2.16.1...v2.16.2) (2024-01-01)
 
 
