@@ -1,3 +1,10 @@
+# [2.18.0](https://github.com/VincentHardouin/blog/compare/v2.17.0...v2.18.0) (2024-01-02)
+
+
+### Features
+
+* add projects in navbar ([f8ff0ef](https://github.com/VincentHardouin/blog/commit/f8ff0efd9226dc17527bcf11922d062213bb8974))
+
 # [2.17.0](https://github.com/VincentHardouin/blog/compare/v2.16.2...v2.17.0) (2024-01-02)
 
 
