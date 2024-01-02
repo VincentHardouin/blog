@@ -38,7 +38,7 @@
   html:not(.no-sliding) .slide-enter,
   html:not(.no-sliding) .slide-enter-content > *:not(:has(.table-of-contents)) {
     --enter-stage: 0;
-    --enter-step: 90ms;
+    --enter-step: 60ms;
     --enter-initial: 0ms;
     animation: slide-enter 1s both 1;
     animation-delay: calc(
