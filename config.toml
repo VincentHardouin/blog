@@ -40,6 +40,10 @@ enableInlineShortcodes = true
     url = "/"
     weight = 1
   [[menu.main]]
+      name = "Projets"
+      url = "/projects"
+      weight = 2
+  [[menu.main]]
     name = "À propos"
     url = "/a-propos"
-    weight = 2
+    weight = 3
