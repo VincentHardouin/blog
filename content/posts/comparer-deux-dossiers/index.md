@@ -1,6 +1,5 @@
 ---
 title: "Comparer deux dossiers en ligne de commande"
-seoImageUrl: https://opengraph.vincenthardouin.dev/cards/Comparer deux dossiers
 date: 2023-03-06T21:07:00+02:00
 draft: false
 ---

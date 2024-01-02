@@ -1,9 +1,9 @@
 ---
 title: "Pourquoi vous devriez faire un dotfiles"
-seoImageUrl: https://opengraph.vincenthardouin.dev/cards/Pourquoi vous devriez faire un dotfiles
 date: 2021-10-27T11:07:00+02:00
 draft: false
 ---
+
 Pour mon premier article, je souhaite vous partager comment je mets en place mon environnement de travail facilement.
 
 Pour cela, j'utilise un dotfiles, dossier vous permettant de mettre en place votre configuration, via notamment les
