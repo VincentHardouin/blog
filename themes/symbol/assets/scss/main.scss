@@ -12,6 +12,10 @@
 @import 'partials/comments';
 @import 'partials/header';
 
+// Shortcodes
+@import 'shortcodes/cards';
+@import 'shortcodes/card';
+
 // Pages
 @import 'pages/index';
 @import 'pages/post';

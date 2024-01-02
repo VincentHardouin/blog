@@ -1,0 +1,46 @@
+.card {
+  display: block;
+  justify-content: flex-start;
+  overflow: hidden;
+  flex-direction: column;
+  border-style: solid;
+  border-radius: .5rem;
+  border-width: 1px;
+  border-color: $catskill-white;
+  text-decoration: none;
+  padding: 1rem;
+  color: $fiord;
+  text-align: initial;
+
+  &:hover {
+    background-color: darken($white, 5%);
+  }
+}
+
+
+.card__title {
+  font-family: $font-open-sans;
+  font-weight: $font-semi-bold;
+  font-size: 1.1875rem;
+}
+
+.card__subtitle {
+  margin-top: 8px;
+  font-size: .875rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+html[data-theme="dark"] {
+  a.card {
+    background-color: $charade;
+    color: $catskill-white;
+
+    &:hover {
+      background-color: lighten($charade, 5%);
+      color: $catskill-white;
+    }
+  }
+}

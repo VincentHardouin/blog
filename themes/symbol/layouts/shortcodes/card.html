@@ -1,0 +1,72 @@
+{{- $context := . -}}
+{{- $link := .Get "link" -}}
+{{- $title := .Get "title" -}}
+{{- $icon := .Get "icon" -}}
+{{- $subtitle := .Get "subtitle" -}}
+{{- $image := .Get "image" -}}
+{{- $width := 0 -}}
+{{- $height := 0 -}}
+{{- $imageStyle := .Get "imageStyle" -}}
+
+{{/* Image processing options */}}
+{{- $method := .Get "method" | default "Resize" | humanize -}}
+{{- $options := .Get "options" | default "800x webp q80" -}}
+
+{{- if and $image (not (urls.Parse $image).Scheme) -}}
+{{/* Process images in assets */}}
+{{- with resources.Get $image -}}
+{{- $processed := "" -}}
+{{- if eq $method "Resize" -}}
+{{- $processed = (.Resize $options) -}}
+{{- else if eq $method "Fit" -}}
+{{- $processed = (.Fit $options) -}}
+{{- else if eq $method "Fill" -}}
+{{- $processed = (.Fill $options) -}}
+{{- else if eq $method "Crop" -}}
+{{- $processed = (.Crop $options) -}}
+{{- else -}}
+{{- errorf "Invalid image processing command: Must be one of Crop, Fit, Fill or Resize." -}}
+{{- end -}}
+{{- $width = $processed.Width -}}
+{{- $height = $processed.Height -}}
+{{- $image = $processed.RelPermalink -}}
+{{- else -}}
+{{/* Otherwise, use relative link of the image */}}
+{{- if hasPrefix $image "/" -}}
+{{- $image = relURL (strings.TrimPrefix "/" $image) -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- $external := strings.HasPrefix $link "http" -}}
+{{- $href := cond (strings.HasPrefix $link "/") ($link | relURL) $link -}}
+
+
+<a
+  class='card'
+  {{- if $link -}}
+  href='{{ $href }}' {{ with $external }}target='_blank' rel='noreferrer' {{ end -}}
+  {{- end -}}
+>
+  {{- with $image -}}
+  <img
+    alt='{{ $title }}'
+    loading='lazy'
+    decoding='async'
+    src='{{ $image | safeURL }}'
+    {{ with $width }}width='{{ . }}' {{ end }}
+    {{ with $height }}height='{{ . }}' {{ end }}
+    {{ with $imageStyle }}style='{{ . | safeCSS }}' {{ end }}
+  />
+  {{- end -}}
+  
+  <span class='card__title'>
+    {{- $title -}}
+  </span>
+
+  {{- with $subtitle -}}
+  <div class='card__subtitle'>
+    {{- $subtitle | markdownify -}}
+  </div>
+  {{- end -}}
+</a>
