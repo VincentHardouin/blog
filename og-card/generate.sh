@@ -1,6 +1,6 @@
 #!/bin/bash
 
-files=$(find content/posts -name '*.md')
+files=$(find content/posts -name '*.md' -not -name '_index.md')
 
 for file in $files; do
     title=$(echo "$file" | sed -E 's@content/posts/([^/]+)/index.md@\1@')
