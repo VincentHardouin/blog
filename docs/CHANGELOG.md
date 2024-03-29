@@ -1,3 +1,16 @@
+# [2.19.0](https://github.com/VincentHardouin/blog/compare/v2.18.0...v2.19.0) (2024-03-29)
+
+
+### Bug Fixes
+
+* head template ([041e0f5](https://github.com/VincentHardouin/blog/commit/041e0f57fad7fa1477acf3416d9cf4644242fb1c))
+* remove _index in card generation ([b3cf48e](https://github.com/VincentHardouin/blog/commit/b3cf48e96988e60a06aebdce9d45065d50db1f70))
+
+
+### Features
+
+* add metro-travel ([9c0d482](https://github.com/VincentHardouin/blog/commit/9c0d4823d616205fa50ed383770e6d78674f5f68))
+
 # [2.18.0](https://github.com/VincentHardouin/blog/compare/v2.17.0...v2.18.0) (2024-01-02)
 
 
