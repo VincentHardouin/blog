@@ -32,7 +32,7 @@
 
   <!-- Image Tags -->
   {{ with .File }}
-  {{ $slug := index (split .File.Path "/") 1 }}
+  {{ $slug := index (split .Path "/") 1 }}
   {{ $cardUrl := printf "card/%s.png" $slug | absURL }}
   <meta property='og:image' content='{{ $cardUrl }}' />
   <meta itemprop='image' content='{{ $cardUrl }}' />
