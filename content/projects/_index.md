@@ -6,6 +6,8 @@ draft: false
 
 
 {{< cards rows=2 >}}
+{{< card link="https://metro-travel.vincenthardouin.dev" title="Métro Travel"
+subtitle="Jeu quotidien dont le but est de trouver le chemin le plus court entre les deux stations">}}
 {{< card link="/projects/sauvegarder-ses-newsletters"
 title="E-mail backup"
 subtitle="Sauvegarder des e-mails reçus via une ligne de commande" >}}
