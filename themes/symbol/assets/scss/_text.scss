@@ -38,14 +38,40 @@ p {
   color: $fiord;
   margin: 10px 0 20px;
 
-  img {
+  figure, img {
     display: block;
     width: 100%;
   }
 }
 
+figure, img {
+  margin-top: 1.5rem;
+  display: block;
+  width: 100%;
+}
+
+figcaption {
+  margin-top: .5rem;
+  text-align: center;
+  font-size: .875rem;
+  font-style: italic;
+  color: $fiord;
+}
+
+blockquote {
+  line-height: 1.6rem;
+  margin: 20px 0;
+  padding: 0 0 0 20px;
+  border-left: 4px solid $tree-poppy;
+}
+
 ul {
   padding-left: 35px;
+  margin: 1.5rem 0;
+}
+
+li > ul {
+  margin: 0;
 }
 
 li {
@@ -90,7 +116,7 @@ html[data-theme="dark"] {
     color: $catskill-white;
   }
 
-  h2, h3 {
+  h2, h3, h4 {
     color: $heater;
   }
 
@@ -104,6 +130,10 @@ html[data-theme="dark"] {
     &:hover {
       color: $yellow-orange;
     }
+  }
+
+  figcaption {
+    color: $heater;
   }
 
   code {
