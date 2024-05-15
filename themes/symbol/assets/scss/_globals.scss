@@ -23,10 +23,15 @@ body {
 }
 
 dialog {
+  max-width: 95vw;
   max-height: 90vh;
   margin: 1rem auto;
   border: none;
   padding: 0;
+
+  @media (min-width: 768px) {
+    max-width: 80vw;
+  }
 }
 
 .image-dialog {
@@ -41,6 +46,10 @@ dialog {
     width: auto;
     height: auto;
   }
+}
+
+img:hover {
+  cursor: pointer;
 }
 
 html[data-theme="dark"] body {
