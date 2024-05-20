@@ -156,6 +156,20 @@ On peut se demander pourquoi les consommateurs des données d'IDFM ne l'utilisen
 Ce jeu de données n'a pas d'identifiant unique pour faire le lien avec les données du GTFS, et c'est un réel
 problème. Il faut donc faire du spécifique avec des règles pour faire le lien entre les deux.
 
+Google Maps [dit utiliser les données IDFM](https://www.google.com/help/legalnotices_maps/) :
+
+> Contains information from Ile-de-France Mobilités open
+>
+data: [source 1](https://prim.iledefrance-mobilites.fr/fr/donnees-statiques/offre-horaires-tc-gtfs-idfm), [source 2](https://prim.iledefrance-mobilites.fr/fr/donnees-statiques/informations-trafic),
+> [source 3](https://prim.iledefrance-mobilites.fr/apis/idfm-ivtr-requete_globale), [source 4](https://prim.iledefrance-mobilites.fr/fr/donnees-dynamiques/idfm-ivtr-requete_unitaire),
+> [source 5](https://prim.iledefrance-mobilites.fr/fr/donnees-dynamiques/idfm-ivtr-info_trafic) subject
+> to [Licence Mobilités](https://cloud.fabmob.io/s/eYWWJBdM3fQiFNm) under which share alilke data updates and
+> modifications are made available on the French National
+> Access Point
+
+Dans les sources, nous pouvons voir que Google Maps utilise les données GTFS d'IDFM, mais ne se sert pas des gares et
+stations généralisées.
+
 // A VOIR POUR REMONTER CETTE PARTIE OU LA SUPPRIMER :
 Si nous comparons les données généralisées, avec celle d'Hove, nous pouvons voir qu'il ne s'agit pas des mêmes
 emplacements et il en est de même pour OSM qui se trouve sur la capture d'écran (les données généralisées sont les
@@ -163,8 +177,6 @@ repères rouges). Les grands acteurs n'utilisent donc pas ce jeu de données.
 
 ![Capture d'écran de la station Jaurès et Stalingrad sur les données généralisées](donnees-generalisees.jpg "Capture d'écran de la station Jaurès et Stalingrad sur les données généralisées")
 // FIN DE LA PARTIE
-
-// VOIR POUR FAIRE LE MEME EXERCICE AVEC GMAPS ET OSM
 
 Dans mon cas, je me suis amusé à utiliser ces données. Il a fallu faire une normalisation des noms et des expressions
 régulières pour faire le lien des stations entre le GTFS et ce jeu de
