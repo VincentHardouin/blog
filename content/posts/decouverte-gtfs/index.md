@@ -103,7 +103,7 @@ le GTFS.
 Par exemple, la station Concorde durant les Jeux Olympiques est fermée de juin à septembre. Celle-ci ne sera donc pas
 présente dans le fichier `stop_times`, ce qui implique que vous ne connaitrez pas les lignes qui la desservent, car
 l'arrêt n'y est pas fait.
-Dans le fichier `stops` on retrouve alors la station concorde qui n'est pas dans `stop_times.txt` et par conséquent
+Dans le fichier `stops` on retrouve alors la station Concorde qui n'est pas dans `stop_times.txt` et par conséquent
 n'est pas lié à un voyage, ni à une ligne.
 Si nous souhaitons tracer tout de même la ligne, ou marquer que les lignes qui desservent cette station, il faudra faire
 du spécifique.
@@ -113,13 +113,11 @@ du spécifique.
 Un autre point que je trouve dommage dans cette spécification, c'est qu'une station a plusieurs arrêts, mais comme les
 stations n'ont pas de représentations dans le GTFS, alors il n'existe pas de point unique géographique pour une station.
 Si nous prenons plusieurs représentations des données, OSM, Apple Maps, Google Maps. Ces 3 cartes ont la couche "
-Transport" d'activée. Ainsi que la carte interactive des impacts sur les lignes sur anticiperlesjeux.gouv.fr, nous
-pouvons voir que nous avons plusieurs points géographiques pour une station :
+Transport" d'activée.
 
 ![Capture d'écran de la station Jaurès et Stalingrad sur OpenStreetMap](carte-osm.jpg "Capture d'écran de la station Jaurès et Stalingrad sur OpenStreetMap")
 ![Capture d'écran de la station Jaurès et Stalingrad sur Google Maps](carte-googlemaps.jpg "Capture d'écran de la station Jaurès et Stalingrad sur Google Maps")
 ![Capture d'écran de la station Jaurès et Stalingrad sur Apple Maps](carte-applemaps.jpg "Capture d'écran de la station Jaurès et Stalingrad sur Apple Maps")
-![Capture d'écran de la station Jaurès et Stalingrad sur anticiperlesjeux.gouv.fr](carte-anticiperlesjeux.jpg "Capture d'écran de la station Jaurès et Stalingrad sur Anticiper les jeux")
 
 Voici le tableau récapitulatif des positions géographiques pour chaque carte :
 
@@ -129,14 +127,12 @@ Voici le tableau récapitulatif des positions géographiques pour chaque carte :
 | Google Maps | 48.882731, 2.370461 | 48.884431, 2.365820 |
 | Apple Maps  | 48.881714, 2.370247 | 48.884251, 2.368902 |
 
-Nous pouvons vraiment constater que chacun utilise des emplacements différents pour les stations.
-D'ailleurs, sur la carte des impacts des jeux, nous pouvons voir que la station Stalingrad est déplacée par rapport aux
-données OpenStreetMap qui sont en dessous.
+Nous constatons que chacun utilise des emplacements différents pour les stations.
 
 Sur Apple Maps (la 3ème capture d'écran), nous observons que la station Stalingrad a plusieurs points, un pour chaque
 ligne, mais ce n'est pas le cas pour la station Jaurès qui a aussi plusieurs lignes. On peut donc se demander quelles
-sont
-les règles d'affichages ? D'ailleurs, lorsqu'on copie les coordonnées géographiques de la station de n'importe quel
+sont les règles d'affichages ?
+D'ailleurs, lorsqu'on copie les coordonnées géographiques de la station de n'importe quel
 point de la station Stalingrad, une seule paire de coordonnées est copiée (48.884251, 2.368902), donc pourquoi en
 afficher plusieurs ?
 Toujours sur la carte d'Apple, nous constatons que la forme de la station est tracée en rouge, ce qu'on ne voit pas
@@ -177,7 +173,7 @@ J'ai d'ailleurs contacté IDFM sur leur Slack consacrée aux données et eux-mê
 
 #### Tracé des lignes
 
-Si nous regardons les trois premières captures d'écran (OSM, Apple Maps, Google Maps) de la partie précédente, nous
+Si nous regardons à nouveau les captures d'écran de la partie précédente, nous
 pouvons voir que le tracé des lignes n'est pas identique sur les trois applications.
 
 Actuellement, le standard n'oblige pas les acteurs à fournir toutes les données, comme c'est le cas du
@@ -207,7 +203,6 @@ améliorations possibles à mettre en place pour contrer cela.
 - [GTFS](https://gtfs.org)
 - [Documentation IDFM](https://eu.ftp.opendatasoft.com/stif/GTFS/opendata_gtfs.pdf)
 - [Livres gratuits sur le GTFS](https://github.com/MobilityData/GTFS-books)
-- [Anticiper les jeux](https://www.anticiperlesjeux.gouv.fr/)
 - [Provence des données Apple Maps](https://gspe21-ssl.ls.apple.com/html/attribution-277.html)
 - [transport.data.gouv.fr](https://transport.data.gouv.fr)
 - [Jeu de données "Gares et stations du réseau ferré d'Île-de-France (donnée généralisée)"](https://prim.iledefrance-mobilites.fr/jeux-de-donnees/emplacement-des-gares-idf-data-generalisee)
