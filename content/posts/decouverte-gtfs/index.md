@@ -129,23 +129,23 @@ Voici le tableau récapitulatif des positions géographiques pour chaque carte :
 | Google Maps | 48.882731, 2.370461 | 48.884431, 2.365820 |
 | Apple Maps  | 48.881714, 2.370247 | 48.884251, 2.368902 |
 
-Nous pouvons vraiment voir que chacun a son emplacement pour les stations.
+Nous pouvons vraiment constater que chacun utilise des emplacements différents pour les stations.
 D'ailleurs, sur la carte des impacts des jeux, nous pouvons voir que la station Stalingrad est déplacée par rapport aux
 données OpenStreetMap qui sont en dessous.
 
-Sur Apple Maps (la 3ème capture d'écran), nous pouvons voir que la station Stalingrad a plusieurs points, un pour chaque
+Sur Apple Maps (la 3ème capture d'écran), nous observons que la station Stalingrad a plusieurs points, un pour chaque
 ligne, mais ce n'est pas le cas pour la station Jaurès qui a aussi plusieurs lignes. On peut donc se demander quelles
 sont
 les règles d'affichages ? D'ailleurs, lorsqu'on copie les coordonnées géographiques de la station de n'importe quel
 point de la station Stalingrad, une seule paire de coordonnées est copiée (48.884251, 2.368902), donc pourquoi en
 afficher plusieurs ?
-Toujours sur la carte d'Apple, nous pouvons voir que la forme de la station est tracée en rouge, ce qu'on ne voit pas
+Toujours sur la carte d'Apple, nous constatons que la forme de la station est tracée en rouge, ce qu'on ne voit pas
 sur OSM et Google Maps.
 En regardant de plus
-près [la provenance des données d'Apple](https://gspe21-ssl.ls.apple.com/html/attribution-277.html), nous pouvons qu'une
+près [la provenance des données d'Apple](https://gspe21-ssl.ls.apple.com/html/attribution-277.html), nous lisons qu'une
 partie des données proviennent d'OpenStreetMap. Cependant, la ligne 5 n'a pas le même tracé, et la station Jaurès
 n'est pas tracée au même endroit. Ce qui me laisse penser que ce n'est pas le cas du transport à Paris. J'ai la
-confirmation, plus bas dans la liste des fournisseurs, où nous pouvons voir :
+confirmation, plus bas dans la liste des fournisseurs, où nous pouvons lire :
 > France transit data processed by Hove from sources
 > including [transport.data.gouv.fr](https://transport.data.gouv.fr), SNCF, and others.
 > [transport.data.gouv.fr](https://transport.data.gouv.fr) data made available under the Open Database License (ODbL).
