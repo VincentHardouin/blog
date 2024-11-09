@@ -4,19 +4,24 @@
   overflow: hidden;
   flex-direction: column;
   border-style: solid;
-  border-radius: .5rem;
   border-width: 1px;
-  border-color: $catskill-white;
+  border-color: $fiord;
   text-decoration: none;
   padding: 1rem;
   color: $fiord;
   text-align: initial;
+  transition: opacity 500ms, transform 500ms;
+  background-color: $white;
+  height: 100%;
 
   &:hover {
-    background-color: darken($white, 5%);
+    transform: translate(7px, -7px);
   }
 }
 
+.card__background {
+  background-color: $fiord;
+}
 
 .card__title {
   font-family: $font-open-sans;
@@ -34,12 +39,16 @@
 }
 
 html[data-theme="dark"] {
+  .card__background {
+    background-color: $heater;
+  }
+
   a.card {
+    border-color: $heater;
     background-color: $charade;
     color: $catskill-white;
 
     &:hover {
-      background-color: lighten($charade, 5%);
       color: $catskill-white;
     }
   }

@@ -41,32 +41,33 @@
 {{- $external := strings.HasPrefix $link "http" -}}
 {{- $href := cond (strings.HasPrefix $link "/") ($link | relURL) $link -}}
 
+<div class='card__background'>
+  <a
+    class='card'
+    {{- if $link -}}
+    href='{{ $href }}' {{ with $external }}target='_blank' rel='noreferrer' {{ end -}}
+    {{- end -}}
+  >
+    {{- with $image -}}
+    <img
+      alt='{{ $title }}'
+      loading='lazy'
+      decoding='async'
+      src='{{ $image | safeURL }}'
+      {{ with $width }}width='{{ . }}' {{ end }}
+      {{ with $height }}height='{{ . }}' {{ end }}
+      {{ with $imageStyle }}style='{{ . | safeCSS }}' {{ end }}
+    />
+    {{- end -}}
 
-<a
-  class='card'
-  {{- if $link -}}
-  href='{{ $href }}' {{ with $external }}target='_blank' rel='noreferrer' {{ end -}}
-  {{- end -}}
->
-  {{- with $image -}}
-  <img
-    alt='{{ $title }}'
-    loading='lazy'
-    decoding='async'
-    src='{{ $image | safeURL }}'
-    {{ with $width }}width='{{ . }}' {{ end }}
-    {{ with $height }}height='{{ . }}' {{ end }}
-    {{ with $imageStyle }}style='{{ . | safeCSS }}' {{ end }}
-  />
-  {{- end -}}
-  
-  <span class='card__title'>
-    {{- $title -}}
-  </span>
+    <span class='card__title'>
+      {{- $title -}}
+    </span>
 
-  {{- with $subtitle -}}
-  <div class='card__subtitle'>
-    {{- $subtitle | markdownify -}}
-  </div>
-  {{- end -}}
-</a>
+    {{- with $subtitle -}}
+    <div class='card__subtitle'>
+      {{- $subtitle | markdownify -}}
+    </div>
+    {{- end -}}
+  </a>
+</div>
