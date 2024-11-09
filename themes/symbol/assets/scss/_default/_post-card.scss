@@ -2,14 +2,23 @@
 @import '../fonts';
 
 .post-card {
-  max-width: 820px;
-  padding: 7px;
   display: block;
   text-decoration: none;
+  transition: all 500ms;
+
+  &:hover {
+    transform: scaleX(1.02);
+  }
 
   &:visited {
     text-decoration: none;
     color: $cloud-burst;
+  }
+
+  &__content {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 7px;
   }
 
   &__title {

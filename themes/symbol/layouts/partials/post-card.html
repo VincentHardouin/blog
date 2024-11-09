@@ -1,4 +1,6 @@
 <a class='post-card' href='{{ .RelPermalink }}'>
-  <h2 class='post-card__title'>{{ .Title }}</h2>
-  <span class='post-card__date'>{{ .Date.Format "02/01/2006" }}</span>
+  <div class='post-card__content'>
+    <h2 class='post-card__title'>{{ .Title }}</h2>
+    <span class='post-card__date'>{{ .Date.Format "02/01/2006" }}</span>
+  </div>
 </a>
