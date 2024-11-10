@@ -2,7 +2,7 @@
 <main role='main' class='index'>
   <ul class='slide-enter-content'>
     {{ range $index, $post := (where site.RegularPages "Type" "in" site.Params.mainSections) }}
-    <li style='--enter-stage: {{ $index }}; --enter-step: 60ms;'>
+    <li style='--enter-stage: {{ $index }}; --enter-step: 60ms;' class='index__item'>
       {{ partial "post-card" . }}
     </li>
     {{ end }}
