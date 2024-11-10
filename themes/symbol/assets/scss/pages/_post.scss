@@ -5,13 +5,6 @@
 .post {
   width: 100%;
   padding-top: 21px;
-  @include device-is('tablet') {
-    min-height: 50vh;
-    background-image: url('/images/background-banner.svg');
-    background-position: top;
-    background-repeat: no-repeat;
-    padding-top: 170px;
-  }
 
   &__container {
     max-width: 820px;
