@@ -1,5 +1,5 @@
 {{ $rows := .Get "rows" | default "3" }}
 
-<div class="cards" style="--rows: {{ $rows }}">
+<div class="cards slide-enter-content" style="--rows: {{ $rows }}">
   {{- .Inner -}}
 </div>
