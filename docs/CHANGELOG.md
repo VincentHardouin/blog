@@ -1,3 +1,14 @@
+# [2.20.0](https://github.com/VincentHardouin/blog/compare/v2.19.0...v2.20.0) (2024-11-10)
+
+
+### Features
+
+* improve card style ([2d4744b](https://github.com/VincentHardouin/blog/commit/2d4744b2544d1c0bd121359c46f91f45ccfda285))
+* improve header style ([e58fa89](https://github.com/VincentHardouin/blog/commit/e58fa89a07adc76d139fc25bfcdffa367988a3d6))
+* improve post-card style ([d312e64](https://github.com/VincentHardouin/blog/commit/d312e64cbe80f619dae77f41ef489c1d385c43de))
+* post-card hover ([80a198d](https://github.com/VincentHardouin/blog/commit/80a198d34f6442a61d67e0175d4760a8c48a6b39))
+* remove turbo ([b9ce17f](https://github.com/VincentHardouin/blog/commit/b9ce17f8e6e12117e72a7b6f0c30912419db2aae))
+
 # [2.19.0](https://github.com/VincentHardouin/blog/compare/v2.18.0...v2.19.0) (2024-03-29)
 
 
