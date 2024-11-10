@@ -1,3 +1,15 @@
+# [2.21.0](https://github.com/VincentHardouin/blog/compare/v2.20.0...v2.21.0) (2024-11-10)
+
+
+### Bug Fixes
+
+* improve mobile style ([d24c25e](https://github.com/VincentHardouin/blog/commit/d24c25e2e6cd42bd267701c6ede441f512a4f8da))
+
+
+### Features
+
+* remove banner ([ef498a7](https://github.com/VincentHardouin/blog/commit/ef498a7b93fc8394ca2dd815dac099a5d3cbbf76))
+
 # [2.20.0](https://github.com/VincentHardouin/blog/compare/v2.19.0...v2.20.0) (2024-11-10)
 
 
