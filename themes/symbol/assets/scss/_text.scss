@@ -38,14 +38,40 @@ p {
   color: $fiord;
   margin: 10px 0 20px;
 
-  img {
+  figure, img {
     display: block;
     width: 100%;
   }
 }
 
+figure, img {
+  margin-top: 1.5rem;
+  display: block;
+  width: 100%;
+}
+
+figcaption {
+  margin-top: .5rem;
+  text-align: center;
+  font-size: .875rem;
+  font-style: italic;
+  color: $fiord;
+}
+
+blockquote {
+  line-height: 1.6rem;
+  margin: 20px 0;
+  padding: 0 0 0 20px;
+  border-left: 4px solid $tree-poppy;
+}
+
 ul {
   padding-left: 35px;
+  margin: 1.5rem 0;
+}
+
+li > ul {
+  margin: 0;
 }
 
 li {
@@ -85,12 +111,43 @@ code {
   }
 }
 
+table {
+  border-collapse: collapse;
+  margin: .5rem 0;
+  overflow: hidden;
+  border-radius: 4px 4px 0 0;
+}
+
+th, td {
+  padding: .5rem 1rem;
+}
+
+tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+tr:nth-child(odd) {
+  background-color: $catskill-white;
+}
+
+tr:nth-child(even) {
+  background-color: $heater;
+}
+
+th {
+  background-color: $fiord;
+  color: $catskill-white;
+}
+
 html[data-theme="dark"] {
+
+  color: $heater;
+
   h1, p, li {
     color: $catskill-white;
   }
 
-  h2, h3 {
+  h2, h3, h4 {
     color: $heater;
   }
 
@@ -104,6 +161,10 @@ html[data-theme="dark"] {
     &:hover {
       color: $yellow-orange;
     }
+  }
+
+  figcaption {
+    color: $heater;
   }
 
   code {
@@ -121,5 +182,26 @@ html[data-theme="dark"] {
       content: "";
       z-index: -1;
     }
+  }
+
+  tbody tr {
+    border-bottom: 1px solid $heater;
+  }
+
+  tr {
+    background-color: $charade;
+  }
+
+  tr:nth-child(odd) {
+    background-color: $charade;
+  }
+
+  tr:nth-child(even) {
+    background-color: darken($charade, 3%);
+  }
+
+  th {
+    background-color: $heater;
+    color: $cloud-burst;
   }
 }
