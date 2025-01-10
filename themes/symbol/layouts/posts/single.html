@@ -4,7 +4,7 @@
     <div class='post__date'>{{ .Date.Format "02/01/2006" }}</div>
     <h1 class='post__title'>{{ .Title }}</h1>
     {{ if gt .WordCount 500 }}
-    <aside>
+    <aside class='post__table-of-contents'>
       {{ .TableOfContents }}
     </aside>
     {{ end }}
