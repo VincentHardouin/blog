@@ -6,6 +6,10 @@
     {{ if gt .WordCount 500 }}
     <aside class='post__table-of-contents'>
       {{ .TableOfContents }}
+      <svg class='toc-marker' width='200' height='400' xmlns='http://www.w3.org/2000/svg'>
+        <path stroke-width='3' fill='transparent' stroke-dasharray='0, 0, 0, 1000' stroke-linecap='round'
+              stroke-linejoin='round' transform='translate(-0.5, -0.5)' />
+      </svg>
     </aside>
     {{ end }}
     <article class='post__content slide-enter-content'>
@@ -28,5 +32,140 @@
       </div>
     </div>
   </div>
+  <script type='text/javascript'>
+    function throttle(func, timeFrame) {
+      let lastTime = 0;
+      return function() {
+        const now = new Date();
+        if (now - lastTime >= timeFrame) {
+          func();
+          lastTime = now;
+        }
+      };
+    }
+
+    window.addEventListener('scroll', throttle(updateTOC, 500));
+    window.addEventListener('resize', init);
+
+    const toc = document.getElementById('TableOfContents').firstElementChild;
+    const headings = document.querySelectorAll('h2, h3, h4');
+
+    const TOP_MARGIN = 0.1;
+    const BOTTOM_MARGIN = 0.1;
+
+    const tocItems = []
+      .slice
+      .call(toc.querySelectorAll('li'))
+      .map(function(item) {
+        const anchor = item.querySelector('a');
+        const target = document.getElementById(anchor.getAttribute('href').slice(1));
+
+        return {
+          listItem: item,
+          anchor: anchor,
+          target: target
+        };
+      })
+      .filter((item) => item.target !== undefined);
+
+    function updateTOC() {
+      const viewportHeight = window.innerHeight;
+
+      tocItems.forEach((item, index) => {
+        const { top, bottom } = getHeadingPositionOnViewport(index);
+
+        const isInViewport = bottom >= viewportHeight * TOP_MARGIN && top < viewportHeight * (1 - BOTTOM_MARGIN);
+        if (isInViewport) {
+          item.anchor.classList.add('active');
+        } else {
+          item.anchor.classList.remove('active');
+        }
+      });
+
+      sync();
+    }
+
+    function getHeadingPositionOnViewport(headingIndex) {
+      const top = headings[headingIndex].getBoundingClientRect().top;
+      const isLast = headingIndex === headings.length - 1;
+      let bottom;
+
+      if (isLast) {
+        bottom = headings[headingIndex].parentElement.getBoundingClientRect().bottom;
+      } else {
+        bottom = headings[headingIndex + 1].getBoundingClientRect().top;
+      }
+
+      return {
+        top,
+        bottom
+      };
+    }
+
+    let pathLength;
+
+    let lastPathStart;
+    let lastPathEnd;
+
+
+    function init() {
+      drawTOCPath();
+      updateTOC();
+    }
+
+    init();
+
+    function drawTOCPath() {
+      const tocPath = document.querySelector('.toc-marker path');
+      const path = [];
+      let pathIndent;
+
+      tocItems.forEach((item, index) => {
+        const x = item.anchor.offsetLeft - 5;
+        const y = item.anchor.offsetTop;
+        const height = item.anchor.offsetHeight;
+
+        if (index === 0) {
+          path.push('M', x, y, 'L', x, y + height);
+          item.pathStart = 0;
+        } else {
+          if (pathIndent !== x) path.push('L', pathIndent, y);
+
+          path.push('L', x, y);
+
+          // Set the current path so that we can measure it
+          tocPath.setAttribute('d', path.join(' '));
+          item.pathStart = tocPath.getTotalLength() || 0;
+
+          path.push('L', x, y + height);
+        }
+
+        pathIndent = x;
+
+        tocPath.setAttribute('d', path.join(' '));
+        item.pathEnd = tocPath.getTotalLength();
+      });
+
+      pathLength = tocPath.getTotalLength();
+    }
+
+    function sync() {
+      const tocPath = document.querySelector('.toc-marker path');
+      const visibleItems = tocItems.filter(({ anchor }) => anchor.classList.contains('active'));
+
+      const pathStart = Math.min(...visibleItems.map((item) => item.pathStart), pathLength);
+      const pathEnd = Math.max(...visibleItems.map((item) => item.pathEnd), 0);
+
+      if (visibleItems.length > 0 && pathStart < pathEnd) {
+        if (pathStart !== lastPathStart || pathEnd !== lastPathEnd) {
+          tocPath.setAttribute('stroke-dashoffset', '1');
+          tocPath.setAttribute('stroke-dasharray', '1, ' + pathStart + ', ' + (pathEnd - pathStart) + ', ' + pathLength);
+          tocPath.setAttribute('opacity', 1);
+        }
+      } else {
+        tocPath.setAttribute('opacity', 0);
+      }
+    }
+  </script>
 </article>
 {{ end }}
