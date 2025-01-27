@@ -183,7 +183,7 @@ déjà Ntfy dans l&amp;rsquo;article &lt;a href="https://vincenthardouin.dev/pos
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>J&amp;rsquo;avais besoin d&amp;rsquo;une solution simple pour comparer deux créneaux. L&amp;rsquo;implémentation a émergé grâce aux tests unitaires : vive le &lt;a href="https://en.wikipedia.org/wiki/Test-driven_development">TDD&lt;/a> !&lt;/p>
 &lt;p>La notification des créneaux disponibles étant en place, je me suis attaqué à un autre aspect de l&amp;rsquo;organisation : la
 visibilité de mes réservations.&lt;/p>
-&lt;h3 id="afficher-les-réservation-dans-mon-calendrier">Afficher les réservation dans mon calendrier&lt;/h3>
+&lt;h3 id="calendrier">Calendrier&lt;/h3>
 &lt;p>Pour ne pas oublier mes réservations, je veux voir mes prochaines séances dans mon agenda. Pour cela, j&amp;rsquo;ai mis en place un calendrier iCal. Pour le créer, j&amp;rsquo;ai utilisé le package &lt;a href="https://github.com/sebbo2002/ical-generator">
 &lt;code>ical-generator&lt;/code>&lt;/a> qui fait très bien ce qu&amp;rsquo;il prétend faire.&lt;/p>
 &lt;p>Pour mettre à disposition le calendrier sous forme d&amp;rsquo;abonnement, il a fallu mettre en place un serveur web. J&amp;rsquo;ai
