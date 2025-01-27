@@ -1,3 +1,19 @@
+# [2.22.0](https://github.com/VincentHardouin/blog/compare/v2.21.0...v2.22.0) (2025-01-27)
+
+
+### Bug Fixes
+
+* correctly remove background-banner ([2a8e9d8](https://github.com/VincentHardouin/blog/commit/2a8e9d89173472766a71958da7d917e7fb4f12c5))
+* update syntax highlight to prevent default value on dark ([90ee4b4](https://github.com/VincentHardouin/blog/commit/90ee4b4f7bc9ddd7efff8fc84492610886642e9a))
+* use new method to use sass ([f99a25f](https://github.com/VincentHardouin/blog/commit/f99a25fca2be280f724883ebb05fbe9df8fd1e70))
+
+
+### Features
+
+* add more space in page ([e31c625](https://github.com/VincentHardouin/blog/commit/e31c6257747a11b53e7a3d6a158094069cfd5d9f))
+* add post ([b3fc404](https://github.com/VincentHardouin/blog/commit/b3fc404a3197b9a64e31ba0868c36dfd7905691d))
+* allow figcaption ([b0c3e8e](https://github.com/VincentHardouin/blog/commit/b0c3e8e7def83da8b2d578c11d7d7268381f10e9))
+
 # [2.21.0](https://github.com/VincentHardouin/blog/compare/v2.20.0...v2.21.0) (2024-11-10)
 
 
