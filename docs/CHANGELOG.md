@@ -1,3 +1,15 @@
+# [2.23.0](https://github.com/VincentHardouin/blog/compare/v2.22.0...v2.23.0) (2025-01-27)
+
+
+### Bug Fixes
+
+* reduce h3 size ([528cfa1](https://github.com/VincentHardouin/blog/commit/528cfa1a472a26f273a62e5dcb4c75fd9e624a20))
+
+
+### Features
+
+* add new toc ([c87555c](https://github.com/VincentHardouin/blog/commit/c87555cddb467f3b093792ddfbef8200e619f1d9))
+
 # [2.22.0](https://github.com/VincentHardouin/blog/compare/v2.21.0...v2.22.0) (2025-01-27)
 
 
