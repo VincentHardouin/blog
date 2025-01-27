@@ -229,7 +229,7 @@ J'avais besoin d'une solution simple pour comparer deux créneaux. L'implémenta
 La notification des créneaux disponibles étant en place, je me suis attaqué à un autre aspect de l'organisation : la
 visibilité de mes réservations.
 
-### Afficher les réservation dans mon calendrier
+### Calendrier
 
 Pour ne pas oublier mes réservations, je veux voir mes prochaines séances dans mon agenda. Pour cela, j'ai mis en place un calendrier iCal. Pour le créer, j'ai utilisé le package [
 `ical-generator`](https://github.com/sebbo2002/ical-generator) qui fait très bien ce qu'il prétend faire.
