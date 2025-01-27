@@ -12,16 +12,5 @@
 
   li {
     transition: all 500ms;
-
-    &:hover {
-      background-color: darken($white, 5%);
-    }
-  }
-
-}
-
-html[data-theme="dark"] li {
-  &:hover {
-    background-color: lighten($charade, 5%);
   }
 }

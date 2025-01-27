@@ -40,3 +40,35 @@ html[data-theme="dark"] {
   padding: 8px;
   overflow-y: hidden;
 }
+
+#TableOfContents ul {
+  list-style: none;
+  padding-left: 1.5rem;
+  line-height: 2;
+}
+
+#TableOfContents > ul {
+  padding-left: 1rem;
+}
+
+#TableOfContents a {
+  color: $fiord;
+  display: inline-block;
+  transition: all 0.3s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+
+  &.active {
+    color: $haiti;
+    transform: translate(5px);
+  }
+}
+
+html[data-theme="dark"] {
+  #TableOfContents a {
+    color: $cadet-blue;
+
+    &.active {
+      font-weight: 450;
+      color: $heater;
+    }
+  }
+}

@@ -47,19 +47,8 @@ html[data-theme="dark"] .header {
   padding: 0;
 
   li {
-    margin: 6px;
-  }
-
-  &__item {
-    font-family: $font-open-sans;
-    font-size: 1rem;
-    text-decoration: none;
-    color: $cloud-burst;
+    padding: 2px 6px;
     position: relative;
-
-    &:visited {
-      color: $cloud-burst;
-    }
 
     &::after {
       content: '';
@@ -74,12 +63,27 @@ html[data-theme="dark"] .header {
       transition: transform 0.4s;
     }
 
+
     &:hover {
       &::after {
         transform-origin: bottom left;
         transform: scaleX(1);
       }
     }
+  }
+
+  &__item {
+    font-family: $font-open-sans;
+    font-size: 1rem;
+    text-decoration: none;
+    color: $cloud-burst;
+    position: relative;
+
+    &:visited {
+      color: $cloud-burst;
+    }
+
+
   }
 }
 
