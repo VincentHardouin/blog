@@ -1,4 +1,257 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Categories on Vincent Hardouin</title><link>https://vincenthardouin.dev/categories/</link><description>Recent content in Categories on Vincent Hardouin</description><generator>Hugo -- gohugo.io</generator><language>FR-fr</language><atom:link href="https://vincenthardouin.dev/categories/index.xml" rel="self" type="application/rss+xml"/><item><title>Envoyer des notifications avec les automations HomeKit</title><link>https://vincenthardouin.dev/posts/envoyer-des-notifications-avec-les-automations-homekit/</link><pubDate>Fri, 15 Dec 2023 11:34:07 +0200</pubDate><guid>https://vincenthardouin.dev/posts/envoyer-des-notifications-avec-les-automations-homekit/</guid><description>&lt;h2 id="contexte">Contexte&lt;/h2>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Categories on Vincent Hardouin</title><link>https://vincenthardouin.dev/categories/</link><description>Recent content in Categories on Vincent Hardouin</description><generator>Hugo -- gohugo.io</generator><language>FR-fr</language><atom:link href="https://vincenthardouin.dev/categories/index.xml" rel="self" type="application/rss+xml"/><item><title>J'ai automatisé mes réservations de séances de sport</title><link>https://vincenthardouin.dev/posts/j-ai-automatise-mes-reservations-de-sport/</link><pubDate>Fri, 10 Jan 2025 10:01:00 +0200</pubDate><guid>https://vincenthardouin.dev/posts/j-ai-automatise-mes-reservations-de-sport/</guid><description>&lt;p>Nous sommes début 2025 et vous avez sûrement pris de bonnes résolutions pour cette année. Souvent cela rime avec de
+nouvelles habitudes. Je profite de cette période pour vous partager comment j&amp;rsquo;ai conservé une habitude en automatisant
+un irritant.&lt;/p>
+&lt;p>L&amp;rsquo;année 2024 a marqué mon véritable retour au sport, après des années passées en salle de sport sans grande conviction.
+Elle a débuté avec la natation, mais les horaires des piscines de Paris et ma motivation n&amp;rsquo;étaient pas compatibles.
+Elle s&amp;rsquo;est poursuivie avec le badminton. Aujourd&amp;rsquo;hui, je partage mes entraînements entre mon club et des
+réservations de terrains à l&amp;rsquo;&lt;a href="https://www.ucpa.com/sport-station/paris-19">UCPA Sport Station&lt;/a>. Pour ces réservations,
+j&amp;rsquo;utilise &lt;a href="https://gymlib.com/fr">Gymlib&lt;/a>, une application d&amp;rsquo;abonnement de sport partiellement pris en charge par mon
+employeur.&lt;/p>
+&lt;p>Comme le souligne James Clear dans Atomic Habits &amp;ldquo;If you want to increase the odds that a behavior will occur, then you
+need to make it attractive.”. Or, la complexité de réservation via Gymlib pour l&amp;rsquo;UCPA va à l&amp;rsquo;encontre de ce principe, au
+point que cela aurait pu compromettre ma nouvelle habitude.&lt;/p>
+&lt;h2 id="problème">Problème&lt;/h2>
+&lt;p>La réservation d&amp;rsquo;une séance à l&amp;rsquo;UCPA via Gymlib est fastidieuse. Voici les différentes étapes.&lt;/p>
+&lt;p>&lt;figure>
+&lt;img src='processus-de-reservations.png' title='Processus de réservation via Gymlib pour l&amp;#39;UCPA Sport Station' alt='Processus de réservation via Gymlib pour l’UCPA Sport Station, expliquez ensuite' loading='lazy' />
+&lt;figcaption>Processus de réservation via Gymlib pour l&amp;rsquo;UCPA Sport Station&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Pour résumer, je fais une demande de code via Gymlib, je reçois un e-mail avec le code après quelques minutes. Puis je
+peux remplir le formulaire de contremarque, ce qui permet à l&amp;rsquo;UCPA de ne pas me facturer, mais de facturer Gymlib, et entre
+10min et quelques heures, je reçois la validation de l&amp;rsquo;UCPA qui m&amp;rsquo;a crédité un e-billet sur mon compte UCPA.&lt;/p>
+&lt;p>Le réel problème ce sont les différents temps d&amp;rsquo;attente qui poussent à faire autre chose entre temps et oublier de
+réaliser la réservation, c&amp;rsquo;est mon irritant.
+Ensuite, je me demande s&amp;rsquo;il est intéressant d&amp;rsquo;automatiser cette tâche: est-ce que je le fais assez souvent ?
+Ce projet a pour vocation d&amp;rsquo;être utilisé 3 fois par mois, ce qui correspond à la limite de mon abonnement
+Gymlib. Et la réservation me prend 5min, mais avec les temps d&amp;rsquo;attente cela peut aller de trente minutes à quelques
+heures.&lt;/p>
+&lt;p>J&amp;rsquo;aime bien le schéma comique de &lt;a href="https://xkcd.com/">xkcd&lt;/a> &amp;ldquo;Is It Worth the Time?&amp;rdquo; , qui montre le temps maximum à allouer pour automatiser une
+tâche en fonction de sa durée et sa récurrence.&lt;/p>
+&lt;p>&lt;img src='xkcd_1205.png' alt='chart showing the amount of work (time) one can dedicate to making a task more efficient' loading='lazy' />&lt;/p>
+&lt;p>Dans mon cas, le calcul correspond à : 3 occurrences / mois (ce qui correspond entre hebdomadaire et mensuel sur le
+schéma) * 5 ans (la durée utilisée sur le schéma) = 180 occurrences
+180 occurrences * 30 min en moyenne économisées = 5400 minutes = 90h = 3,75 j ce qui est bien comparable au schéma.&lt;/p>
+&lt;p>Le schéma donne des exemples sur 5 ans, mais en réalité 2 ans me paraissent plus raisonnables, ce qui donne 72
+occurrences et par conséquent 36h.
+Les différentes tâches doivent être automatisées en moins de 36h, ce qui me semble réalisable.&lt;/p>
+&lt;p>Pour que l&amp;rsquo;automatisation soit &amp;ldquo;rentable&amp;rdquo;, je ne dois pas mettre plus de 36h à l&amp;rsquo;automatiser.
+Parfois, ce n&amp;rsquo;est pas rentable de le faire, mais il est nécessaire de se demander :&lt;/p>
+&lt;ul>
+&lt;li>est-ce que l&amp;rsquo;irritant est assez fort pour rechigner à le faire&lt;/li>
+&lt;li>voire, est-ce que cela peut me faire perdre mon habitude ?&lt;/li>
+&lt;/ul>
+&lt;p>Un cas plus concret : si vous prenez une salle de sport à 1h de chez vous, versus une salle de sport sur votre chemin de
+retour du boulot, il y a de forte chances que l&amp;rsquo;habitude s&amp;rsquo;ancre dans le second cas plutôt que le premier.
+Dans le cas des réservations, il est probable que cela puisse m’en faire manquer, ou me rebuter à les
+faire, ce qui aura tendance à couper une habitude. Vous savez les fameux streaks qu&amp;rsquo;il ne faut pas casser.
+Le risque est de manquer ou retarder certaines réservations, ce qui peut briser la régularité de la
+pratique. Le principe du &lt;a href="https://jamesclear.com/stop-procrastinating-seinfeld-strategy">&amp;ldquo;Don&amp;rsquo;t Break the Chain&amp;rdquo;&lt;/a>, popularisé par Jerry Seinfeld et repris par James Clear
+souligne l&amp;rsquo;importance de maintenir une pratique régulière sans interruption. Chaque séance manquée à cause d&amp;rsquo;une
+réservation non effectuée représente donc un risque pour la pérennité de cette nouvelle habitude sportive.&lt;/p>
+&lt;p>Une fois cette analyse faite et conscient que cette friction pourrait compromettre ma nouvelle habitude, j&amp;rsquo;ai décidé d'
+entreprendre un MVP (Minimum Valuable Product).&lt;/p>
+&lt;h2 id="mvp">MVP&lt;/h2>
+&lt;p>J&amp;rsquo;ai pris le parti d&amp;rsquo;automatiser l&amp;rsquo;étape de contremarque en premier. Mon idée était donc de récupérer les e-mails
+spécifiques à un code UCPA par Gymlib et remplir le formulaire de contremarque. Pour lire les e-mails, j&amp;rsquo;ai utilisé le
+package &lt;a href="https://github.com/postalsys/imapflow">&lt;code>imapflow&lt;/code>&lt;/a>, combiné à &lt;a href="https://github.com/nodemailer/mailparser">
+&lt;code>mailparser&lt;/code>&lt;/a> pour récupérer plus facilement le code dans l&amp;rsquo;e-mail.
+Le détail de l&amp;rsquo;implémentation se trouve &lt;a href="https://github.com/VincentHardouin/gymlib-ucpa-facilitator/blob/1af15b16652091cb6466a64ccbfe6ae2e165cbf1/src/infrastructure/adapters/MailAdapter.js">sur GitHub&lt;/a>, voici les étapes principales :&lt;/p>
+&lt;ul>
+&lt;li>se connecter à la boite e-mail avec &lt;code>imapflow&lt;/code> :&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">class&lt;/span> &lt;span class="nx">MailAdapter&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">async&lt;/span> &lt;span class="nx">getConnectedClient&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">client&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="k">new&lt;/span> &lt;span class="nx">ImapFlow&lt;/span>&lt;span class="p">({&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">host&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">host&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">port&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">port&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">secure&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">auth&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">user&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">user&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">pass&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">password&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">logger&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">await&lt;/span> &lt;span class="nx">client&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">connect&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="nx">client&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>récupérer le contenu des e-mails avec &lt;code>mailparser&lt;/code>:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">class&lt;/span> &lt;span class="nx">MailAdapter&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">async&lt;/span> &lt;span class="nx">fetch&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">searchQuery&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">client&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kr">await&lt;/span> &lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">getConnectedClient&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">lock&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kr">await&lt;/span> &lt;span class="nx">client&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">getMailboxLock&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;INBOX&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">mails&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[];&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">try&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="kr">await&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="kr">const&lt;/span> &lt;span class="nx">rawMail&lt;/span> &lt;span class="k">of&lt;/span> &lt;span class="nx">client&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">fetch&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">searchQuery&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">source&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">headers&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;date&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;subject&amp;#39;&lt;/span>&lt;span class="p">],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}))&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">mail&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kr">await&lt;/span> &lt;span class="nx">simpleParser&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">rawMail&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">source&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">mails&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">push&lt;/span>&lt;span class="p">({&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">uid&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">message&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">uid&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">date&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">mail&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">date&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">title&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">mail&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">subject&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">html&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">mail&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">html&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">text&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">mail&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">text&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">finally&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">lock&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">release&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">await&lt;/span> &lt;span class="nx">client&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">logout&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="nx">mails&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Dans le formulaire, les champs à remplir sont identiques, seul le code fourni par Gymlib change, donc
+l&amp;rsquo;automatisation est plutôt simple. La complexité vient du fait que le formulaire contient un jeton CSRF, ce qui fait
+qu&amp;rsquo;on ne peut pas passer par un simple appel API pour envoyer le formulaire (le serveur envoie un champ caché avec
+ce fameux jeton). J&amp;rsquo;ai utilisé &lt;a href="https://pptr.dev/">puppeeter&lt;/a>, qui a pour avantage d&amp;rsquo;automatiser les actions dans un navigateur, ce qui fait
+qu&amp;rsquo;on récupère bien un jeton CSRF avant l&amp;rsquo;envoi, comme si on le faisait à la main. Pour les différents tests, j&amp;rsquo;ai mis
+en place un feature toggle pour désactiver l&amp;rsquo;envoi du formulaire. Le détail se
+trouve &lt;a href="https://github.com/VincentHardouin/gymlib-ucpa-facilitator/blob/1af15b16652091cb6466a64ccbfe6ae2e165cbf1/src/domain/usecases/SubmitFormUseCase.js">sur GitHub.&lt;/a>&lt;/p>
+&lt;p>Après quelques heures de code, je me suis retrouvé avec une application qui lisait les mails provenant de Gymlib et qui
+remplissait le formulaire de contremarque. Cela réduit les étapes manuelles à une seule : demander une séance sur
+l&amp;rsquo;application Gymlib. Puis il me reste plus qu&amp;rsquo;à attendre la validation de l&amp;rsquo;UCPA par e-mail.
+J&amp;rsquo;ai donc à ce moment-là un bon MVP, hébergé sur mon VPS. Cette première version fonctionnelle m&amp;rsquo;a permis de valider mon approche.
+Encouragé par ces résultats, j&amp;rsquo;ai décidé d&amp;rsquo;enrichir la solution avec des fonctionnalités qui simplifieraient encore davantage mon
+expérience.&lt;/p>
+&lt;h2 id="nouvelles-fonctionnalités">Nouvelles fonctionnalités&lt;/h2>
+&lt;h3 id="notifications-de-créneaux">Notifications de créneaux&lt;/h3>
+&lt;p>J&amp;rsquo;ai mis en place une notification sur mon téléphone avec les créneaux disponibles aux horaires
+qui me plaisent. La réception de l&amp;rsquo;e-mail de confirmation de l&amp;rsquo;UCPA déclenche la notification. Pour coder cette
+fonctionnalité, j&amp;rsquo;ai récupéré les créneaux disponibles via l&amp;rsquo;API de l&amp;rsquo;UCPA. J&amp;rsquo;ai stocké par ailleurs les créneaux que je privilégie (dans une variable d&amp;rsquo;environnement).
+Enfin, pour recevoir la notification sur mon téléphone, j&amp;rsquo;ai pour habitude d&amp;rsquo;utiliser &lt;a href="https://ntfy.sh/">Ntfy&lt;/a> , qui permet d&amp;rsquo;envoyer une notification via un appel HTTP. Je décris
+déjà Ntfy dans l&amp;rsquo;article &lt;a href="https://vincenthardouin.dev/posts/envoyer-des-notifications-avec-les-automations-homekit">&amp;ldquo;Envoyer des notifications avec les automations HomeKit&amp;rdquo;&lt;/a>.&lt;/p>
+&lt;p>Pour la récupération des créneaux disponibles, le code ressemble à ça :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">async&lt;/span> &lt;span class="nx">getAllAvailable&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">areaId&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">requests&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">getDatePlusDays&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">),&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">getDatePlusDays&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">7&lt;/span>&lt;span class="p">),&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">getDatePlusDays&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">14&lt;/span>&lt;span class="p">),&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">].&lt;/span>&lt;span class="nx">map&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kr">async&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">date&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="nx">httpAdapter&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sb">`https://www.ucpa.com/sport-station/api/areas-offers/weekly/alpha_hp?=&amp;amp;reservationPeriod=1&amp;amp;espace=&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">areaId&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">&amp;amp;time=&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">date&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">&amp;amp;__amp_source_origin=https://www.ucpa.com`&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="s1">&amp;#39;User-agent&amp;#39;&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">USER_AGENT&lt;/span> &lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">availableTimeSlots&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[];&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="kr">const&lt;/span> &lt;span class="nx">request&lt;/span> &lt;span class="k">of&lt;/span> &lt;span class="nx">requests&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">planner&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kr">await&lt;/span> &lt;span class="nx">request&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">availableTimeSlots&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">push&lt;/span>&lt;span class="p">(...&lt;/span>&lt;span class="nx">planner&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">columns&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">flatMap&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">column&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="nx">column&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">items&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nx">filter&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">item&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="nx">item&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">hasStock&lt;/span>&lt;span class="p">));&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="nx">availableTimeSlots&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">map&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">slot&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="k">new&lt;/span> &lt;span class="nx">TimeSlot&lt;/span>&lt;span class="p">({&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">startTimestamp&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">slot&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">start_time&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">startTime&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">slot&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">startTime&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">endTime&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">slot&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">endTime&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">startDate&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">slot&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">startDate&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">stock&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">slot&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">stock&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}));&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Mes créneaux horaires de préférence sont stockés en JSON dans cette variable d&amp;rsquo;environnement.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-env" data-lang="env">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">TIME_SLOTS_PREFERENCES&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;{
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1"> &amp;#34;sun&amp;#34;: [ &amp;#39;&lt;/span>14H00&lt;span class="s1">&amp;#39;, &amp;#39;&lt;/span>15H00&lt;span class="s1">&amp;#39; ]
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">}&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Voilà la recherche entre les créneaux disponibles et ceux préférés.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="k">return&lt;/span> &lt;span class="nx">timeSlots&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nx">filter&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">slot&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="nx">slot&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">isConvenient&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">timeSlotsPreferences&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nx">sort&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="nx">slotA&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">slotB&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="nx">slotA&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">isMoreConvenient&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">slotB&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">timeSlotsPreferences&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Avec la class &lt;code>TimeSlot&lt;/code> qui a les fonctions &lt;code>isConvenient&lt;/code> et &lt;code>isMoreConvenient&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">export&lt;/span> &lt;span class="kr">class&lt;/span> &lt;span class="nx">TimeSlot&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">isConvenient&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">timeSlotsPreferences&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="nx">timeSlotsPreferences&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">dayOfWeek&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="o">?&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">includes&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">startTime&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">isMoreConvenient&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">slotToCompare&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">timeSlotsPreferences&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">orderedWeekDays&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">Object&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">keys&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">timeSlotsPreferences&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">rankDayOfWeekA&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">orderedWeekDays&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">indexOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">dayOfWeek&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">rankDayOfWeekB&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">orderedWeekDays&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">indexOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">slotToCompare&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">dayOfWeek&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">isOnSameDay&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">dayOfWeek&lt;/span> &lt;span class="o">===&lt;/span> &lt;span class="nx">slotToCompare&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">dayOfWeek&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="nx">isOnSameDay&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="nx">rankDayOfWeekA&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="nx">rankDayOfWeekB&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="nx">timeSlotsPreferences&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">dayOfWeek&lt;/span>&lt;span class="p">].&lt;/span>&lt;span class="nx">indexOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">startTime&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="nx">timeSlotsPreferences&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="nx">slotToCompare&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">dayOfWeek&lt;/span>&lt;span class="p">].&lt;/span>&lt;span class="nx">indexOf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">slotToCompare&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">startTime&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>J&amp;rsquo;avais besoin d&amp;rsquo;une solution simple pour comparer deux créneaux. L&amp;rsquo;implémentation a émergé grâce aux tests unitaires : vive le &lt;a href="https://en.wikipedia.org/wiki/Test-driven_development">TDD&lt;/a> !&lt;/p>
+&lt;p>La notification des créneaux disponibles étant en place, je me suis attaqué à un autre aspect de l&amp;rsquo;organisation : la
+visibilité de mes réservations.&lt;/p>
+&lt;h3 id="afficher-les-réservation-dans-mon-calendrier">Afficher les réservation dans mon calendrier&lt;/h3>
+&lt;p>Pour ne pas oublier mes réservations, je veux voir mes prochaines séances dans mon agenda. Pour cela, j&amp;rsquo;ai mis en place un calendrier iCal. Pour le créer, j&amp;rsquo;ai utilisé le package &lt;a href="https://github.com/sebbo2002/ical-generator">
+&lt;code>ical-generator&lt;/code>&lt;/a> qui fait très bien ce qu&amp;rsquo;il prétend faire.&lt;/p>
+&lt;p>Pour mettre à disposition le calendrier sous forme d&amp;rsquo;abonnement, il a fallu mettre en place un serveur web. J&amp;rsquo;ai
+utilisé &lt;a href="https://hapi.dev/">hapi&lt;/a> par simple habitude, étant à l&amp;rsquo;aise avec ce serveur, cela me fait gagner du temps.&lt;/p>
+&lt;p>Avec le calendrier en place, il ne me restait plus qu&amp;rsquo;un dernier irritant à résoudre qui concerne mon arrivée à l&amp;rsquo;UCPA.&lt;/p>
+&lt;h3 id="pass">Pass&lt;/h3>
+&lt;p>L&amp;rsquo;UCPA utilise un système de QR Code pour gérer l&amp;rsquo;accès aux installations. Le QR Code d&amp;rsquo;accès est fourni dans l'
+e-mail de confirmation. C&amp;rsquo;est fastidieux de retrouver l&amp;rsquo;e-mail correspondant à bonne réservation lorsque j&amp;rsquo;ai plusieurs
+réservation en cours. Pour répondre à ce dernier irritant, j&amp;rsquo;ai décidé de mettre en place un
+pass &lt;a href="https://www.apple.com/wallet/">Apple Wallet&lt;/a>, qui se met à jour en fonction de la séance à venir. Pour cela, j&amp;rsquo;ai
+besoin de certificats, disponibles avec licence Apple developper. J&amp;rsquo;ai commencé à
+regarder ce qu&amp;rsquo;il fallait faire pour créer un pass. En JavaScript, nous avons un package qui facilite la création de
+passes&lt;code>passkit-generator&lt;/code>.&lt;/p>
+&lt;p>Pour gérer la mise à jour des passes, il est nécessaire d&amp;rsquo;implémenter cinq routes dans son API, tout est succinctement
+documenté
+dans &lt;a href="https://developer.apple.com/documentation/walletpasses/adding-a-web-service-to-update-passes">la documentation d&amp;rsquo;Apple&lt;/a>.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="cl">POST /v1/devices/{deviceLibraryIdentifier}/registrations/{passTypeIdentifier}/{serialNumber}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">GET /v1/devices/{deviceLibraryIdentifier}/registrations/{passTypeIdentifier}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">GET /v1/passes/{passTypeIdentifier}/{serialNumber}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">DELETE /v1/devices/{deviceLibraryIdentifier}/registrations/{passTypeIdentifier}/{serialNumber}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">POST /v1/log
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Pour envoyer des notifications via Apple Push Notifications, le protocole est HTTP/2, actuellement non supporté par
+la méthode &lt;code>fetch&lt;/code> native de Node.js. La solution fournie
+dans &lt;a href="https://github.com/nodejs/undici/issues/2750">cette issue&lt;/a> est d&amp;rsquo;installer le package &lt;code>undici&lt;/code> et d&amp;rsquo;activer
+HTTP/2 :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">import&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">Agent&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">setGlobalDispatcher&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;undici&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">setGlobalDispatcher&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">new&lt;/span> &lt;span class="nx">Agent&lt;/span>&lt;span class="p">({&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">allowH2&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}));&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>L&amp;rsquo;usage de l&amp;rsquo;API APN dans le cadre des pass n&amp;rsquo;est pas documenté, ce qui a créé une seconde difficulté. En effet, j&amp;rsquo;ai dû
+trouver &lt;a href="https://stackoverflow.com/a/67495800">sur StackOverflow&lt;/a> que l&amp;rsquo;en-tête HTTP
+&lt;code>apns-topic&lt;/code> doit maintenant contenir l&amp;rsquo;identifiant du pass. Une fois ce
+point compris, l&amp;rsquo;appel réseau reste néanmoins très classique.&lt;/p>
+&lt;p>Le code correspond à cela :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">async&lt;/span> &lt;span class="nx">notify&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">pushToken&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">token&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kr">await&lt;/span> &lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">_getToken&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">headers&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s1">&amp;#39;Authorization&amp;#39;&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="sb">`Bearer &lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">token&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s1">&amp;#39;apns-topic&amp;#39;&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">topic&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">};&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">url&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="sb">`&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">url&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">/3/device/&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">pushToken&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">httpAdapter&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">post&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">url&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">headers&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">{});&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Lors des modifications du pass, on utilise l&amp;rsquo;Apple Push Notification APN, mais en réalité il s&amp;rsquo;agit d&amp;rsquo;une notification
+particulière, car ici nous aucun texte n&amp;rsquo;est affiché à l&amp;rsquo;utilisateur. Si nous souhaitons avertir des
+changements dans le pass il faut utiliser l&amp;rsquo;attribut &lt;code>changeMessage&lt;/code> d&amp;rsquo;un champ du pass lorsque nous retournons le pass
+mis à jour. Apple l&amp;rsquo;indique au niveau de &lt;a href="https://developer.apple.com/documentation/walletpasses/passfieldcontent">la documentation de
+&lt;code>changeMessage&lt;/code>&lt;/a> : &amp;ldquo;You must provide a value for the system
+to show a change notification&amp;rdquo;. La notification déclenche le fait que le téléphone demande le nouveau pass. Si le
+nouveau pass contient des &amp;ldquo;changeMessage&amp;rdquo; dans des champs modifiés alors une notification est affichée à l&amp;rsquo;utilisateur,
+ce qui revient pratiquement à la même chose.&lt;/p>
+&lt;p>Les marques peuvent ainsi communiquer plus facilement avec leurs clients, qui n&amp;rsquo;ont pas besoin de télécharger une
+application, mais qui doivent simplement de posséder une carte de fidélité par exemple. C&amp;rsquo;est d&amp;rsquo;ailleurs devenu un
+nouveau créneau d&amp;rsquo;entreprise, on peut noter par exemple &lt;a href="https://www.captainwallet.com/">CaptainWallet par Brevo&lt;/a>&lt;/p>
+&lt;p>Après avoir implémenté ces améliorations successives, il est temps de prendre du recul sur ce projet et d&amp;rsquo;en tirer les
+enseignements.&lt;/p>
+&lt;h2 id="conclusion">Conclusion&lt;/h2>
+&lt;p>Ce projet d&amp;rsquo;automatisation s&amp;rsquo;est révélé être un succès, tant en termes de temps investi que de résultats obtenus. Bien
+que le calcul initial basé sur le schéma XKCD nous ait fourni un cadre de réflexion intéressant, il est important de
+souligner que dans le contexte d&amp;rsquo;une habitude, la valeur réelle de l&amp;rsquo;automatisation va au-delà d&amp;rsquo;une simple équation
+temps/bénéfice. Éliminer un irritant qui pourrait compromettre une habitude positive justifie à mon sens de dépasser le
+temps théoriquement &amp;ldquo;rentable&amp;rdquo;.&lt;/p>
+&lt;p>D&amp;rsquo;autre part, ce projet m&amp;rsquo;a permis d&amp;rsquo;apprendre des choses sur le fonctionnement des passes Apple Wallet, ce qui pourrait m&amp;rsquo;être utile à l&amp;rsquo;avenir.&lt;/p>
+&lt;p>Il est toutefois important de garder à l&amp;rsquo;esprit qu&amp;rsquo;une automatisation n&amp;rsquo;est jamais vraiment &amp;ldquo;terminée&amp;rdquo;. Comme tout
+système en production, elle nécessite une maintenance régulière et peut demander des ajustements au fil du temps,
+aspects qu&amp;rsquo;il faut prendre en compte dans l&amp;rsquo;équation globale.&lt;/p>
+&lt;p>&lt;img src='xkcd_1319.png' alt='Two graphs are shown, plotting workload against time.' loading='lazy' />&lt;/p></description></item><item><title>Envoyer des notifications avec les automations HomeKit</title><link>https://vincenthardouin.dev/posts/envoyer-des-notifications-avec-les-automations-homekit/</link><pubDate>Fri, 15 Dec 2023 11:34:07 +0200</pubDate><guid>https://vincenthardouin.dev/posts/envoyer-des-notifications-avec-les-automations-homekit/</guid><description>&lt;h2 id="contexte">Contexte&lt;/h2>
 &lt;p>Apple propose Shortcuts depuis 2018. C&amp;rsquo;est une application qui permet de créer/utiliser des automations sur iOS, macOS
 et plus récemment pour HomeKit en se lançant sur le Hub de la maison.
 Cependant, du fait que ces automatisations s&amp;rsquo;exécutent directement sur le Hub de la maison, elles ne peuvent pas
@@ -48,7 +301,7 @@ sommes bien embêtés.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">curl -X POST -d &lt;span class="s1">&amp;#39;{ &amp;#34;topic:&amp;#34;&amp;lt;topic&amp;gt;&amp;#34;, &amp;#34;title&amp;#34;: &amp;#34;Titre de la notification&amp;#34;, &amp;#34;message&amp;#34;: &amp;#34;Ceci est un test&amp;#34; }&amp;#39;&lt;/span> https://ntfy.sh/
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Notez que le topic est désormais dans le JSON.&lt;/p>
 &lt;p>Nous pouvons donc finaliser notre action :&lt;/p>
-&lt;p>&lt;img src="action-recuperer-une-page-web.png" alt="Action Récupérer une page web">&lt;/p>
+&lt;p>&lt;img src='action-recuperer-une-page-web.png' alt='Action Récupérer une page web' loading='lazy' />&lt;/p>
 &lt;h2 id="conclusion">Conclusion&lt;/h2>
 &lt;p>Ntfy, nous a permis d&amp;rsquo;envoyer des notifications depuis les automations HomeKit. Nous pouvons aussi nous en servir depuis
 les Shortcuts, et reste une solution intéressante pour envoyer des notifications depuis un script.&lt;/p>
@@ -103,7 +356,7 @@ so we&amp;rsquo;re in a bit of a bind.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">curl -X POST -d &lt;span class="s1">&amp;#39;{ &amp;#34;topic:&amp;#34;&amp;lt;topic&amp;gt;&amp;#34;, &amp;#34;title&amp;#34;: &amp;#34;Notification title&amp;#34;, &amp;#34;message&amp;#34;: &amp;#34;This is a test&amp;#34; }&amp;#39;&lt;/span> https://ntfy.sh/
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Note that the topic is now in JSON.&lt;/p>
 &lt;p>We can now finalize our action:&lt;/p>
-&lt;p>&lt;img src="action-recuperer-une-page-web.png" alt="Get contents of">&lt;/p>
+&lt;p>&lt;img src='action-recuperer-une-page-web.png' alt='Get contents of' loading='lazy' />&lt;/p>
 &lt;h2 id="conclusion">Conclusion&lt;/h2>
 &lt;p>Ntfy has enabled us to send notifications from HomeKit automations. We can also use it from Shortcuts
 Shortcuts, and remains an interesting solution for sending notifications from a script.&lt;/p>
@@ -115,7 +368,7 @@ We can use the &lt;code>git switch -&lt;/code> command which allows us to switch
 Thanks to &lt;a href="https://github.com/junegunn/fzf">fzf&lt;/a>, we can use the following command, which allows us to choose the branch
 we want to go back:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git reflog &lt;span class="p">|&lt;/span> grep checkout &lt;span class="p">|&lt;/span> grep -o &lt;span class="s1">&amp;#39;to .*$&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> grep -o &lt;span class="s1">&amp;#39; .*$&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> awk &lt;span class="s1">&amp;#39;!x[$0]++&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> fzf &lt;span class="p">|&lt;/span> xargs git switch
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="demo-command-git.gif" alt="command demo to go back to recent branch">&lt;/p></description></item><item><title>Revenir sur ses branches récentes avec git</title><link>https://vincenthardouin.dev/posts/revenir-sur-ses-branches-recentes-avec-git/</link><pubDate>Thu, 17 Aug 2023 08:34:02 +0200</pubDate><guid>https://vincenthardouin.dev/posts/revenir-sur-ses-branches-recentes-avec-git/</guid><description>&lt;p>Lorsque nous travaillons sur un projet avec git, nous changeons régulièrement de branches, pour différentes raisons :
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src='demo-command-git.gif' alt='command demo to go back to recent branch' loading='lazy' />&lt;/p></description></item><item><title>Revenir sur ses branches récentes avec git</title><link>https://vincenthardouin.dev/posts/revenir-sur-ses-branches-recentes-avec-git/</link><pubDate>Thu, 17 Aug 2023 08:34:02 +0200</pubDate><guid>https://vincenthardouin.dev/posts/revenir-sur-ses-branches-recentes-avec-git/</guid><description>&lt;p>Lorsque nous travaillons sur un projet avec git, nous changeons régulièrement de branches, pour différentes raisons :
 travailler sur une nouvelle fonctionnalité, pendant qu&amp;rsquo;une autre est en cours de review, pour prendre en compte des
 retours de review, pour faire une review, etc.&lt;/p>
 &lt;p>Il peut être intéressant de pouvoir revenir rapidement sur une branche que nous avons récemment utilisée.
@@ -124,7 +377,7 @@ Cependant, parfois, nous souhaitons revenir sur une branche utilisée il y a plu
 Pour cela, nous pouvons utiliser cette commande, qui permet de choisir la branche sur laquelle nous souhaitons revenir
 grâce à &lt;a href="https://github.com/junegunn/fzf">fzf&lt;/a> :&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git reflog &lt;span class="p">|&lt;/span> grep checkout &lt;span class="p">|&lt;/span> grep -o &lt;span class="s1">&amp;#39;to .*$&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> grep -o &lt;span class="s1">&amp;#39; .*$&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> awk &lt;span class="s1">&amp;#39;!x[$0]++&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> fzf &lt;span class="p">|&lt;/span> xargs git switch
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="demo-command-git.gif" alt="demonstration de la commande permettant de revenir sur une branche précédente">&lt;/p></description></item><item><title>Comparer deux dossiers en ligne de commande</title><link>https://vincenthardouin.dev/posts/comparer-deux-dossiers/</link><pubDate>Mon, 06 Mar 2023 21:07:00 +0200</pubDate><guid>https://vincenthardouin.dev/posts/comparer-deux-dossiers/</guid><description>&lt;p>Parfois, nous pouvons avoir besoin de comparer le contenu de deux dossiers et éventuellement de leurs sous-dossiers,
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src='demo-command-git.gif' alt='demonstration de la commande permettant de revenir sur une branche précédente' loading='lazy' />&lt;/p></description></item><item><title>Comparer deux dossiers en ligne de commande</title><link>https://vincenthardouin.dev/posts/comparer-deux-dossiers/</link><pubDate>Mon, 06 Mar 2023 21:07:00 +0200</pubDate><guid>https://vincenthardouin.dev/posts/comparer-deux-dossiers/</guid><description>&lt;p>Parfois, nous pouvons avoir besoin de comparer le contenu de deux dossiers et éventuellement de leurs sous-dossiers,
 sans
 comparer leur contenu, mais uniquement leur nom.&lt;/p>
 &lt;p>Si vous souhaitez comparer le contenu des fichiers, vous pouvez
