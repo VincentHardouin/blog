@@ -68,6 +68,14 @@ a {
   }
 }
 
+figcaption {
+  margin-top: .5rem;
+  text-align: center;
+  color: $cloud-burst;
+  font-size: 0.8rem;
+}
+
+
 code {
   position: relative;
   display: inline-block;
@@ -104,6 +112,10 @@ html[data-theme="dark"] {
     &:hover {
       color: $yellow-orange;
     }
+  }
+
+  figcaption {
+    color: $heater;
   }
 
   code {

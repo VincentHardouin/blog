@@ -53,7 +53,7 @@
 
   <!-- Styles -->
   {{ $sass := resources.Get "scss/main.scss" }}
-  {{ $styleCSS := $sass | resources.ToCSS | resources.Minify | resources.Fingerprint "sha512" }}
+  {{ $styleCSS := $sass | css.Sass | resources.Minify | resources.Fingerprint "sha512" }}
   <link rel='stylesheet' href='{{ $styleCSS.RelPermalink }}' integrity='{{ $styleCSS.Data.Integrity }}'>
 
   <!-- Favicon -->
