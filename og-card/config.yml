@@ -1,11 +1,12 @@
 template: og-card/card-template.png
 title:
   start:
-    px: 250
+    px: 150
     py: 230
-  fgHexColor: "#FF9F1C"
+  fgHexColor: "#0B132B"
   fontSize: 50
-  maxWidth: 700
+  fontStyle: Medium
+  maxWidth: 850
 author:
   enabled: false
 tags:
