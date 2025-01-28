@@ -1,3 +1,10 @@
+# [2.24.0](https://github.com/VincentHardouin/blog/compare/v2.23.0...v2.24.0) (2025-01-28)
+
+
+### Features
+
+* update og card ([a98d878](https://github.com/VincentHardouin/blog/commit/a98d878403e93cef59b620e0805c140536442836))
+
 # [2.23.0](https://github.com/VincentHardouin/blog/compare/v2.22.0...v2.23.0) (2025-01-27)
 
 
