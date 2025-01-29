@@ -1,3 +1,10 @@
+## [2.24.1](https://github.com/VincentHardouin/blog/compare/v2.24.0...v2.24.1) (2025-01-29)
+
+
+### Bug Fixes
+
+* typo ([45d84d3](https://github.com/VincentHardouin/blog/commit/45d84d3a6f4f5cc59bc037a9175ff04516155148))
+
 # [2.24.0](https://github.com/VincentHardouin/blog/compare/v2.23.0...v2.24.0) (2025-01-28)
 
 
