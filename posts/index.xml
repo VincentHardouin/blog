@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Vincent Hardouin</title><link>https://vincenthardouin.dev/posts/</link><description>Recent content in Posts on Vincent Hardouin</description><generator>Hugo -- gohugo.io</generator><language>FR-fr</language><lastBuildDate>Tue, 02 Jan 2024 19:29:17 +0200</lastBuildDate><atom:link href="https://vincenthardouin.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>J'ai automatisé mes réservations de séances de sport</title><link>https://vincenthardouin.dev/posts/j-ai-automatise-mes-reservations-de-sport/</link><pubDate>Fri, 10 Jan 2025 10:01:00 +0200</pubDate><guid>https://vincenthardouin.dev/posts/j-ai-automatise-mes-reservations-de-sport/</guid><description>&lt;p>Nous sommes début 2025 et vous avez sûrement pris de bonnes résolutions pour cette année. Souvent cela rime avec de
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Vincent Hardouin</title><link>https://vincenthardouin.dev/posts/</link><description>Recent content in Posts on Vincent Hardouin</description><generator>Hugo -- gohugo.io</generator><language>FR-fr</language><lastBuildDate>Tue, 02 Jan 2024 19:29:17 +0200</lastBuildDate><atom:link href="https://vincenthardouin.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>J'ai automatisé mes réservations de séances de sport</title><link>https://vincenthardouin.dev/posts/j-ai-automatise-mes-reservations-de-sport/</link><pubDate>Tue, 28 Jan 2025 10:01:00 +0200</pubDate><guid>https://vincenthardouin.dev/posts/j-ai-automatise-mes-reservations-de-sport/</guid><description>&lt;p>Nous sommes début 2025 et vous avez sûrement pris de bonnes résolutions pour cette année. Souvent cela rime avec de
 nouvelles habitudes. Je profite de cette période pour vous partager comment j&amp;rsquo;ai conservé une habitude en automatisant
 un irritant.&lt;/p>
 &lt;p>L&amp;rsquo;année 2024 a marqué mon véritable retour au sport, après des années passées en salle de sport sans grande conviction.
@@ -41,15 +41,14 @@ Parfois, ce n&amp;rsquo;est pas rentable de le faire, mais il est nécessaire de
 &lt;li>voire, est-ce que cela peut me faire perdre mon habitude ?&lt;/li>
 &lt;/ul>
 &lt;p>Un cas plus concret : si vous prenez une salle de sport à 1h de chez vous, versus une salle de sport sur votre chemin de
-retour du boulot, il y a de forte chances que l&amp;rsquo;habitude s&amp;rsquo;ancre dans le second cas plutôt que le premier.
+retour du boulot, il y a de fortes chances que l&amp;rsquo;habitude s&amp;rsquo;ancre dans le second cas plutôt que le premier.
 Dans le cas des réservations, il est probable que cela puisse m’en faire manquer, ou me rebuter à les
 faire, ce qui aura tendance à couper une habitude. Vous savez les fameux streaks qu&amp;rsquo;il ne faut pas casser.
 Le risque est de manquer ou retarder certaines réservations, ce qui peut briser la régularité de la
 pratique. Le principe du &lt;a href="https://jamesclear.com/stop-procrastinating-seinfeld-strategy">&amp;ldquo;Don&amp;rsquo;t Break the Chain&amp;rdquo;&lt;/a>, popularisé par Jerry Seinfeld et repris par James Clear
 souligne l&amp;rsquo;importance de maintenir une pratique régulière sans interruption. Chaque séance manquée à cause d&amp;rsquo;une
 réservation non effectuée représente donc un risque pour la pérennité de cette nouvelle habitude sportive.&lt;/p>
-&lt;p>Une fois cette analyse faite et conscient que cette friction pourrait compromettre ma nouvelle habitude, j&amp;rsquo;ai décidé d'
-entreprendre un MVP (Minimum Valuable Product).&lt;/p>
+&lt;p>Une fois cette analyse faite et conscient que cette friction pourrait compromettre ma nouvelle habitude, j&amp;rsquo;ai décidé d&amp;rsquo;entreprendre un MVP (Minimum Valuable Product).&lt;/p>
 &lt;h2 id="mvp">MVP&lt;/h2>
 &lt;p>J&amp;rsquo;ai pris le parti d&amp;rsquo;automatiser l&amp;rsquo;étape de contremarque en premier. Mon idée était donc de récupérer les e-mails
 spécifiques à un code UCPA par Gymlib et remplir le formulaire de contremarque. Pour lire les e-mails, j&amp;rsquo;ai utilisé le
@@ -191,10 +190,10 @@ utilisé &lt;a href="https://hapi.dev/">hapi&lt;/a> par simple habitude, étant 
 &lt;p>Avec le calendrier en place, il ne me restait plus qu&amp;rsquo;un dernier irritant à résoudre qui concerne mon arrivée à l&amp;rsquo;UCPA.&lt;/p>
 &lt;h3 id="pass">Pass&lt;/h3>
 &lt;p>L&amp;rsquo;UCPA utilise un système de QR Code pour gérer l&amp;rsquo;accès aux installations. Le QR Code d&amp;rsquo;accès est fourni dans l'
-e-mail de confirmation. C&amp;rsquo;est fastidieux de retrouver l&amp;rsquo;e-mail correspondant à bonne réservation lorsque j&amp;rsquo;ai plusieurs
-réservation en cours. Pour répondre à ce dernier irritant, j&amp;rsquo;ai décidé de mettre en place un
+e-mail de confirmation. C&amp;rsquo;est fastidieux de retrouver l&amp;rsquo;e-mail correspondant à la bonne réservation lorsque j&amp;rsquo;ai plusieurs
+réservations en cours. Pour répondre à ce dernier irritant, j&amp;rsquo;ai décidé de mettre en place un
 pass &lt;a href="https://www.apple.com/wallet/">Apple Wallet&lt;/a>, qui se met à jour en fonction de la séance à venir. Pour cela, j&amp;rsquo;ai
-besoin de certificats, disponibles avec licence Apple developper. J&amp;rsquo;ai commencé à
+besoin de certificats, disponibles avec la licence Apple developper. J&amp;rsquo;ai commencé à
 regarder ce qu&amp;rsquo;il fallait faire pour créer un pass. En JavaScript, nous avons un package qui facilite la création de
 passes&lt;code>passkit-generator&lt;/code>.&lt;/p>
 &lt;p>Pour gérer la mise à jour des passes, il est nécessaire d&amp;rsquo;implémenter cinq routes dans son API, tout est succinctement
@@ -229,7 +228,7 @@ point compris, l&amp;rsquo;appel réseau reste néanmoins très classique.&lt;/p
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">httpAdapter&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">post&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">url&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">headers&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">{});&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Lors des modifications du pass, on utilise l&amp;rsquo;Apple Push Notification APN, mais en réalité il s&amp;rsquo;agit d&amp;rsquo;une notification
-particulière, car ici nous aucun texte n&amp;rsquo;est affiché à l&amp;rsquo;utilisateur. Si nous souhaitons avertir des
+particulière, car ici nous avons aucun texte n&amp;rsquo;est affiché à l&amp;rsquo;utilisateur. Si nous souhaitons avertir des
 changements dans le pass il faut utiliser l&amp;rsquo;attribut &lt;code>changeMessage&lt;/code> d&amp;rsquo;un champ du pass lorsque nous retournons le pass
 mis à jour. Apple l&amp;rsquo;indique au niveau de &lt;a href="https://developer.apple.com/documentation/walletpasses/passfieldcontent">la documentation de
 &lt;code>changeMessage&lt;/code>&lt;/a> : &amp;ldquo;You must provide a value for the system
