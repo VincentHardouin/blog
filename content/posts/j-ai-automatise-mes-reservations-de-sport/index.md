@@ -1,6 +1,6 @@
 ---
 title: "J'ai automatisé mes réservations de séances de sport"
-date: 2025-01-10T10:01:00+02:00
+date: 2025-01-28T10:01:00+02:00
 draft: false
 ---
 
@@ -56,7 +56,7 @@ Parfois, ce n'est pas rentable de le faire, mais il est nécessaire de se demand
 - voire, est-ce que cela peut me faire perdre mon habitude ?
 
 Un cas plus concret :  si vous prenez une salle de sport à 1h de chez vous, versus une salle de sport sur votre chemin de
-retour du boulot, il y a de forte chances que l'habitude s'ancre dans le second cas plutôt que le premier.
+retour du boulot, il y a de fortes chances que l'habitude s'ancre dans le second cas plutôt que le premier.
 Dans le cas des réservations, il est probable que cela puisse m’en faire manquer, ou me rebuter à les
 faire, ce qui aura tendance à couper une habitude. Vous savez les fameux streaks qu'il ne faut pas casser.
 Le risque est de manquer ou retarder certaines réservations, ce qui peut briser la régularité de la
@@ -64,8 +64,7 @@ pratique. Le principe du ["Don't Break the Chain"](https://jamesclear.com/stop-p
 souligne l'importance de maintenir une pratique régulière sans interruption. Chaque séance manquée à cause d'une
 réservation non effectuée représente donc un risque pour la pérennité de cette nouvelle habitude sportive.
 
-Une fois cette analyse faite et conscient que cette friction pourrait compromettre ma nouvelle habitude, j'ai décidé d'
-entreprendre un MVP (Minimum Valuable Product).
+Une fois cette analyse faite et conscient que cette friction pourrait compromettre ma nouvelle habitude, j'ai décidé d'entreprendre un MVP (Minimum Valuable Product).
 
 ## MVP
 
@@ -242,10 +241,10 @@ Avec le calendrier en place, il ne me restait plus qu'un dernier irritant à ré
 ### Pass
 
 L'UCPA utilise un système de QR Code pour gérer l'accès aux installations. Le QR Code d'accès est fourni dans l'
-e-mail de confirmation. C'est fastidieux de retrouver l'e-mail correspondant à bonne réservation lorsque j'ai plusieurs
-réservation en cours. Pour répondre à ce dernier irritant, j'ai décidé de mettre en place un
+e-mail de confirmation. C'est fastidieux de retrouver l'e-mail correspondant à la bonne réservation lorsque j'ai plusieurs
+réservations en cours. Pour répondre à ce dernier irritant, j'ai décidé de mettre en place un
 pass [Apple Wallet](https://www.apple.com/wallet/), qui se met à jour en fonction de la séance à venir. Pour cela, j'ai
-besoin de certificats, disponibles avec licence Apple developper. J'ai commencé à
+besoin de certificats, disponibles avec la licence Apple developper. J'ai commencé à
 regarder ce qu'il fallait faire pour créer un pass. En JavaScript, nous avons un package qui facilite la création de
 passes`passkit-generator`.
 
@@ -294,7 +293,7 @@ async notify(pushToken) {
 ```
 
 Lors des modifications du pass, on utilise l'Apple Push Notification APN, mais en réalité il s'agit d'une notification
-particulière, car ici nous aucun texte n'est affiché à l'utilisateur. Si nous souhaitons avertir des
+particulière, car ici nous avons aucun texte n'est affiché à l'utilisateur. Si nous souhaitons avertir des
 changements dans le pass il faut utiliser l'attribut `changeMessage` d'un champ du pass lorsque nous retournons le pass
 mis à jour. Apple l'indique au niveau de [la documentation de
 `changeMessage`](https://developer.apple.com/documentation/walletpasses/passfieldcontent) : "You must provide a value for the system
