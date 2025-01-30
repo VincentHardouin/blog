@@ -1,3 +1,10 @@
+# [2.25.0](https://github.com/VincentHardouin/blog/compare/v2.24.1...v2.25.0) (2025-01-30)
+
+
+### Features
+
+* add gymlib in projects ([0c86fe8](https://github.com/VincentHardouin/blog/commit/0c86fe8092314dbb77cfc196490ec271576ec27a))
+
 ## [2.24.1](https://github.com/VincentHardouin/blog/compare/v2.24.0...v2.24.1) (2025-01-29)
 
 
