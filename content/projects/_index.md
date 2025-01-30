@@ -6,24 +6,14 @@ draft: false
 
 
 {{< cards rows=2 >}}
-{{< card link="https://metro-travel.vincenthardouin.dev" title="Métro Travel"
-subtitle="Jeu quotidien dont le but est de trouver le chemin le plus court entre les deux stations">}}
-{{< card link="/projects/sauvegarder-ses-newsletters"
-title="E-mail backup"
-subtitle="Sauvegarder des e-mails reçus via une ligne de commande" >}}
-{{< card link="https://github.com/VincentHardouin/PR-Shortcut" title="PR Shortcut"
-subtitle="Accéder depuis la bar de menu d'un macOS à ses Pull Requests">}}
-{{< card link="/projects/comptrain-wod-history" title="Comptrain WOD"
-subtitle="Historique des wods proposés par Comptrain">}}
-{{< card link="https://github.com/VincentHardouin/npm-bump" title="npm-bump"
-subtitle="Mettre à jour sereinement ses packages npm">}}
-{{< card link="https://github.com/VincentHardouin/restic-exporter" title="Restic Exporter"
-subtitle="Exporter des métriques Prometheus pour Restic">}}
-{{< card link="https://github.com/1024pix/pix-360" title="Pix 360"
-subtitle="Faciliter les évaluations 360 dans son organisation" >}}
-{{< card link="https://github.com/1024pix/pix-saml-idp" title="Pix SAML IDP"
-subtitle="Simuler un fournisseur d'identité SAML" >}}
-{{< card link="https://github.com/1024pix/ember-codemods/blob/master/transforms/mocha-to-qunit/README.md"
-title="Pix - Mocha to QUnit"
-subtitle="Codemod pour transformer ses tests Ember.js de Mocha à QUnit" >}}
+{{< card link="/posts/j-ai-automatise-mes-reservations-de-sport" title="Gymlib UCPA Facilitator" subtitle="Automatisation de mes réservations de séances de sport">}}
+{{< card link="https://metro-travel.vincenthardouin.dev" title="Métro Travel" subtitle="Jeu quotidien dont le but est de trouver le chemin le plus court entre les deux stations">}}
+{{< card link="/projects/sauvegarder-ses-newsletters" title="E-mail backup" subtitle="Sauvegarder des e-mails reçus via une ligne de commande" >}}
+{{< card link="https://github.com/VincentHardouin/PR-Shortcut" title="PR Shortcut" subtitle="Accéder depuis la bar de menu d'un macOS à ses Pull Requests">}}
+{{< card link="/projects/comptrain-wod-history" title="Comptrain WOD" subtitle="Historique des wods proposés par Comptrain">}}
+{{< card link="https://github.com/VincentHardouin/npm-bump" title="npm-bump" subtitle="Mettre à jour sereinement ses packages npm">}}
+{{< card link="https://github.com/VincentHardouin/restic-exporter" title="Restic Exporter" subtitle="Exporter des métriques Prometheus pour Restic">}}
+{{< card link="https://github.com/1024pix/pix-360" title="Pix 360" subtitle="Faciliter les évaluations 360 dans son organisation" >}}
+{{< card link="https://github.com/1024pix/pix-saml-idp" title="Pix SAML IDP" subtitle="Simuler un fournisseur d'identité SAML" >}}
+{{< card link="https://github.com/1024pix/ember-codemods/blob/master/transforms/mocha-to-qunit/README.md" title="Pix - Mocha to QUnit" subtitle="Codemod pour transformer ses tests Ember.js de Mocha à QUnit" >}}
 {{< /cards >}}
