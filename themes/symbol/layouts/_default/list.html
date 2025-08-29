@@ -1,7 +1,15 @@
 {{ define "main" }}
-<main class='page'>
-  <h1 class='page__title'>{{.Title}}</h1>
-  <div class='page__content'>
+<main class='page-list'>
+  <h1 class='page-list__title'>{{.Title}}</h1>
+  <div class='page-list__content'>
+    <ul class='slide-enter-content'>
+      {{ range $index, $post := .Pages }}
+      <li style='--enter-stage: {{ $index }}; --enter-step: 60ms;' class='index__item'>
+        {{ partial "post-card" . }}
+      </li>
+      {{ end }}
+    </ul>
+
     {{.Content}}
   </div>
 </main>

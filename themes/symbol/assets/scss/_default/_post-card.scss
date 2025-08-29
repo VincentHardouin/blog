@@ -31,6 +31,11 @@
     transition: transform .3s cubic-bezier(0.215, 0.61, 0.355, 1);
     transform-origin: top center;
     z-index: -1;
+
+    animation: revealHideBackground 0.5s cubic-bezier(0.550, 0.055, 0.675, 0.190) both;
+    animation-delay: calc(
+            var(--enter-initial) + var(--enter-stage) * var(--enter-step)
+    );
   }
 
   &:visited {
@@ -42,7 +47,6 @@
     max-width: 820px;
     margin: 0 auto;
     padding: 7px;
-    min-height: 67px;
     transition: transform 500ms;
 
     &:hover {
@@ -54,6 +58,10 @@
     font-size: 1rem;
     color: $cloud-burst;
     margin-bottom: 0;
+    animation: colorChange 0.5s cubic-bezier(0.550, 0.055, 0.675, 0.190) both;
+    animation-delay: calc(
+            var(--enter-initial) + var(--enter-stage) * var(--enter-step)
+    );
   }
 
   &__date {
