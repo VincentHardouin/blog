@@ -2,6 +2,8 @@
 title: "Send notifications with HomeKit automations"
 date: 2023-12-15T11:34:07+02:00
 draft: false
+tags: 
+    - tutoriel
 ---
 
 ## Context

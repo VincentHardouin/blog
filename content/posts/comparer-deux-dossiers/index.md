@@ -2,6 +2,8 @@
 title: "Comparer deux dossiers en ligne de commande"
 date: 2023-03-06T21:07:00+02:00
 draft: false
+tags: 
+   - tutoriel
 ---
 
 Parfois, nous pouvons avoir besoin de comparer le contenu de deux dossiers et éventuellement de leurs sous-dossiers,

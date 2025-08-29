@@ -2,6 +2,8 @@
 title: "Revenir sur ses branches récentes avec git"
 date: 2023-08-17T08:34:02+02:00
 draft: false
+tags: 
+    - tutoriel
 ---
 
 Lorsque nous travaillons sur un projet avec git, nous changeons régulièrement de branches, pour différentes raisons :

@@ -2,6 +2,8 @@
 title: "Switch to previous branches with git"
 date: 2023-08-17T12:06:07+02:00
 draft: false
+tags: 
+    - tutoriel
 ---
 
 When we work on a project with git, we regularly switch branches for different reasons: working on a new feature while

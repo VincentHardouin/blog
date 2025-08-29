@@ -2,6 +2,9 @@
 title: "Envoyer des notifications avec les automations HomeKit"
 date: 2023-12-15T11:34:07+02:00
 draft: false
+tags: 
+    - domotique
+    - tutoriel
 ---
 
 ## Contexte
