@@ -9,6 +9,7 @@ enableInlineShortcodes = true
   author = 'Vincent Hardouin'
   description = 'Blog de tutorials, humeurs, … sur des sujets tech.'
   mainSections = ['posts', 'external_posts', 'projects']
+  hiddenFromMainPageTags = ['domotique']
 
   [params.comments]
     enabled = true

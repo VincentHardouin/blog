@@ -1,10 +1,14 @@
 {{ define "main" }}
 <main role='main' class='index'>
   <ul class='slide-enter-content'>
+    {{ $hidden := site.Params.hiddenFromMainPageTags }}
     {{ range $index, $post := (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+    {{ $tags := $post.Params.tags | default (slice) }}
+    {{ if eq (len (intersect $tags $hidden)) 0 }}
     <li style='--enter-stage: {{ $index }}; --enter-step: 60ms;' class='index__item'>
       {{ partial "post-card" . }}
     </li>
+    {{ end }}
     {{ end }}
   </ul>
 </main>
