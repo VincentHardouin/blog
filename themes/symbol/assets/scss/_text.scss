@@ -5,7 +5,7 @@
 h1 {
   font-family: $font-open-sans;
   font-weight: $font-normal;
-  color: $haiti;
+  color: var(--color-text-secondary);
   margin-bottom: 21px;
   font-size: 1.8rem;
 
@@ -18,7 +18,7 @@ h2 {
   font-family: $font-open-sans;
   font-weight: $font-bold;
   font-size: 1.5rem;
-  color: $fiord;
+  color: var(--color-text-primary);
   margin-bottom: 0.875rem;
 }
 
@@ -26,7 +26,7 @@ h3 {
   font-family: $font-open-sans;
   font-weight: $font-bold;
   font-size: 1.1875rem;
-  color: $fiord;
+  color: var(--color-text-primary);
   margin-bottom: 0.875rem;
 }
 
@@ -35,7 +35,7 @@ p {
   font-weight: $font-normal;
   font-size: 1rem;
   line-height: 1.6rem;
-  color: $fiord;
+  color: var(--color-text-primary);
   margin: 10px 0 20px;
 
   img {
@@ -53,25 +53,25 @@ li {
   font-weight: $font-normal;
   font-size: 1rem;
   line-height: 1.6rem;
-  color: $fiord;
+  color: var(--color-text-primary);
 }
 
 a {
-  color: $cloud-burst;
+  color: var(--color-text-secondary);
 
   &:visited {
-    color: $cloud-burst;
+    color: var(--color-text-secondary);
   }
 
   &:hover {
-    color: $haiti;
+    color: var(--color-text-secondary);
   }
 }
 
 figcaption {
   margin-top: .5rem;
   text-align: center;
-  color: $cloud-burst;
+  color: var(--color-text-secondary);
   font-size: 0.8rem;
 }
 
@@ -94,30 +94,6 @@ code {
 }
 
 html[data-theme="dark"] {
-  h1, p, li {
-    color: $catskill-white;
-  }
-
-  h2, h3 {
-    color: $heater;
-  }
-
-  a {
-    color: $tree-poppy;
-
-    &:visited {
-      color: $tree-poppy;
-    }
-
-    &:hover {
-      color: $yellow-orange;
-    }
-  }
-
-  figcaption {
-    color: $heater;
-  }
-
   code {
     position: relative;
     display: inline-block;

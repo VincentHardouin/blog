@@ -5,13 +5,13 @@
   flex-direction: column;
   border-style: solid;
   border-width: 1px;
-  border-color: $fiord;
+  border-color: var(--color-border);
   text-decoration: none;
   padding: 1rem;
-  color: $fiord;
+  color: var(--color-text-primary);
   text-align: initial;
   transition: opacity 500ms, transform 500ms;
-  background-color: $white;
+  background-color: var(--color-background);
   height: 100%;
 
   &:hover {
@@ -20,7 +20,7 @@
 }
 
 .card__background {
-  background-color: $fiord;
+  background-color: var(--color-card-hover);
 }
 
 .card__title {
@@ -36,20 +36,4 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
-}
-
-html[data-theme="dark"] {
-  .card__background {
-    background-color: $heater;
-  }
-
-  a.card {
-    border-color: $heater;
-    background-color: $charade;
-    color: $catskill-white;
-
-    &:hover {
-      color: $catskill-white;
-    }
-  }
 }

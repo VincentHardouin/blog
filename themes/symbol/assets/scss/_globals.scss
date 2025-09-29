@@ -6,9 +6,62 @@
   margin: 0;
 }
 
+:root {
+  /* Mode clair */
+  --color-background: #FFFFFF;
+  --color-surface: #F7F9FC;
+
+  /* Texte */
+  --color-text-primary: #3A506B; /* Fiord */
+  --color-text-secondary: #1C2541; /* Cloud Burst */
+
+  /* Borders */
+  --color-border: #3A506B;
+
+  /* Accentuation */
+  --color-accent: #E68600;
+  --color-accent-hover: #F0971C;
+
+  /* Hover */
+  --color-card-hover: #1C2541;
+  --color-table-row-hover: #F1F4FA;
+
+  /* Tableau */
+  --color-table-header-bg: #F7F9FC;
+  --color-table-header-text: #1C2541;
+  --color-table-col-highlight: #F1F4FA;
+}
+
+[data-theme="dark"] {
+  /* Mode sombre */
+  --color-background: #282B35;
+  --color-surface: #323540;
+
+  /* Texte */
+  --color-text-primary: #E7ECF3;
+  --color-text-secondary: #C6CFD9;
+
+  /* Borders */
+  --color-border: #A1B0C1;
+
+  /* Accentuation */
+  --color-accent: #E68600;
+  --color-accent-hover: #F0971C;
+
+  /* Hover */
+  --color-card-hover: #c6cfd9;
+  --color-table-row-hover: #353A45;
+
+  /* Tableau */
+  --color-table-header-bg: #323540;
+  --color-table-header-text: #E7ECF3;
+  --color-table-col-highlight: #353A45;
+}
+
+
 html {
   font-family: $font-roboto;
-  color: $cloud-burst;
+  color: var(--color-text-primary);
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -19,11 +72,7 @@ html {
 
 body {
   margin: 0;
-  background-color: $white;
-}
-
-html[data-theme="dark"] body {
-  background-color: $charade;
+  background-color: var(--color-background);
 }
 
 @import 'syntax/monokai_light';
@@ -61,6 +110,49 @@ html[data-theme="dark"] {
     transform: translate(5px);
   }
 }
+
+table {
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+}
+
+thead {
+  background-color: var(--color-table-header-bg);
+  color: var(--color-table-header-text);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+table, th, td {
+  border: 1px solid;
+}
+
+th, td {
+  padding: 1rem;
+}
+
+tbody tr:hover {
+  background-color: var(--color-table-row-hover);
+}
+
+thead th:first-child,
+tbody td:first-child {
+  position: sticky;
+  left: 0;
+  background: var(--color-table-col-highlight);
+  color: var(--color-table-header-text);
+  z-index: 1;
+}
+
+thead th:first-child {
+  z-index: 2;
+}
+
 
 html[data-theme="dark"] {
   #TableOfContents a {

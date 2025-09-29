@@ -18,7 +18,7 @@
   &__title {
     font-family: $font-open-sans;
     font-weight: $font-normal;
-    color: $cloud-burst;
+    color: var(--color-secondary);
     text-decoration: none;
     text-align: center;
     font-size: 1.44rem;
@@ -26,17 +26,17 @@
 }
 
 html[data-theme="dark"] .header {
-  background-color: $charade;
+  background-color: var(--color-background);
 
   &__title {
-    color: $catskill-white;
+    color: var(--color-primary);
 
     &:visited {
-      color: $catskill-white;
+      color: var(--color-secondary);
     }
 
     &:hover {
-      color: $catskill-white;
+      color: var(--color-secondary);
     }
   }
 }
@@ -57,7 +57,7 @@ html[data-theme="dark"] .header {
       height: 2px;
       bottom: -5px;
       left: 0;
-      background-color: $tree-poppy;
+      background-color: var(--color-accent);
       transform: scaleX(0);
       transform-origin: bottom right;
       transition: transform 0.4s;
@@ -76,27 +76,11 @@ html[data-theme="dark"] .header {
     font-family: $font-open-sans;
     font-size: 1rem;
     text-decoration: none;
-    color: $cloud-burst;
+    color: var(--color-text-secondary);
     position: relative;
 
     &:visited {
-      color: $cloud-burst;
-    }
-
-
-  }
-}
-
-html[data-theme="dark"] .navbar {
-  &__item {
-    color: $catskill-white;
-
-    &:visited {
-      color: $catskill-white;
-    }
-
-    &:hover {
-      color: $catskill-white;
+      color: var(--color-text-secondary);
     }
   }
 }
