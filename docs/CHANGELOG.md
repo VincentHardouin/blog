@@ -1,3 +1,14 @@
+# [2.26.0](https://github.com/VincentHardouin/blog/compare/v2.25.0...v2.26.0) (2025-09-29)
+
+
+### Features
+
+* add specific layout for projects ([58652fc](https://github.com/VincentHardouin/blog/commit/58652fcc2cad6063d1e9d9ebfa0ecfeadb68de0a))
+* add tags on post ([99dc31c](https://github.com/VincentHardouin/blog/commit/99dc31c26532516b4da117e2e71dbf87912d9160))
+* hide specific posts with tags in index ([9a4dbae](https://github.com/VincentHardouin/blog/commit/9a4dbaeb4abdce8fa06a1e190283f86aa0d38913))
+* improve list default layout ([3e689f2](https://github.com/VincentHardouin/blog/commit/3e689f21c66b3eb952e81f31cc04d4634252c009))
+* use css var ([b0c72d1](https://github.com/VincentHardouin/blog/commit/b0c72d1e52a496a5edf90c7e7edfe7cd3a8ad29b))
+
 # [2.25.0](https://github.com/VincentHardouin/blog/compare/v2.24.1...v2.25.0) (2025-01-30)
 
 
